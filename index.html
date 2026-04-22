@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kreainvoice — Beautiful invoices for creative freelancers</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --violet:#5B3FE4;--violet-light:#7B64EA;--violet-dim:#3D28B0;
+  --violet-bg:#F0EEFF;--violet-bg2:#E4DEFF;
+  --gold:#F5A623;--gold-bg:#FEF3DC;
+  --ink:#1A1A18;--ink-2:#3D3D3A;--ink-3:#6B6B66;--ink-4:#9A9A94;
+  --paper:#FAF9F6;--paper-2:#F3F1EC;--paper-3:#EAE8E1;
+  --border:rgba(26,26,24,.10);--border-med:rgba(26,26,24,.18);--border-strong:rgba(26,26,24,.28);
+  --green:#1A7A4A;--green-bg:#E6F5EE;--red:#C0392B;
+  --r:6px;--r-lg:12px;--r-xl:18px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.app-header{background:var(--ink);height:56px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:30px;height:30px;background:var(--violet);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:18px;height:18px}
+.logo-wordmark{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.4px;color:#fff}
+.logo-wordmark span{color:var(--violet-light)}
+.header-right{display:flex;align-items:center;gap:8px}
+.tpl-label{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.05em}
+.tpl-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:5px;padding:5px 9px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.6);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpl-btn:hover{background:rgba(255,255,255,.13);color:#fff}
+.tpl-btn.active{background:var(--violet);border-color:var(--violet);color:#fff}
+
+/* LAYOUT */
+.app-body{display:grid;grid-template-columns:420px 1fr;min-height:calc(100vh - 56px)}
+.mobile-tabs{display:none;background:var(--paper);border-bottom:1px solid var(--border)}
+.mob-tab{display:inline-block;padding:12px 20px;font-size:13px;font-weight:500;color:var(--ink-3);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s}
+.mob-tab.active{color:var(--violet);border-bottom-color:var(--violet)}
+
+/* FORM PANEL */
+.form-panel{background:var(--paper);border-right:1px solid var(--border);overflow-y:auto;padding:22px 22px 40px}
+.section{margin-bottom:20px}
+.sec-hd{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec-hd::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-hd.collapsible{cursor:pointer;user-select:none}
+.sec-hd.collapsible::before{content:'▾';font-size:9px;color:var(--ink-4);transition:transform .2s;display:inline-block;margin-right:2px}
+.sec-hd.collapsed::before{transform:rotate(-90deg)}
+.collapsible-body{overflow:hidden;transition:max-height .25s ease}
+
+.row{display:grid;gap:8px;margin-bottom:8px}
+.row-2{grid-template-columns:1fr 1fr}
+.row-3{grid-template-columns:1fr 1fr 1fr}
+.field{display:flex;flex-direction:column;gap:3px}
+.field label{font-size:11px;font-weight:500;color:var(--ink-3)}
+.field input,.field textarea,.field select{background:var(--paper-2);border:1px solid var(--border);border-radius:var(--r);padding:7px 10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);transition:border-color .15s,box-shadow .15s,background .15s;outline:none;width:100%}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--violet);background:#fff;box-shadow:0 0 0 3px rgba(91,63,228,.1)}
+.field textarea{resize:vertical;min-height:60px}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A9A94' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+
+.logo-upload-area{border:1.5px dashed var(--border-med);border-radius:var(--r);padding:11px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .15s;background:var(--paper-2)}
+.logo-upload-area:hover{border-color:var(--violet);background:var(--violet-bg)}
+.logo-preview{width:36px;height:36px;border-radius:var(--r);background:var(--paper-3);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.logo-upload-text{font-size:12px;color:var(--ink-3)}.logo-upload-text strong{color:var(--violet);font-weight:500}
+#logo-file-input{display:none}
+
+.color-row{display:flex;align-items:center;gap:5px;flex-wrap:nowrap;overflow:hidden}
+.color-preset{width:24px;height:24px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;flex-shrink:0}
+.color-preset:hover{transform:scale(1.15)}.color-preset.selected{border-color:var(--ink)}
+#accent-color-input{opacity:0;width:0;height:0;position:absolute}
+
+.tags-row{display:flex;flex-wrap:wrap;gap:5px;padding-bottom:4px}
+.tag-pill{font-size:11px;padding:3px 9px;border-radius:20px;cursor:pointer;border:1px solid var(--border-med);background:var(--paper-2);color:var(--ink-3);transition:all .15s;font-family:'DM Mono',monospace}
+.tag-pill:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-bg)}
+.tag-pill.active{background:var(--violet);border-color:var(--violet);color:#fff}
+
+.items-wrap{overflow-x:auto}
+.items-table{width:100%;border-collapse:collapse;min-width:280px}
+.items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);text-align:left;padding:0 4px 7px;border-bottom:1px solid var(--border)}
+.items-table th.right{text-align:right}
+.item-row td{padding:2px 2px;vertical-align:top}
+.item-row input{background:var(--paper-2);border:1px solid transparent;border-radius:var(--r);padding:6px 7px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink);width:100%;outline:none;transition:all .15s}
+.item-row input:focus{border-color:var(--violet);background:#fff;box-shadow:0 0 0 2px rgba(91,63,228,.1)}
+.item-row input[type=number]{text-align:right;-moz-appearance:textfield}
+.item-row input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+.item-note-input{font-size:11px !important;color:var(--ink-3) !important;font-style:italic;margin-top:2px !important}
+.item-amount{padding:6px 4px;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink-3);text-align:right;white-space:nowrap}
+.del-btn{background:none;border:none;cursor:pointer;color:var(--ink-4);padding:6px 2px;font-size:14px;line-height:1;transition:color .15s}
+.del-btn:hover{color:var(--red)}
+.add-item-btn{margin-top:7px;background:none;border:1.5px dashed var(--border-med);border-radius:var(--r);padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink-3);cursor:pointer;width:100%;transition:all .15s}
+.add-item-btn:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-bg)}
+
+.totals-section{background:var(--paper-2);border-radius:var(--r-lg);padding:11px 13px}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:13px}
+.total-row.grand{border-top:1.5px solid var(--border-strong);margin-top:5px;padding-top:7px}
+.total-row label{color:var(--ink-3)}.total-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--ink)}
+.total-row.grand label{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--ink)}
+.total-row.grand .total-val{font-size:15px;font-weight:500;color:var(--violet)}
+.inline-row{display:flex;align-items:center;gap:5px}
+.inline-row input{width:48px;background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:3px 6px;font-family:'DM Mono',monospace;font-size:11px;text-align:right;outline:none}
+.inline-row input:focus{border-color:var(--violet)}
+.inline-row span,.inline-row select{font-size:11px;color:var(--ink-4)}
+.inline-row select{background:none;border:none;padding:0;font-size:11px;color:var(--ink-3);outline:none;cursor:pointer}
+
+.deposit-toggle{display:flex;align-items:center;gap:8px;padding:8px 11px;background:var(--violet-bg);border-radius:var(--r);border:1px solid var(--violet-bg2);cursor:pointer;margin-bottom:7px}
+.toggle-switch{width:32px;height:17px;background:var(--paper-3);border-radius:9px;position:relative;transition:background .2s;flex-shrink:0}
+.toggle-switch.on{background:var(--violet)}
+.toggle-knob{position:absolute;top:2px;left:2px;width:13px;height:13px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.toggle-switch.on .toggle-knob{transform:translateX(15px)}
+.deposit-label{font-size:12px;font-weight:500;color:var(--ink-2)}
+
+.actions{display:flex;gap:8px;margin-top:10px;padding-top:16px;border-top:1px solid var(--border)}
+.btn{padding:9px 14px;border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.btn-ghost{background:none;border:1px solid var(--border-med);color:var(--ink-3)}
+.btn-ghost:hover{background:var(--paper-2);border-color:var(--ink-2);color:var(--ink)}
+.btn-secondary{background:var(--paper-2);border:1px solid var(--border-med);color:var(--ink-2)}
+.btn-secondary:hover{background:var(--paper-3);color:var(--ink)}
+.btn-primary{background:var(--violet);color:#fff;font-weight:600;flex:1}
+.btn-primary:hover{background:var(--violet-dim)}.btn-primary:active{transform:scale(.98)}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed}
+
+/* PREVIEW */
+.preview-panel{background:var(--paper-2);overflow-y:auto;padding:24px;display:flex;flex-direction:column;align-items:center}
+.preview-topbar{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:600px;margin-bottom:14px}
+.preview-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4)}
+.preview-tpl-name{font-family:'DM Mono',monospace;font-size:10px;color:var(--violet)}
+
+/* INVOICE DOCUMENT */
+#invoice-doc{background:#fff;width:100%;max-width:600px;border-radius:var(--r-xl);border:1px solid var(--border);font-family:'DM Sans',sans-serif;overflow:hidden;box-shadow:0 4px 32px rgba(26,26,24,.1),0 1px 4px rgba(26,26,24,.06)}
+
+/* EDITORIAL */
+.tpl-editorial .inv-top-bar{height:5px;background:var(--accent-color,#5B3FE4)}
+.tpl-editorial .inv-inner{padding:34px 40px}
+.tpl-editorial .inv-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}
+.tpl-editorial .inv-logo-area{display:flex;align-items:center;gap:11px}
+.tpl-editorial .inv-logo-img{width:40px;height:40px;border-radius:7px;object-fit:contain;background:var(--paper-2)}
+.tpl-editorial .inv-brand{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+.tpl-editorial .inv-brand-sub{font-size:11px;color:var(--ink-4);margin-top:1px}
+.tpl-editorial .inv-title-block{text-align:right}
+.tpl-editorial .inv-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--accent-color,#5B3FE4)}
+.tpl-editorial .inv-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-4);margin-top:2px}
+.tpl-editorial .inv-divider{border:none;border-top:1px solid var(--border);margin:0 0 18px}
+.tpl-editorial .inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.tpl-editorial .inv-party-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.tpl-editorial .inv-party-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.tpl-editorial .inv-party-detail{font-size:11px;color:var(--ink-3);line-height:1.6}
+.tpl-editorial .inv-meta{display:grid;grid-template-columns:repeat(3,1fr);background:var(--paper-2);border-radius:var(--r-lg);overflow:hidden;margin-bottom:20px}
+.tpl-editorial .inv-meta-item{padding:10px 13px}
+.tpl-editorial .inv-meta-item+.inv-meta-item{border-left:1px solid var(--border)}
+.tpl-editorial .inv-meta-key{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:2px}
+.tpl-editorial .inv-meta-val{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--ink)}
+.tpl-editorial .inv-project-band{background:var(--accent-color,#5B3FE4);border-radius:var(--r-lg);padding:11px 14px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px}
+.tpl-editorial .inv-project-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff}
+.tpl-editorial .inv-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tpl-editorial .inv-tag{font-size:10px;font-family:'DM Mono',monospace;background:rgba(255,255,255,.2);color:rgba(255,255,255,.9);padding:2px 7px;border-radius:20px}
+.tpl-editorial .inv-items-table{width:100%;border-collapse:collapse;margin-bottom:14px}
+.tpl-editorial .inv-items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);text-align:left;padding:0 7px 8px;border-bottom:1px solid var(--border)}
+.tpl-editorial .inv-items-table th.r{text-align:right}
+.tpl-editorial .inv-items-table td{padding:8px 7px;border-bottom:1px solid var(--border);font-size:12px;color:var(--ink);vertical-align:top}
+.tpl-editorial .inv-items-table td.r{text-align:right}
+.tpl-editorial .inv-items-table td.mono{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-3)}
+.tpl-editorial .inv-items-table td.name{font-weight:500;font-size:13px}
+.tpl-editorial .inv-items-table td.note-cell{font-size:10px;color:var(--ink-4);font-style:italic;padding-top:0;border-bottom:1px solid var(--border)}
+.tpl-editorial .inv-totals{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-bottom:18px}
+.tpl-editorial .inv-total-row{display:flex;gap:32px;align-items:baseline}
+.tpl-editorial .inv-tlabel{font-size:11px;color:var(--ink-3);min-width:76px;text-align:right}
+.tpl-editorial .inv-tval{font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);min-width:76px;text-align:right}
+.tpl-editorial .inv-grand-line{width:170px;border-top:2px solid var(--ink);margin:4px 0 2px}
+.tpl-editorial .inv-grand .inv-tlabel{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--ink)}
+.tpl-editorial .inv-grand .inv-tval{font-size:16px;font-weight:600;color:var(--accent-color,#5B3FE4)}
+.tpl-editorial .inv-discount-tval{color:var(--green) !important}
+.tpl-editorial .inv-deposit-band{background:var(--gold-bg);border:1px solid #F5C842;border-radius:var(--r);padding:9px 13px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.tpl-editorial .inv-deposit-label{font-size:12px;font-weight:500;color:#7A5000}
+.tpl-editorial .inv-deposit-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:#7A5000}
+.tpl-editorial .inv-notes-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.tpl-editorial .inv-notes-txt{font-size:11px;color:var(--ink-3);line-height:1.7}
+.tpl-editorial .inv-footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.tpl-editorial .inv-footer-brand{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-2);letter-spacing:.02em;font-weight:500}
+.tpl-editorial .inv-footer-brand span{color:var(--accent-color,#5B3FE4)}
+.tpl-editorial .inv-status{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;font-family:'DM Mono',monospace}
+.tpl-editorial .inv-status.unpaid{background:var(--violet-bg);color:var(--violet)}
+.tpl-editorial .inv-status.paid{background:var(--green-bg);color:var(--green)}
+.tpl-editorial .status-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+
+/* DARK STUDIO */
+#invoice-doc.tpl-dark{background:#111110 !important}
+.tpl-dark .inv-top-bar{display:none}
+.tpl-dark .inv-inner{padding:34px 40px;background:#111110}
+.tpl-dark .inv-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}
+.tpl-dark .inv-logo-area{display:flex;align-items:center;gap:11px}
+.tpl-dark .inv-logo-img{width:40px;height:40px;border-radius:7px;object-fit:contain;background:#2a2a28}
+.tpl-dark #inv-logo-fallback{background:#2a2a28 !important}
+.tpl-dark .inv-brand{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#fff !important;letter-spacing:-.3px}
+.tpl-dark .inv-brand-sub{font-size:11px;color:rgba(255,255,255,.4) !important;margin-top:1px}
+.tpl-dark .inv-title-block{text-align:right}
+.tpl-dark .inv-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--accent-color,#5B3FE4) !important}
+.tpl-dark .inv-num{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.3) !important;margin-top:2px}
+.tpl-dark .inv-divider{border:none;border-top:1px solid rgba(255,255,255,.08) !important;margin:0 0 18px}
+.tpl-dark .inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.tpl-dark .inv-party-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3) !important;margin-bottom:4px}
+.tpl-dark .inv-party-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:#fff !important;margin-bottom:2px}
+.tpl-dark .inv-party-detail{font-size:11px;color:rgba(255,255,255,.45) !important;line-height:1.6}
+.tpl-dark .inv-meta{display:grid;grid-template-columns:repeat(3,1fr);background:#1E1E1C !important;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(255,255,255,.07) !important;margin-bottom:20px}
+.tpl-dark .inv-meta-item{padding:10px 13px;background:#1E1E1C !important}
+.tpl-dark .inv-meta-item+.inv-meta-item{border-left:1px solid rgba(255,255,255,.07) !important}
+.tpl-dark .inv-meta-key{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3) !important;margin-bottom:2px}
+.tpl-dark .inv-meta-val{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#fff !important}
+.tpl-dark .inv-project-band{background:var(--accent-color,#5B3FE4) !important;border-radius:var(--r-lg);padding:11px 14px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px}
+.tpl-dark .inv-project-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff !important}
+.tpl-dark .inv-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tpl-dark .inv-tag{font-size:10px;font-family:'DM Mono',monospace;background:rgba(255,255,255,.18) !important;color:rgba(255,255,255,.9) !important;padding:2px 7px;border-radius:20px;border:none !important}
+.tpl-dark .inv-items-table{width:100%;border-collapse:collapse;margin-bottom:14px}
+.tpl-dark .inv-items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35) !important;text-align:left;padding:0 7px 8px;border-bottom:1px solid rgba(255,255,255,.1) !important;background:transparent !important}
+.tpl-dark .inv-items-table th.r{text-align:right}
+.tpl-dark .inv-items-table td{padding:8px 7px;border-bottom:1px solid rgba(255,255,255,.07) !important;font-size:12px;color:#fff !important;vertical-align:top;background:transparent !important}
+.tpl-dark .inv-items-table tr{background:transparent !important}
+.tpl-dark .inv-items-table td.r{text-align:right}
+.tpl-dark .inv-items-table td.mono{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.5) !important}
+.tpl-dark .inv-items-table td.name{font-weight:500;font-size:13px}
+.tpl-dark .inv-items-table td.note-cell{font-size:10px;color:rgba(255,255,255,.3) !important;font-style:italic;padding-top:0}
+.tpl-dark .empty-row td{color:rgba(255,255,255,.2) !important;background:transparent !important}
+.tpl-dark .inv-totals{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-bottom:18px}
+.tpl-dark .inv-total-row{display:flex;gap:32px;align-items:baseline}
+.tpl-dark .inv-tlabel{font-size:11px;color:rgba(255,255,255,.4) !important;min-width:76px;text-align:right}
+.tpl-dark .inv-tval{font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,.85) !important;min-width:76px;text-align:right}
+.tpl-dark .inv-grand-line{width:170px;border-top:1px solid rgba(255,255,255,.15) !important;margin:4px 0 2px}
+.tpl-dark .inv-grand .inv-tlabel{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:#fff !important}
+.tpl-dark .inv-grand .inv-tval{font-size:16px;font-weight:600;color:var(--accent-color,#5B3FE4) !important}
+.tpl-dark .inv-discount-tval{color:#4DC989 !important}
+.tpl-dark .inv-deposit-band{background:rgba(245,166,35,.15) !important;border:1px solid rgba(245,166,35,.3) !important;border-radius:var(--r);padding:9px 13px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.tpl-dark .inv-deposit-label{font-size:12px;font-weight:500;color:#F5A623 !important}
+.tpl-dark .inv-deposit-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:#F5A623 !important}
+.tpl-dark .inv-notes-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3) !important;margin-bottom:4px}
+.tpl-dark .inv-notes-txt{font-size:11px;color:rgba(255,255,255,.45) !important;line-height:1.7}
+.tpl-dark .inv-footer{margin-top:22px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08) !important;display:flex;justify-content:space-between;align-items:center}
+.tpl-dark .inv-footer-brand{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.5) !important;letter-spacing:.02em;font-weight:500}
+.tpl-dark .inv-footer-brand span{color:var(--accent-color,#7B64EA) !important}
+.tpl-dark .inv-status{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;font-family:'DM Mono',monospace}
+.tpl-dark .inv-status.unpaid{background:rgba(91,63,228,.25) !important;color:#9B85F0 !important}
+.tpl-dark .inv-status.paid{background:rgba(26,122,74,.25) !important;color:#4DC989 !important}
+.tpl-dark .status-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+
+/* MINIMAL */
+.tpl-minimal .inv-inner{padding:42px 46px}
+.tpl-minimal .inv-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px}
+.tpl-minimal .inv-logo-area{display:flex;align-items:center;gap:11px}
+.tpl-minimal .inv-logo-img{width:36px;height:36px;border-radius:6px;object-fit:contain}
+.tpl-minimal .inv-brand{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--ink)}
+.tpl-minimal .inv-brand-sub{font-size:11px;color:var(--ink-4);font-family:'DM Mono',monospace;margin-top:1px}
+.tpl-minimal .inv-title-block{text-align:right}
+.tpl-minimal .inv-title{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent-color,#5B3FE4)}
+.tpl-minimal .inv-num{font-family:'DM Mono',monospace;font-size:20px;color:var(--ink);letter-spacing:-.5px;margin-top:3px}
+.tpl-minimal .inv-divider{border:none;border-top:1px solid rgba(26,26,24,.15);margin:0 0 26px}
+.tpl-minimal .inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.tpl-minimal .inv-party-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.tpl-minimal .inv-party-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.tpl-minimal .inv-party-detail{font-size:11px;color:var(--ink-3);line-height:1.7;font-family:'DM Mono',monospace}
+.tpl-minimal .inv-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:26px}
+.tpl-minimal .inv-meta-key{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:3px}
+.tpl-minimal .inv-meta-val{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink)}
+.tpl-minimal .inv-project-band{border-left:3px solid var(--accent-color,#5B3FE4);padding:7px 13px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.tpl-minimal .inv-project-name{font-size:13px;font-weight:500;color:var(--ink)}
+.tpl-minimal .inv-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tpl-minimal .inv-tag{font-size:10px;font-family:'DM Mono',monospace;background:var(--paper-2);color:var(--ink-3);padding:2px 7px;border-radius:3px;border:1px solid var(--border)}
+.tpl-minimal .inv-items-table{width:100%;border-collapse:collapse;margin-bottom:18px}
+.tpl-minimal .inv-items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);text-align:left;padding:0 7px 9px;border-bottom:1px solid rgba(26,26,24,.15)}
+.tpl-minimal .inv-items-table th.r{text-align:right}
+.tpl-minimal .inv-items-table td{padding:9px 7px;border-bottom:1px solid rgba(26,26,24,.06);font-size:12px;color:var(--ink);vertical-align:top}
+.tpl-minimal .inv-items-table td.r{text-align:right}
+.tpl-minimal .inv-items-table td.mono{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-3)}
+.tpl-minimal .inv-items-table td.name{font-weight:500;font-size:13px}
+.tpl-minimal .inv-items-table td.note-cell{font-size:10px;color:var(--ink-4);font-style:italic;padding-top:0}
+.tpl-minimal .inv-totals{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-bottom:26px}
+.tpl-minimal .inv-total-row{display:flex;gap:32px;align-items:baseline}
+.tpl-minimal .inv-tlabel{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-3);min-width:76px;text-align:right}
+.tpl-minimal .inv-tval{font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);min-width:76px;text-align:right}
+.tpl-minimal .inv-grand-line{width:170px;border-top:1px solid rgba(26,26,24,.15);margin:4px 0 2px}
+.tpl-minimal .inv-grand .inv-tlabel{font-family:'DM Mono',monospace;font-weight:500;font-size:11px;color:var(--ink);text-transform:uppercase;letter-spacing:.06em}
+.tpl-minimal .inv-grand .inv-tval{font-size:18px;color:var(--accent-color,#5B3FE4)}
+.tpl-minimal .inv-discount-tval{color:var(--green) !important}
+.tpl-minimal .inv-deposit-band{background:var(--gold-bg);border-radius:var(--r);padding:9px 13px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(245,166,35,.3)}
+.tpl-minimal .inv-deposit-label{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#7A5000;letter-spacing:.04em}
+.tpl-minimal .inv-deposit-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:#7A5000}
+.tpl-minimal .inv-notes-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.tpl-minimal .inv-notes-txt{font-size:11px;color:var(--ink-3);line-height:1.75;font-family:'DM Mono',monospace}
+.tpl-minimal .inv-footer{margin-top:26px;padding-top:12px;border-top:1px solid rgba(26,26,24,.08);display:flex;justify-content:space-between;align-items:center}
+.tpl-minimal .inv-footer-brand{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-2);letter-spacing:.02em;font-weight:500}
+.tpl-minimal .inv-footer-brand span{color:var(--accent-color,#5B3FE4)}
+.tpl-minimal .inv-status{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:3px;font-size:10px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor}
+.tpl-minimal .inv-status.unpaid{color:var(--accent-color,#5B3FE4)}
+.tpl-minimal .inv-status.paid{color:var(--green)}
+.tpl-minimal .status-dot{display:none}
+
+.empty-row td{text-align:center;padding:18px;color:var(--ink-4);font-size:12px;font-style:italic}
+.tpl-dark .empty-row td{color:rgba(255,255,255,.2) !important;background:transparent !important}
+
+.toast{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--r);font-size:13px;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:999;font-family:'DM Mono',monospace}
+.toast.show{opacity:1;transform:translateY(0)}.toast.success{background:var(--green)}
+
+@media print{
+  .app-header,.form-panel,.preview-topbar,.mobile-tabs{display:none !important}
+  .app-body{display:block}
+  .preview-panel{padding:0;background:#fff}
+  #invoice-doc{box-shadow:none;border:none;border-radius:0;max-width:100%}
+}
+@media(max-width:860px){
+  .app-body{grid-template-columns:1fr}
+  .mobile-tabs{display:block}
+  .form-panel{border-right:none;padding:14px 14px 40px}
+  .preview-panel{padding:14px}
+  #invoice-doc{max-width:100%}
+  .tpl-editorial .inv-inner,.tpl-dark .inv-inner,.tpl-minimal .inv-inner{padding:18px 16px}
+  .preview-panel.hidden-mobile,.form-panel.hidden-mobile{display:none}
+  .tpl-label{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <a class="logo" href="#">
+    <div class="logo-icon">
+      <svg viewBox="0 0 18 18" fill="none"><path d="M4 3L4 15M4 9L11 3M4 9L11 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="12.5" y="6.5" width="3.5" height="1.5" rx=".75" fill="white" opacity=".7"/><rect x="12.5" y="10" width="2.5" height="1.5" rx=".75" fill="white" opacity=".45"/></svg>
+    </div>
+    <span class="logo-wordmark"><span>krea</span>invoice</span>
+  </a>
+  <div class="header-right">
+    <span class="tpl-label">Template:</span>
+    <button class="tpl-btn active" onclick="setTemplate('editorial',this)">Editorial</button>
+    <button class="tpl-btn" onclick="setTemplate('dark',this)">Dark Studio</button>
+    <button class="tpl-btn" onclick="setTemplate('minimal',this)">Minimal</button>
+  </div>
+</header>
+
+<div class="mobile-tabs">
+  <div class="mob-tab active" id="tab-form" onclick="showTab('form')">Edit invoice</div>
+  <div class="mob-tab" id="tab-preview" onclick="showTab('preview')">Preview</div>
+</div>
+
+<div class="app-body">
+
+<!-- FORM -->
+<div class="form-panel" id="panel-form">
+
+  <div class="section">
+    <div class="sec-hd">Your brand</div>
+    <div class="field" style="margin-bottom:8px">
+      <label>Logo</label>
+      <div class="logo-upload-area" onclick="document.getElementById('logo-file-input').click()">
+        <div class="logo-preview" id="logo-preview-thumb">
+          <svg width="17" height="17" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="10" rx="2" stroke="#9A9A94" stroke-width="1.2"/><circle cx="7" cy="9" r="1.5" fill="#9A9A94"/><path d="M2 13l4-3 3 2.5 3-3.5 4 4" stroke="#9A9A94" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="logo-upload-text"><strong>Click to upload logo</strong><br>PNG, JPG or SVG</div>
+      </div>
+      <input type="file" id="logo-file-input" accept="image/*" onchange="handleLogoUpload(this)">
+    </div>
+    <div class="row row-2">
+      <div class="field"><label>Studio / Name</label><input type="text" id="from-name" value="Jane Nakato Studio" oninput="update()"></div>
+      <div class="field"><label>Email</label><input type="email" id="from-email" value="jane@nakatostudio.com" oninput="update()"></div>
+    </div>
+    <div class="row row-2">
+      <div class="field"><label>Location</label><input type="text" id="from-location" value="Kampala, Uganda" oninput="update()"></div>
+      <div class="field"><label>Portfolio URL</label><input type="text" id="from-portfolio" value="nakatostudio.com" placeholder="yoursite.com" oninput="update()"></div>
+    </div>
+    <div class="field" style="margin-bottom:0">
+      <label>Accent colour</label>
+      <div class="color-row"><div id="color-presets" style="display:flex;align-items:center;gap:5px;flex-wrap:nowrap"></div><input type="color" id="accent-color-input" value="#5B3FE4" oninput="setAccentFromPicker(this.value)"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd collapsible collapsed" id="hd-tags" onclick="toggleSec('body-tags','hd-tags')">Service tags</div>
+    <div class="collapsible-body" id="body-tags" style="max-height:0"><div class="tags-row" id="tags-row"></div></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd">Bill to</div>
+    <div class="row row-2">
+      <div class="field"><label>Client / Company</label><input type="text" id="to-name" placeholder="Acme Creative Co." oninput="update()"></div>
+      <div class="field"><label>Client email</label><input type="email" id="to-email" placeholder="client@acme.com" oninput="update()"></div>
+    </div>
+    <div class="field"><label>Address</label><input type="text" id="to-address" placeholder="Nairobi, Kenya" oninput="update()"></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd">Project</div>
+    <div class="field"><label>Project name</label><input type="text" id="project-name" value="Brand Identity Redesign" oninput="update()"></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd">Invoice info</div>
+    <div class="row row-3">
+      <div class="field"><label>Invoice #</label><input type="text" id="inv-num" value="KRE-001" oninput="update()"></div>
+      <div class="field"><label>Issue date</label><input type="date" id="inv-date" oninput="update()"></div>
+      <div class="field"><label>Due date</label><input type="date" id="inv-due" oninput="update()"></div>
+    </div>
+    <div class="field"><label>Currency</label>
+      <select id="inv-currency" onchange="update()">
+        <option value="UGX">UGX — Ugandan Shilling</option>
+        <option value="USD">USD — US Dollar</option>
+        <option value="KES">KES — Kenyan Shilling</option>
+        <option value="TZS">TZS — Tanzanian Shilling</option>
+        <option value="GBP">GBP — British Pound</option>
+        <option value="EUR">EUR — Euro</option>
+        <option value="ZAR">ZAR — South African Rand</option>
+        <option value="NGN">NGN — Nigerian Naira</option>
+        <option value="GHS">GHS — Ghanaian Cedi</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd">Line items</div>
+    <div class="items-wrap">
+      <table class="items-table">
+        <thead><tr>
+          <th style="width:50%">Description</th>
+          <th class="right" style="width:13%">Qty</th>
+          <th class="right" style="width:22%">Rate</th>
+          <th class="right" style="width:13%">Amt</th>
+          <th style="width:6%"></th>
+        </tr></thead>
+        <tbody id="items-body"></tbody>
+      </table>
+    </div>
+    <button class="add-item-btn" onclick="addItem()">+ Add line item</button>
+  </div>
+
+  <div class="section">
+    <div class="totals-section">
+      <div class="total-row"><label>Subtotal</label><span class="total-val" id="f-subtotal">0.00</span></div>
+      <div class="total-row">
+        <div class="inline-row">
+          <label>Discount</label>
+          <input type="number" id="discount-val" value="0" min="0" oninput="update()">
+          <select id="discount-type" onchange="update()"><option value="pct">%</option><option value="fixed">flat</option></select>
+        </div>
+        <span class="total-val" id="f-discount" style="color:var(--green)">—</span>
+      </div>
+      <div class="total-row">
+        <div class="inline-row"><label>Tax</label><input type="number" id="tax-rate" value="0" min="0" max="100" step="0.5" oninput="update()"><span>%</span></div>
+        <span class="total-val" id="f-tax">—</span>
+      </div>
+      <div class="total-row grand"><label>Total due</label><span class="total-val" id="f-total">0.00</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd collapsible collapsed" id="hd-deposit" onclick="toggleSec('body-deposit','hd-deposit')">Deposit / milestone</div>
+    <div class="collapsible-body" id="body-deposit" style="max-height:0">
+      <div class="deposit-toggle" onclick="toggleDeposit()">
+        <div class="toggle-switch" id="deposit-switch"><div class="toggle-knob"></div></div>
+        <span class="deposit-label">Request deposit invoice</span>
+      </div>
+      <div id="deposit-controls" style="display:none">
+        <div class="inline-row" style="margin-bottom:6px">
+          <label style="font-size:12px;color:var(--ink-3)">Deposit</label>
+          <input type="number" id="deposit-pct" value="50" min="1" max="100" oninput="update()" style="width:48px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--r);padding:3px 6px;font-family:'DM Mono',monospace;font-size:11px;text-align:right;outline:none">
+          <span style="font-size:11px;color:var(--ink-4)">% of total</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd">Notes & payment</div>
+    <div class="field">
+      <textarea id="inv-notes" placeholder="Bank details, MTN Mobile Money number, payment terms..." oninput="update()">Payment via MTN Mobile Money: 0771234567
+Thank you for your trust in my work.</textarea>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-ghost" onclick="clearAll()">✕ Clear</button>
+    <button class="btn btn-secondary" onclick="printInvoice()">⎙ Print</button>
+    <button class="btn btn-primary" id="dl-btn" onclick="downloadPDF()">↓ Download PDF</button>
+  </div>
+
+</div>
+
+<!-- PREVIEW -->
+<div class="preview-panel" id="panel-preview">
+  <div class="preview-topbar">
+    <span class="preview-label">Live preview</span>
+    <span class="preview-tpl-name" id="tpl-name-display">Editorial template</span>
+  </div>
+
+  <div id="invoice-doc" class="tpl-editorial">
+    <div class="inv-top-bar" id="inv-top-bar"></div>
+    <div class="inv-inner">
+
+      <div class="inv-header">
+        <div class="inv-logo-area">
+          <img class="inv-logo-img" id="inv-logo-img" src="" alt="" style="display:none">
+          <div id="inv-logo-fallback" style="width:40px;height:40px;border-radius:7px;background:var(--violet-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M4 3L4 15M4 9L11 3M4 9L11 15" stroke="#5B3FE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="12.5" y="6.5" width="3.5" height="1.5" rx=".75" fill="#5B3FE4" opacity=".6"/><rect x="12.5" y="10" width="2.5" height="1.5" rx=".75" fill="#5B3FE4" opacity=".4"/></svg>
+          </div>
+          <div>
+            <div class="inv-brand" id="inv-brand">Jane Nakato Studio</div>
+            <div class="inv-brand-sub" id="inv-brand-sub">jane@nakatostudio.com · Kampala, Uganda</div>
+          </div>
+        </div>
+        <div class="inv-title-block">
+          <div class="inv-title">Invoice</div>
+          <div class="inv-num" id="inv-num-display">KRE-001</div>
+        </div>
+      </div>
+
+      <hr class="inv-divider">
+
+      <div class="inv-parties">
+        <div>
+          <div class="inv-party-lbl">From</div>
+          <div class="inv-party-name" id="inv-from-name">Jane Nakato Studio</div>
+          <div class="inv-party-detail" id="inv-from-detail">jane@nakatostudio.com<br>Kampala, Uganda</div>
+        </div>
+        <div>
+          <div class="inv-party-lbl">Bill to</div>
+          <div class="inv-party-name" id="inv-to-name" style="color:var(--ink-4)">— Client name</div>
+          <div class="inv-party-detail" id="inv-to-detail">—</div>
+        </div>
+      </div>
+
+      <div class="inv-meta">
+        <div class="inv-meta-item"><div class="inv-meta-key">Issue date</div><div class="inv-meta-val" id="inv-date-display">—</div></div>
+        <div class="inv-meta-item"><div class="inv-meta-key">Due date</div><div class="inv-meta-val" id="inv-due-display">—</div></div>
+        <div class="inv-meta-item"><div class="inv-meta-key">Currency</div><div class="inv-meta-val" id="inv-currency-display">UGX</div></div>
+      </div>
+
+      <div class="inv-project-band" id="inv-project-band" style="display:none">
+        <div class="inv-project-name" id="inv-project-name-display">Project</div>
+        <div class="inv-tags" id="inv-tags-display"></div>
+      </div>
+
+      <table class="inv-items-table">
+        <thead><tr>
+          <th style="width:50%">Description</th>
+          <th class="r" style="width:11%">Qty</th>
+          <th class="r" style="width:21%">Rate</th>
+          <th class="r" style="width:18%">Amount</th>
+        </tr></thead>
+        <tbody id="inv-items-body">
+          <tr class="empty-row"><td colspan="4">Add line items to get started</td></tr>
+        </tbody>
+      </table>
+
+      <div class="inv-totals">
+        <div class="inv-total-row"><span class="inv-tlabel">Subtotal</span><span class="inv-tval" id="inv-subtotal">0.00</span></div>
+        <div class="inv-total-row" id="inv-discount-row" style="display:none">
+          <span class="inv-tlabel" id="inv-discount-label">Discount</span>
+          <span class="inv-tval inv-discount-tval" id="inv-discount-tval">0.00</span>
+        </div>
+        <div class="inv-total-row" id="inv-tax-row" style="display:none">
+          <span class="inv-tlabel" id="inv-tax-label">Tax (0%)</span>
+          <span class="inv-tval" id="inv-tax-val">0.00</span>
+        </div>
+        <div class="inv-grand-line"></div>
+        <div class="inv-total-row inv-grand">
+          <span class="inv-tlabel">Total due</span>
+          <span class="inv-tval" id="inv-total-val">0.00</span>
+        </div>
+      </div>
+
+      <div id="inv-deposit-band" style="display:none" class="inv-deposit-band">
+        <span class="inv-deposit-label" id="inv-deposit-label">Deposit due (50%)</span>
+        <span class="inv-deposit-val" id="inv-deposit-val">0.00</span>
+      </div>
+
+      <div id="inv-notes-block" style="display:none">
+        <div class="inv-notes-lbl">Notes</div>
+        <div class="inv-notes-txt" id="inv-notes-display"></div>
+      </div>
+
+      <div class="inv-footer">
+        <span class="inv-footer-brand" id="inv-footer-brand">Made with <span>kreainvoice.com</span></span>
+        <span class="inv-status unpaid"><span class="status-dot"></span>Unpaid</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let items=[],itemId=0,currentTemplate='editorial',accentColor='#5B3FE4';
+let depositOn=false,activeTags=[],logoDataURL=null;
+const PRESETS=['#5B3FE4','#E4433F','#1D9E75','#F5A623','#0E7FC0','#D4537E','#111110'];
+const TAGS=['Brand Design','Logo Design','Photography','Video Editing','Illustration','Motion Graphics','UI/UX Design','Copywriting','Social Media','Web Design','Brand Strategy','Content Creation'];
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const today=new Date(),due=new Date();
+  due.setDate(today.getDate()+14);
+  document.getElementById('inv-date').value=isoDate(today);
+  document.getElementById('inv-due').value=isoDate(due);
+  // restore saved invoice number
+  const saved=localStorage.getItem('krea_inv_num');
+  if(saved) document.getElementById('inv-num').value=saved;
+  buildPresets();buildTags();
+  addItem('Brand identity design',1,800000,'');
+  addItem('Logo variations',3,150000,'');
+  addItem('Brand guidelines doc',1,250000,'');
+  update();
+});
+
+function isoDate(d){return d.toISOString().split('T')[0]}
+function fmtDate(s){if(!s)return'—';return new Date(s+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}
+function fmtNum(n){return Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function cur(){return document.getElementById('inv-currency').value}
+function v(id){return(document.getElementById(id)?.value||'').trim()}
+function set(id,txt){const el=document.getElementById(id);if(el)el.textContent=txt}
+
+// MOBILE
+function showTab(t){
+  document.getElementById('panel-form').classList.toggle('hidden-mobile',t!=='form');
+  document.getElementById('panel-preview').classList.toggle('hidden-mobile',t!=='preview');
+  document.getElementById('tab-form').classList.toggle('active',t==='form');
+  document.getElementById('tab-preview').classList.toggle('active',t==='preview');
+}
+
+// COLLAPSIBLE
+function toggleSec(bodyId,hdId){
+  const b=document.getElementById(bodyId),h=document.getElementById(hdId);
+  const collapsed=h.classList.contains('collapsed');
+  b.style.maxHeight=collapsed?b.scrollHeight+'px':'0';
+  h.classList.toggle('collapsed',!collapsed);
+}
+
+// PRESETS
+function buildPresets(){
+  const row=document.getElementById('color-presets');
+  PRESETS.forEach(c=>{
+    const d=document.createElement('div');
+    d.className='color-preset'+(c===accentColor?' selected':'');
+    d.style.background=c;d.title=c;
+    d.onclick=()=>{setAccent(c);document.querySelectorAll('.color-preset').forEach(b=>b.classList.remove('selected'));d.classList.add('selected')};
+    row.appendChild(d);
+  });
+  const cu=document.createElement('div');
+  cu.className='color-preset';
+  cu.style.cssText='background:conic-gradient(red,yellow,lime,aqua,blue,magenta,red);border:2px solid var(--border-med)';
+  cu.title='Custom';cu.onclick=()=>document.getElementById('accent-color-input').click();
+  row.appendChild(cu);
+}
+function setAccent(c){accentColor=c;document.getElementById('accent-color-input').value=c;applyAccent();update()}
+function setAccentFromPicker(c){accentColor=c;document.querySelectorAll('.color-preset').forEach(b=>b.classList.remove('selected'));applyAccent();update()}
+function applyAccent(){document.getElementById('invoice-doc').style.setProperty('--accent-color',accentColor)}
+
+// TAGS
+function buildTags(){
+  const row=document.getElementById('tags-row');
+  TAGS.forEach(t=>{
+    const p=document.createElement('div');p.className='tag-pill';p.textContent=t;
+    p.onclick=()=>{
+      if(activeTags.includes(t)){activeTags=activeTags.filter(x=>x!==t);p.classList.remove('active')}
+      else if(activeTags.length<4){activeTags.push(t);p.classList.add('active')}
+      update();
+    };
+    row.appendChild(p);
+  });
+}
+
+// TEMPLATE
+function setTemplate(tpl,btn){
+  currentTemplate=tpl;
+  const doc=document.getElementById('invoice-doc');
+  doc.className='tpl-'+tpl;
+  doc.style.background=tpl==='dark'?'#111110':'#ffffff';
+  applyAccent();
+  document.querySelectorAll('.tpl-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tpl-name-display').textContent={editorial:'Editorial template',dark:'Dark Studio template',minimal:'Minimal template'}[tpl];
+  document.getElementById('inv-top-bar').style.display=(tpl==='editorial'?'block':'none');
+  update();
+}
+
+// LOGO
+function handleLogoUpload(input){
+  const file=input.files[0];if(!file)return;
+  const r=new FileReader();
+  r.onload=e=>{
+    logoDataURL=e.target.result;
+    document.getElementById('logo-preview-thumb').innerHTML=`<img src="${logoDataURL}" style="width:100%;height:100%;object-fit:contain;border-radius:4px">`;
+    showLogo();
+  };
+  r.readAsDataURL(file);
+}
+function showLogo(){
+  if(!logoDataURL)return;
+  document.getElementById('inv-logo-fallback').style.display='none';
+  const img=document.getElementById('inv-logo-img');
+  img.src=logoDataURL;img.style.display='block';
+}
+
+// DEPOSIT
+function toggleDeposit(){
+  depositOn=!depositOn;
+  document.getElementById('deposit-switch').classList.toggle('on',depositOn);
+  document.getElementById('deposit-controls').style.display=depositOn?'block':'none';
+  update();
+}
+
+// ITEMS
+function addItem(desc='',qty=1,rate=0,note=''){
+  const id=++itemId;
+  items.push({id,desc,qty,rate,note});
+  const tr=document.createElement('tr');tr.className='item-row';tr.id='item-'+id;
+  tr.innerHTML=`
+    <td>
+      <input type="text" placeholder="Service description" value="${desc}" oninput="updateItem(${id},'desc',this.value)">
+      <input type="text" class="item-note-input" placeholder="Note: e.g. includes 3 revisions" value="${note}" oninput="updateItem(${id},'note',this.value)">
+    </td>
+    <td><input type="number" value="${qty}" min="0" step="1" oninput="updateItem(${id},'qty',+this.value)"></td>
+    <td><input type="number" value="${rate}" min="0" step="500" oninput="updateItem(${id},'rate',+this.value)"></td>
+    <td class="item-amount" id="amt-${id}">${fmtNum(qty*rate)}</td>
+    <td><button class="del-btn" onclick="removeItem(${id})">×</button></td>`;
+  document.getElementById('items-body').appendChild(tr);
+  update();
+}
+function updateItem(id,field,val){
+  const it=items.find(i=>i.id===id);if(!it)return;
+  it[field]=val;
+  const el=document.getElementById('amt-'+id);
+  if(el)el.textContent=fmtNum((+it.qty||0)*(+it.rate||0));
+  update();
+}
+function removeItem(id){
+  items=items.filter(i=>i.id!==id);
+  document.getElementById('item-'+id)?.remove();
+  update();
+}
+
+// TOTALS
+function calcTotals(){
+  const sub=items.reduce((s,i)=>s+(+i.qty||0)*(+i.rate||0),0);
+  const dv=parseFloat(v('discount-val'))||0;
+  const dt=v('discount-type')||'pct';
+  const discount=dt==='pct'?sub*dv/100:Math.min(dv,sub);
+  const taxRate=parseFloat(v('tax-rate'))||0;
+  const tax=(sub-discount)*taxRate/100;
+  const total=sub-discount+tax;
+  const dpct=parseFloat(v('deposit-pct'))||50;
+  return{sub,discount,dv,dt,taxRate,tax,total,deposit:total*dpct/100,dpct};
+}
+
+// UPDATE
+function update(){
+  applyAccent();
+  const fromName=v('from-name')||'Your Studio';
+  const fromEmail=v('from-email'),fromLoc=v('from-location'),fromPortfolio=v('from-portfolio');
+  const toName=v('to-name'),toEmail=v('to-email'),toAddr=v('to-address');
+  const invNum=v('inv-num')||'KRE-001';
+  const projectName=v('project-name');
+  const notes=v('inv-notes');
+  const currency=cur();
+  const{sub,discount,dv,dt,taxRate,tax,total,deposit,dpct}=calcTotals();
+
+  localStorage.setItem('krea_inv_num',invNum);
+
+  set('inv-brand',fromName);
+  set('inv-brand-sub',[fromEmail,fromLoc].filter(Boolean).join(' · ')||'—');
+  set('inv-num-display',invNum);
+  set('inv-from-name',fromName);
+  document.getElementById('inv-from-detail').innerHTML=[fromEmail,fromLoc].filter(Boolean).join('\n').replace(/\n/g,'<br>')||'—';
+  set('inv-to-name',toName||'— Client name');
+  document.getElementById('inv-to-name').style.color=toName?'':(currentTemplate==='dark'?'rgba(255,255,255,.25)':'var(--ink-4)');
+  document.getElementById('inv-to-detail').innerHTML=[toEmail,toAddr].filter(Boolean).join('\n').replace(/\n/g,'<br>')||'—';
+  set('inv-date-display',fmtDate(v('inv-date')));
+  set('inv-due-display',fmtDate(v('inv-due')));
+  set('inv-currency-display',currency);
+
+  // project band
+  const pb=document.getElementById('inv-project-band');
+  if(projectName||activeTags.length){
+    pb.style.display='flex';
+    set('inv-project-name-display',projectName||'Project');
+    document.getElementById('inv-tags-display').innerHTML=activeTags.map(t=>`<span class="inv-tag">${t}</span>`).join('');
+  } else pb.style.display='none';
+
+  // items
+  const tbody=document.getElementById('inv-items-body');
+  if(!items.length){
+    tbody.innerHTML='<tr class="empty-row"><td colspan="4">Add line items to get started</td></tr>';
+  } else {
+    tbody.innerHTML=items.map(it=>{
+      const amt=(+it.qty||0)*(+it.rate||0);
+      const noteRow=it.note?`<tr><td class="note-cell" colspan="4" style="padding-left:7px">${it.note}</td></tr>`:'';
+      return`<tr><td class="name">${it.desc||'—'}</td><td class="r mono">${it.qty}</td><td class="r mono">${fmtNum(+it.rate||0)}</td><td class="r mono">${fmtNum(amt)}</td></tr>${noteRow}`;
+    }).join('');
+  }
+
+  // totals
+  set('inv-subtotal',fmtNum(sub));
+  set('f-subtotal',currency+' '+fmtNum(sub));
+
+  if(dv>0){
+    document.getElementById('inv-discount-row').style.display='flex';
+    set('inv-discount-label',dt==='pct'?`Discount (${dv}%)`:'Discount');
+    set('inv-discount-tval','− '+fmtNum(discount));
+    set('f-discount','− '+currency+' '+fmtNum(discount));
+  } else {
+    document.getElementById('inv-discount-row').style.display='none';
+    set('f-discount','—');
+  }
+
+  if(taxRate>0){
+    document.getElementById('inv-tax-row').style.display='flex';
+    set('inv-tax-label',`Tax (${taxRate}%)`);
+    set('inv-tax-val',fmtNum(tax));
+    set('f-tax',currency+' '+fmtNum(tax));
+  } else {
+    document.getElementById('inv-tax-row').style.display='none';
+    set('f-tax','—');
+  }
+
+  set('inv-total-val',currency+' '+fmtNum(total));
+  set('f-total',currency+' '+fmtNum(total));
+
+  const db=document.getElementById('inv-deposit-band');
+  if(depositOn&&total>0){
+    db.style.display='flex';
+    set('inv-deposit-label',`Deposit due (${dpct}%)`);
+    set('inv-deposit-val',currency+' '+fmtNum(deposit));
+  } else db.style.display='none';
+
+  const nb=document.getElementById('inv-notes-block');
+  if(notes){nb.style.display='block';document.getElementById('inv-notes-display').innerHTML=notes.replace(/\n/g,'<br>');}
+  else nb.style.display='none';
+
+  // footer with portfolio
+  const fb=document.getElementById('inv-footer-brand');
+  if(fb){
+    const site=fromPortfolio?` · ${fromPortfolio}`:'';
+    fb.innerHTML=`Made with <span>kreainvoice.com</span>${site}`;
+  }
+
+  if(logoDataURL)showLogo();
+}
+
+// PRINT
+function printInvoice(){window.print()}
+
+// PDF
+async function downloadPDF(){
+  const btn=document.getElementById('dl-btn');
+  btn.textContent='⏳…';btn.disabled=true;
+  try{
+    const doc=document.getElementById('invoice-doc');
+    const canvas=await html2canvas(doc,{
+      scale:2.5,useCORS:true,
+      backgroundColor:currentTemplate==='dark'?'#111110':'#ffffff',
+      logging:false,windowWidth:doc.scrollWidth,windowHeight:doc.scrollHeight
+    });
+    const{jsPDF}=window.jspdf;
+    const pdf=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+    const pW=pdf.internal.pageSize.getWidth(),pH=pdf.internal.pageSize.getHeight();
+    const iH=(canvas.height*pW)/canvas.width;
+    pdf.addImage(canvas.toDataURL('image/png'),'PNG',0,iH<pH?(pH-iH)/2:0,pW,Math.min(iH,pH));
+    pdf.save(`${v('inv-num')||'kreainvoice'}.pdf`);
+    // auto-increment after download
+    const cur2=v('inv-num');
+    const m=cur2.match(/^([A-Za-z-]*)(\d+)$/);
+    if(m){
+      const next=m[1]+String(+m[2]+1).padStart(m[2].length,'0');
+      document.getElementById('inv-num').value=next;
+      localStorage.setItem('krea_inv_num',next);
+      set('inv-num-display',next);
+    }
+    showToast('PDF saved · Invoice number updated','success');
+  }catch(e){showToast('Error generating PDF — try Print instead')}
+  btn.innerHTML='↓ Download PDF';btn.disabled=false;
+}
+
+// CLEAR
+function clearAll(){
+  if(!confirm('Clear all fields?'))return;
+  items=[];document.getElementById('items-body').innerHTML='';
+  ['from-name','from-email','from-location','from-portfolio','to-name','to-email','to-address','project-name','inv-notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});
+  document.getElementById('inv-num').value=localStorage.getItem('krea_inv_num')||'KRE-001';
+  ['tax-rate','discount-val'].forEach(id=>document.getElementById(id).value='0');
+  activeTags=[];document.querySelectorAll('.tag-pill').forEach(p=>p.classList.remove('active'));
+  const t=new Date(),d=new Date();d.setDate(t.getDate()+14);
+  document.getElementById('inv-date').value=isoDate(t);
+  document.getElementById('inv-due').value=isoDate(d);
+  update();showToast('Cleared!');
+}
+
+// TOAST
+function showToast(msg,type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast'+(type?' '+type:'')+' show';
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+</script>
+</body>
+</html>
