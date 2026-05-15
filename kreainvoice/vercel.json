@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/verify-license.js", "use": "@vercel/node" },
+    { "src": "index.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/verify-license", "dest": "/api/verify-license.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
