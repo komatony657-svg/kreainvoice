@@ -1,0 +1,3012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Kreainvoice — Beautiful invoices for creative freelancers</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,700;1,700&family=Fraunces:ital,wght@0,700;1,700&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Josefin+Sans:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700&family=Urbanist:wght@400;500;600;700&family=Bitter:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light only}
+/* Samsung Internet "Force dark" bypass — overrides forced dark with our light values */
+@media screen{
+  html,body,
+  .form-panel,.preview-panel,.app-body,.app-header,
+  .section,.field input,.field textarea,.field select,
+  #invoice-doc,.inv-inner,.modal-overlay,.modal{
+    color-scheme:light !important;
+    forced-color-adjust:none !important;
+  }
+}
+:root{
+  --violet:#5B3FE4;--violet-light:#7B64EA;--violet-dim:#3D28B0;
+  --violet-bg:#F0EEFF;--violet-bg2:#E4DEFF;
+  --gold:#F5A623;--gold-bg:#FEF3DC;
+  --ink:#1A1A18;--ink-2:#3D3D3A;--ink-3:#6B6B66;--ink-4:#9A9A94;
+  --paper:#FAF9F6;--paper-2:#F3F1EC;--paper-3:#EAE8E1;
+  --border:rgba(26,26,24,.10);--border-med:rgba(26,26,24,.18);--border-strong:rgba(26,26,24,.28);
+  --green:#1A7A4A;--green-bg:#E6F5EE;--red:#C0392B;
+  --r:6px;--r-lg:12px;--r-xl:18px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--paper) !important;color:var(--ink) !important;height:100vh;overflow:hidden;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.app-header{background:var(--ink);height:56px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:30px;height:30px;background:var(--violet);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:18px;height:18px}
+.logo-wordmark{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.4px;color:#fff}
+.logo-wordmark span{color:var(--violet-light)}
+.header-right{display:flex;align-items:center;gap:8px}
+.tpl-label{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.05em}
+.tpl-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:5px;padding:5px 9px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.6);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tpl-btn:hover{background:rgba(255,255,255,.13);color:#fff}
+.tpl-btn.active{background:var(--violet);border-color:var(--violet);color:#fff}
+
+/* LAYOUT — fixed viewport columns, each panel scrolls independently */
+.app-body{display:flex;flex-direction:row;height:calc(100vh - 56px);overflow:hidden}
+.mobile-tabs{display:none;background:var(--paper);border-bottom:1px solid var(--border);flex-shrink:0;width:100%}
+.mob-tab{display:inline-block;padding:12px 20px;font-size:13px;font-weight:500;color:var(--ink-3);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s}
+.mob-tab.active{color:var(--violet);border-bottom-color:var(--violet)}
+
+/* FORM PANEL — fixed width, scrolls its own content */
+.form-panel{width:400px;flex-shrink:0;background:var(--paper);border-right:1px solid var(--border);overflow-y:auto;overflow-x:hidden;padding:22px 22px 40px}
+.section{margin-bottom:20px}
+.sec-hd{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec-hd::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-hd.collapsible{cursor:pointer;user-select:none}
+.sec-hd.collapsible::before{content:'▾';font-size:9px;color:var(--ink-4);transition:transform .2s;display:inline-block;margin-right:2px}
+.sec-hd.collapsed::before{transform:rotate(-90deg)}
+.collapsible-body{overflow:hidden;transition:max-height .25s ease}
+
+.row{display:grid;gap:8px;margin-bottom:8px}
+.row-2{grid-template-columns:1fr 1fr}
+.row-3{grid-template-columns:1fr 1fr 1fr}
+.field{display:flex;flex-direction:column;gap:3px}
+.field label{font-size:11px;font-weight:500;color:var(--ink-3)}
+.field input,.field textarea,.field select{background:var(--paper-2);border:1px solid var(--border);border-radius:var(--r);padding:7px 10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);transition:border-color .15s,box-shadow .15s,background .15s;outline:none;width:100%}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--violet);background:#fff;box-shadow:0 0 0 3px rgba(91,63,228,.1)}
+.field textarea{resize:vertical;min-height:60px}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A9A94' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+
+.logo-upload-area{border:1.5px dashed var(--border-med);border-radius:var(--r);padding:11px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .15s;background:var(--paper-2)}
+.logo-upload-area:hover{border-color:var(--violet);background:var(--violet-bg)}
+.logo-preview{width:36px;height:36px;border-radius:var(--r);background:var(--paper-3);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.logo-upload-text{font-size:12px;color:var(--ink-3)}.logo-upload-text strong{color:var(--violet);font-weight:500}
+#logo-file-input{display:none}
+
+.color-row{display:flex;align-items:center;gap:5px;flex-wrap:nowrap;overflow:hidden}
+.color-preset{width:24px;height:24px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;flex-shrink:0}
+.color-preset:hover{transform:scale(1.15)}.color-preset.selected{border-color:var(--ink)}
+#accent-color-input{opacity:0;width:0;height:0;position:absolute}
+/* FONT PICKER */
+.font-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.font-opt{background:var(--paper-2);border:1.5px solid var(--border);border-radius:var(--r);padding:7px 10px;cursor:pointer;transition:all .15s;text-align:center}
+.font-opt:hover{border-color:var(--violet);background:var(--violet-bg)}
+.font-opt.selected{border-color:var(--violet);background:var(--violet-bg)}
+.font-opt-name{font-size:13px;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:1px}
+.font-opt-label{font-size:9px;color:var(--ink-4);font-family:'DM Mono',monospace;letter-spacing:.04em;text-transform:uppercase}
+
+/* LICENSING */
+.lic-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px}
+.lic-opt{background:var(--paper-2);border:1.5px solid var(--border);border-radius:var(--r);padding:6px 9px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:6px}
+.lic-opt:hover{border-color:var(--violet);background:var(--violet-bg)}
+.lic-opt.selected{border-color:var(--violet);background:var(--violet-bg)}
+.lic-radio{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--border-med);flex-shrink:0;transition:all .15s;position:relative}
+.lic-opt.selected .lic-radio{border-color:var(--violet);background:var(--violet)}
+.lic-opt.selected .lic-radio::after{content:'';width:4px;height:4px;border-radius:50%;background:#fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.lic-opt-text{font-size:11px;font-weight:500;color:var(--ink-2)}
+
+/* INVOICE LICENSING BLOCK */
+.inv-lic-block{margin-bottom:18px;padding:12px 14px;border-radius:var(--r-lg)}
+.tpl-editorial .inv-lic-block{background:var(--paper-2)}
+.tpl-dark .inv-lic-block{background:#1E1E1C !important}
+.tpl-minimal .inv-lic-block{background:transparent;border-left:3px solid var(--accent-color,#5B3FE4);padding-left:14px;border-radius:0}
+.inv-lic-hd{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
+.tpl-dark .inv-lic-hd{color:rgba(255,255,255,.3) !important}
+.inv-lic-type{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.tpl-dark .inv-lic-type{color:#fff !important}
+.inv-lic-detail{font-size:11px;color:var(--ink-3);line-height:1.6}
+.tpl-dark .inv-lic-detail{color:rgba(255,255,255,.45) !important}
+
+
+.tags-row{display:flex;flex-wrap:wrap;gap:5px;padding-bottom:4px}
+.tag-pill{font-size:11px;padding:3px 9px;border-radius:20px;cursor:pointer;border:1px solid var(--border-med);background:var(--paper-2);color:var(--ink-3);transition:all .15s;font-family:'DM Mono',monospace}
+.tag-pill:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-bg)}
+.tag-pill.active{background:var(--violet);border-color:var(--violet);color:#fff}
+
+.items-wrap{overflow-x:auto}
+.items-table{width:100%;border-collapse:collapse;min-width:280px}
+.items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);text-align:left;padding:0 4px 7px;border-bottom:1px solid var(--border)}
+.items-table th.right{text-align:right}
+.item-row td{padding:2px 2px;vertical-align:top}
+.item-row input{background:var(--paper-2);border:1px solid transparent;border-radius:var(--r);padding:6px 7px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink);width:100%;outline:none;transition:all .15s}
+.item-row input:focus{border-color:var(--violet);background:#fff;box-shadow:0 0 0 2px rgba(91,63,228,.1)}
+.item-row input[type=number]{text-align:right;-moz-appearance:textfield}
+.item-row input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+.item-note-input{font-size:11px !important;color:var(--ink-3) !important;font-style:italic;margin-top:2px !important}
+.item-amount{padding:6px 4px;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink-3);text-align:right;white-space:nowrap}
+.del-btn{background:none;border:none;cursor:pointer;color:var(--ink-4);padding:6px 2px;font-size:14px;line-height:1;transition:color .15s}
+.del-btn:hover{color:var(--red)}
+.add-item-btn{margin-top:7px;background:none;border:1.5px dashed var(--border-med);border-radius:var(--r);padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink-3);cursor:pointer;width:100%;transition:all .15s}
+.add-item-btn:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-bg)}
+
+.totals-section{background:var(--paper-2);border-radius:var(--r-lg);padding:11px 13px}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:13px}
+.total-row.grand{border-top:1.5px solid var(--border-strong);margin-top:5px;padding-top:7px}
+.total-row label{color:var(--ink-3)}.total-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--ink)}
+.total-row.grand label{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--ink)}
+.total-row.grand .total-val{font-size:15px;font-weight:500;color:var(--violet)}
+.inline-row{display:flex;align-items:center;gap:5px}
+.inline-row input{width:48px;background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:3px 6px;font-family:'DM Mono',monospace;font-size:11px;text-align:right;outline:none}
+.inline-row input:focus{border-color:var(--violet)}
+.inline-row span,.inline-row select{font-size:11px;color:var(--ink-4)}
+.inline-row select{background:none;border:none;padding:0;font-size:11px;color:var(--ink-3);outline:none;cursor:pointer}
+
+.deposit-toggle{display:flex;align-items:center;gap:8px;padding:8px 11px;background:var(--violet-bg);border-radius:var(--r);border:1px solid var(--violet-bg2);cursor:pointer;margin-bottom:7px}
+.toggle-switch{width:32px;height:17px;background:var(--paper-3);border-radius:9px;position:relative;transition:background .2s;flex-shrink:0}
+.toggle-switch.on{background:var(--violet)}
+.toggle-knob{position:absolute;top:2px;left:2px;width:13px;height:13px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.toggle-switch.on .toggle-knob{transform:translateX(15px)}
+.deposit-label{font-size:12px;font-weight:500;color:var(--ink-2)}
+
+.actions{display:flex;gap:8px;margin-top:10px;padding-top:16px;border-top:1px solid var(--border)}
+.btn{padding:9px 14px;border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.btn-ghost{background:none;border:1px solid var(--border-med);color:var(--ink-3)}
+.btn-ghost:hover{background:var(--paper-2);border-color:var(--ink-2);color:var(--ink)}
+.btn-secondary{background:var(--paper-2);border:1px solid var(--border-med);color:var(--ink-2)}
+.btn-secondary:hover{background:var(--paper-3);color:var(--ink)}
+.btn-primary{background:var(--violet);color:#fff;font-weight:600;flex:1}
+.btn-primary:hover{background:var(--violet-dim)}.btn-primary:active{transform:scale(.98)}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed}
+
+/* PREVIEW */
+/* PREVIEW PANEL — grows to fill all remaining space, scrolls independently */
+.preview-panel{flex:1;min-width:0;background:var(--paper-2);overflow-y:auto;overflow-x:auto;padding:24px;display:flex;flex-direction:column;align-items:center}
+.preview-topbar{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:600px;margin-bottom:14px}
+.preview-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4)}
+.preview-tpl-name{font-family:'DM Mono',monospace;font-size:10px;color:var(--violet)}
+
+/* INVOICE DOCUMENT */
+#invoice-doc{background:#fff;width:100%;max-width:600px;border-radius:var(--r-xl);border:1px solid var(--border);font-family:'DM Sans',sans-serif;overflow:hidden;box-shadow:0 4px 32px rgba(26,26,24,.1),0 1px 4px rgba(26,26,24,.06)}
+/* PDF download temporarily sets overflow:visible — restore after capture */
+
+
+/* EDITORIAL */
+.tpl-editorial .inv-top-bar{height:5px;background:var(--accent-color,#5B3FE4)}
+.tpl-editorial .inv-inner{padding:34px 40px}
+.tpl-editorial .inv-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}
+.tpl-editorial .inv-logo-area{display:flex;align-items:center;gap:11px}
+.tpl-editorial .inv-logo-img{width:40px;height:40px;border-radius:7px;object-fit:contain;background:var(--paper-2)}
+.tpl-editorial .inv-brand{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+.tpl-editorial .inv-brand-sub{font-size:11px;color:var(--ink-4);margin-top:1px}
+.tpl-editorial .inv-title-block{text-align:right}
+.tpl-editorial .inv-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--accent-color,#5B3FE4)}
+.tpl-editorial .inv-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-4);margin-top:2px}
+.tpl-editorial .inv-divider{border:none;border-top:1px solid var(--border);margin:0 0 18px}
+.tpl-editorial .inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.tpl-editorial .inv-party-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.tpl-editorial .inv-party-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.tpl-editorial .inv-party-detail{font-size:11px;color:var(--ink-3);line-height:1.6}
+.tpl-editorial .inv-meta{display:grid;grid-template-columns:repeat(3,1fr);background:var(--paper-2);border-radius:var(--r-lg);overflow:hidden;margin-bottom:20px}
+.tpl-editorial .inv-meta-item{padding:10px 13px}
+.tpl-editorial .inv-meta-item+.inv-meta-item{border-left:1px solid var(--border)}
+.tpl-editorial .inv-meta-key{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:2px}
+.tpl-editorial .inv-meta-val{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--ink)}
+.tpl-editorial .inv-project-band{background:var(--accent-color,#5B3FE4);border-radius:var(--r-lg);padding:11px 14px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px}
+.tpl-editorial .inv-project-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff}
+.tpl-editorial .inv-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tpl-editorial .inv-tag{font-size:10px;font-family:'DM Mono',monospace;background:rgba(255,255,255,.2);color:rgba(255,255,255,.9);padding:2px 7px;border-radius:20px}
+.tpl-editorial .inv-items-table{width:100%;border-collapse:collapse;margin-bottom:14px}
+.tpl-editorial .inv-items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);text-align:left;padding:0 7px 8px;border-bottom:1px solid var(--border)}
+.tpl-editorial .inv-items-table th.r{text-align:right}
+.tpl-editorial .inv-items-table td{padding:8px 7px;border-bottom:1px solid var(--border);font-size:12px;color:var(--ink);vertical-align:top}
+.tpl-editorial .inv-items-table td.r{text-align:right}
+.tpl-editorial .inv-items-table td.mono{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-3)}
+.tpl-editorial .inv-items-table td.name{font-weight:500;font-size:13px}
+.tpl-editorial .inv-items-table td.note-cell{font-size:10px;color:var(--ink-4);font-style:italic;padding-top:0;border-bottom:1px solid var(--border)}
+.tpl-editorial .inv-totals{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-bottom:18px}
+.tpl-editorial .inv-total-row{display:flex;gap:32px;align-items:baseline}
+.tpl-editorial .inv-tlabel{font-size:11px;color:var(--ink-3);min-width:76px;text-align:right}
+.tpl-editorial .inv-tval{font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);min-width:76px;text-align:right}
+.tpl-editorial .inv-grand-line{width:170px;border-top:2px solid var(--ink);margin:4px 0 2px}
+.tpl-editorial .inv-grand .inv-tlabel{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--ink)}
+.tpl-editorial .inv-grand .inv-tval{font-size:16px;font-weight:600;color:var(--accent-color,#5B3FE4)}
+.tpl-editorial .inv-discount-tval{color:var(--green) !important}
+.tpl-editorial .inv-deposit-band{background:var(--gold-bg);border:1px solid #F5C842;border-radius:var(--r);padding:9px 13px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.tpl-editorial .inv-deposit-label{font-size:12px;font-weight:500;color:#7A5000}
+.tpl-editorial .inv-deposit-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:#7A5000}
+.tpl-editorial .inv-notes-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.tpl-editorial .inv-notes-txt{font-size:11px;color:var(--ink-3);line-height:1.7}
+.tpl-editorial .inv-footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.tpl-editorial .inv-footer-brand{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-2);letter-spacing:.02em;font-weight:500}
+.tpl-editorial .inv-footer-brand span{color:var(--accent-color,#5B3FE4)}
+.tpl-editorial .inv-status{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;font-family:'DM Mono',monospace}
+.tpl-editorial .inv-status.unpaid{background:var(--violet-bg);color:var(--violet)}
+.tpl-editorial .inv-status.paid{background:var(--green-bg);color:var(--green)}
+.tpl-editorial .status-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+
+/* DARK STUDIO */
+#invoice-doc.tpl-dark{background:#111110 !important}
+.tpl-dark .inv-top-bar{display:none}
+.tpl-dark .inv-inner{padding:34px 40px;background:#111110}
+.tpl-dark .inv-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}
+.tpl-dark .inv-logo-area{display:flex;align-items:center;gap:11px}
+.tpl-dark .inv-logo-img{width:40px;height:40px;border-radius:7px;object-fit:contain;background:#2a2a28}
+.tpl-dark #inv-logo-fallback{background:#2a2a28 !important}
+.tpl-dark .inv-brand{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#fff !important;letter-spacing:-.3px}
+.tpl-dark .inv-brand-sub{font-size:11px;color:rgba(255,255,255,.4) !important;margin-top:1px}
+.tpl-dark .inv-title-block{text-align:right}
+.tpl-dark .inv-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--accent-color,#5B3FE4) !important}
+.tpl-dark .inv-num{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.3) !important;margin-top:2px}
+.tpl-dark .inv-divider{border:none;border-top:1px solid rgba(255,255,255,.08) !important;margin:0 0 18px}
+.tpl-dark .inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.tpl-dark .inv-party-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3) !important;margin-bottom:4px}
+.tpl-dark .inv-party-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:#fff !important;margin-bottom:2px}
+.tpl-dark .inv-party-detail{font-size:11px;color:rgba(255,255,255,.45) !important;line-height:1.6}
+.tpl-dark .inv-meta{display:grid;grid-template-columns:repeat(3,1fr);background:#1E1E1C !important;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(255,255,255,.07) !important;margin-bottom:20px}
+.tpl-dark .inv-meta-item{padding:10px 13px;background:#1E1E1C !important}
+.tpl-dark .inv-meta-item+.inv-meta-item{border-left:1px solid rgba(255,255,255,.07) !important}
+.tpl-dark .inv-meta-key{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3) !important;margin-bottom:2px}
+.tpl-dark .inv-meta-val{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#fff !important}
+.tpl-dark .inv-project-band{background:var(--accent-color,#5B3FE4) !important;border-radius:var(--r-lg);padding:11px 14px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px}
+.tpl-dark .inv-project-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff !important}
+.tpl-dark .inv-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tpl-dark .inv-tag{font-size:10px;font-family:'DM Mono',monospace;background:rgba(255,255,255,.18) !important;color:rgba(255,255,255,.9) !important;padding:2px 7px;border-radius:20px;border:none !important}
+.tpl-dark .inv-items-table{width:100%;border-collapse:collapse;margin-bottom:14px}
+.tpl-dark .inv-items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35) !important;text-align:left;padding:0 7px 8px;border-bottom:1px solid rgba(255,255,255,.1) !important;background:transparent !important}
+.tpl-dark .inv-items-table th.r{text-align:right}
+.tpl-dark .inv-items-table td{padding:8px 7px;border-bottom:1px solid rgba(255,255,255,.07) !important;font-size:12px;color:#fff !important;vertical-align:top;background:transparent !important}
+.tpl-dark .inv-items-table tr{background:transparent !important}
+.tpl-dark .inv-items-table td.r{text-align:right}
+.tpl-dark .inv-items-table td.mono{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.5) !important}
+.tpl-dark .inv-items-table td.name{font-weight:500;font-size:13px}
+.tpl-dark .inv-items-table td.note-cell{font-size:10px;color:rgba(255,255,255,.3) !important;font-style:italic;padding-top:0}
+.tpl-dark .empty-row td{color:rgba(255,255,255,.2) !important;background:transparent !important}
+.tpl-dark .inv-totals{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-bottom:18px}
+.tpl-dark .inv-total-row{display:flex;gap:32px;align-items:baseline}
+.tpl-dark .inv-tlabel{font-size:11px;color:rgba(255,255,255,.4) !important;min-width:76px;text-align:right}
+.tpl-dark .inv-tval{font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,.85) !important;min-width:76px;text-align:right}
+.tpl-dark .inv-grand-line{width:170px;border-top:1px solid rgba(255,255,255,.15) !important;margin:4px 0 2px}
+.tpl-dark .inv-grand .inv-tlabel{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:#fff !important}
+.tpl-dark .inv-grand .inv-tval{font-size:16px;font-weight:600;color:var(--accent-color,#5B3FE4) !important}
+.tpl-dark .inv-discount-tval{color:#4DC989 !important}
+.tpl-dark .inv-deposit-band{background:rgba(245,166,35,.15) !important;border:1px solid rgba(245,166,35,.3) !important;border-radius:var(--r);padding:9px 13px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.tpl-dark .inv-deposit-label{font-size:12px;font-weight:500;color:#F5A623 !important}
+.tpl-dark .inv-deposit-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:#F5A623 !important}
+.tpl-dark .inv-notes-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3) !important;margin-bottom:4px}
+.tpl-dark .inv-notes-txt{font-size:11px;color:rgba(255,255,255,.45) !important;line-height:1.7}
+.tpl-dark .inv-footer{margin-top:22px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08) !important;display:flex;justify-content:space-between;align-items:center}
+.tpl-dark .inv-footer-brand{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.5) !important;letter-spacing:.02em;font-weight:500}
+.tpl-dark .inv-footer-brand span{color:var(--accent-color,#7B64EA) !important}
+.tpl-dark .inv-status{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;font-family:'DM Mono',monospace}
+.tpl-dark .inv-status.unpaid{background:rgba(91,63,228,.25) !important;color:#9B85F0 !important}
+.tpl-dark .inv-status.paid{background:rgba(26,122,74,.25) !important;color:#4DC989 !important}
+.tpl-dark .status-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+
+/* MINIMAL */
+.tpl-minimal .inv-inner{padding:42px 46px}
+.tpl-minimal .inv-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px}
+.tpl-minimal .inv-logo-area{display:flex;align-items:center;gap:11px}
+.tpl-minimal .inv-logo-img{width:36px;height:36px;border-radius:6px;object-fit:contain}
+.tpl-minimal .inv-brand{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--ink)}
+.tpl-minimal .inv-brand-sub{font-size:11px;color:var(--ink-4);font-family:'DM Mono',monospace;margin-top:1px}
+.tpl-minimal .inv-title-block{text-align:right}
+.tpl-minimal .inv-title{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent-color,#5B3FE4)}
+.tpl-minimal .inv-num{font-family:'DM Mono',monospace;font-size:20px;color:var(--ink);letter-spacing:-.5px;margin-top:3px}
+.tpl-minimal .inv-divider{border:none;border-top:1px solid rgba(26,26,24,.15);margin:0 0 26px}
+.tpl-minimal .inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.tpl-minimal .inv-party-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.tpl-minimal .inv-party-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.tpl-minimal .inv-party-detail{font-size:11px;color:var(--ink-3);line-height:1.7;font-family:'DM Mono',monospace}
+.tpl-minimal .inv-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:26px}
+.tpl-minimal .inv-meta-key{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:3px}
+.tpl-minimal .inv-meta-val{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink)}
+.tpl-minimal .inv-project-band{border-left:3px solid var(--accent-color,#5B3FE4);padding:7px 13px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.tpl-minimal .inv-project-name{font-size:13px;font-weight:500;color:var(--ink)}
+.tpl-minimal .inv-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tpl-minimal .inv-tag{font-size:10px;font-family:'DM Mono',monospace;background:var(--paper-2);color:var(--ink-3);padding:2px 7px;border-radius:3px;border:1px solid var(--border)}
+.tpl-minimal .inv-items-table{width:100%;border-collapse:collapse;margin-bottom:18px}
+.tpl-minimal .inv-items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);text-align:left;padding:0 7px 9px;border-bottom:1px solid rgba(26,26,24,.15)}
+.tpl-minimal .inv-items-table th.r{text-align:right}
+.tpl-minimal .inv-items-table td{padding:9px 7px;border-bottom:1px solid rgba(26,26,24,.06);font-size:12px;color:var(--ink);vertical-align:top}
+.tpl-minimal .inv-items-table td.r{text-align:right}
+.tpl-minimal .inv-items-table td.mono{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-3)}
+.tpl-minimal .inv-items-table td.name{font-weight:500;font-size:13px}
+.tpl-minimal .inv-items-table td.note-cell{font-size:10px;color:var(--ink-4);font-style:italic;padding-top:0}
+.tpl-minimal .inv-totals{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-bottom:26px}
+.tpl-minimal .inv-total-row{display:flex;gap:32px;align-items:baseline}
+.tpl-minimal .inv-tlabel{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-3);min-width:76px;text-align:right}
+.tpl-minimal .inv-tval{font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);min-width:76px;text-align:right}
+.tpl-minimal .inv-grand-line{width:170px;border-top:1px solid rgba(26,26,24,.15);margin:4px 0 2px}
+.tpl-minimal .inv-grand .inv-tlabel{font-family:'DM Mono',monospace;font-weight:500;font-size:11px;color:var(--ink);text-transform:uppercase;letter-spacing:.06em}
+.tpl-minimal .inv-grand .inv-tval{font-size:18px;color:var(--accent-color,#5B3FE4)}
+.tpl-minimal .inv-discount-tval{color:var(--green) !important}
+.tpl-minimal .inv-deposit-band{background:var(--gold-bg);border-radius:var(--r);padding:9px 13px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(245,166,35,.3)}
+.tpl-minimal .inv-deposit-label{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#7A5000;letter-spacing:.04em}
+.tpl-minimal .inv-deposit-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:#7A5000}
+.tpl-minimal .inv-notes-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:4px}
+.tpl-minimal .inv-notes-txt{font-size:11px;color:var(--ink-3);line-height:1.75;font-family:'DM Mono',monospace}
+.tpl-minimal .inv-footer{margin-top:26px;padding-top:12px;border-top:1px solid rgba(26,26,24,.08);display:flex;justify-content:space-between;align-items:center}
+.tpl-minimal .inv-footer-brand{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-2);letter-spacing:.02em;font-weight:500}
+.tpl-minimal .inv-footer-brand span{color:var(--accent-color,#5B3FE4)}
+.tpl-minimal .inv-status{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:3px;font-size:10px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor}
+.tpl-minimal .inv-status.unpaid{color:var(--accent-color,#5B3FE4)}
+.tpl-minimal .inv-status.paid{color:var(--green)}
+.tpl-minimal .status-dot{display:none}
+
+/* ── STUDIO NOIR ── */
+#invoice-doc.tpl-noir{background:#1C1917 !important}
+.tpl-noir .inv-top-bar{display:none}
+.tpl-noir .inv-inner{padding:40px 44px;background:#1C1917}
+
+/* header — asymmetric two col */
+.tpl-noir .inv-header{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;margin-bottom:28px}
+.tpl-noir .inv-logo-area{display:flex;align-items:center;gap:10px}
+.tpl-noir .inv-logo-img{width:38px;height:38px;border-radius:6px;object-fit:contain;background:#2a2826}
+.tpl-noir #inv-logo-fallback{background:#2a2826 !important}
+.tpl-noir .inv-brand{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:#D4C4A8 !important}
+.tpl-noir .inv-brand-sub{font-size:10px;color:rgba(212,196,168,.45) !important;margin-top:2px;font-family:'DM Mono',monospace;letter-spacing:.05em}
+
+/* the big script Invoice word */
+.tpl-noir .inv-title-block{text-align:left;margin-top:6px}
+.tpl-noir .inv-title{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;font-style:italic;letter-spacing:-.5px;line-height:1;color:#D4C4A8 !important;margin-bottom:4px}
+.tpl-noir .inv-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(212,196,168,.45) !important;margin-top:6px}
+
+.tpl-noir .inv-divider{border:none;border-top:1px solid rgba(212,196,168,.12) !important;margin:0 0 22px}
+
+/* two col layout: left=from+items, right=meta box */
+.tpl-noir .inv-layout{display:grid;grid-template-columns:1fr 180px;gap:24px;margin-bottom:0}
+.tpl-noir .inv-col-left{}
+.tpl-noir .inv-col-right{}
+
+/* right sidebar meta box */
+.tpl-noir .inv-meta-box{border:1px solid rgba(212,196,168,.18) !important;border-radius:var(--r-lg);padding:16px;margin-bottom:12px}
+.tpl-noir .inv-meta-key{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,196,168,.4) !important;margin-bottom:3px}
+.tpl-noir .inv-meta-val{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#D4C4A8 !important;line-height:1.4}
+.tpl-noir .inv-meta-item{margin-bottom:10px}
+.tpl-noir .inv-meta-item:last-child{margin-bottom:0}
+
+/* parties */
+.tpl-noir .inv-parties{display:block;margin-bottom:18px}
+.tpl-noir .inv-party-lbl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,196,168,.4) !important;margin-bottom:3px}
+.tpl-noir .inv-party-name{font-size:13px;font-weight:500;color:#D4C4A8 !important;margin-bottom:2px;letter-spacing:.02em}
+.tpl-noir .inv-party-detail{font-size:11px;color:rgba(212,196,168,.5) !important;line-height:1.6;font-family:'DM Mono',monospace}
+
+/* items table */
+.tpl-noir .inv-items-table{width:100%;border-collapse:collapse;margin-bottom:16px}
+.tpl-noir .inv-items-table th{font-family:'DM Mono',monospace;font-size:8px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,196,168,.4) !important;text-align:left;padding:0 8px 8px;border-bottom:1px solid rgba(212,196,168,.15) !important;background:transparent !important}
+.tpl-noir .inv-items-table th.r{text-align:right}
+.tpl-noir .inv-items-table td{padding:9px 8px;border-bottom:1px solid rgba(212,196,168,.07) !important;font-size:12px;color:#D4C4A8 !important;vertical-align:top;background:transparent !important}
+.tpl-noir .inv-items-table tr{background:transparent !important}
+.tpl-noir .inv-items-table td.r{text-align:right}
+.tpl-noir .inv-items-table td.mono{font-family:'DM Mono',monospace;font-size:11px;color:rgba(212,196,168,.55) !important}
+.tpl-noir .inv-items-table td.name{font-weight:500}
+.tpl-noir .inv-items-table td.note-cell{font-size:10px;color:rgba(212,196,168,.35) !important;font-style:italic;padding-top:0}
+.tpl-noir .empty-row td{color:rgba(212,196,168,.25) !important;background:transparent !important}
+
+/* totals — highlighted rows */
+.tpl-noir .inv-totals{display:flex;flex-direction:column;align-items:flex-end;gap:3px;margin-bottom:18px}
+.tpl-noir .inv-total-row{display:flex;gap:32px;align-items:baseline}
+.tpl-noir .inv-tlabel{font-size:11px;color:rgba(212,196,168,.5) !important;min-width:76px;text-align:right;font-family:'DM Mono',monospace}
+.tpl-noir .inv-tval{font-family:'DM Mono',monospace;font-size:12px;color:#D4C4A8 !important;min-width:76px;text-align:right}
+.tpl-noir .inv-grand-line{width:170px;border-top:1px solid rgba(212,196,168,.25) !important;margin:5px 0 2px}
+.tpl-noir .inv-grand .inv-tlabel{font-family:'DM Mono',monospace;font-weight:500;font-size:11px;color:#D4C4A8 !important;text-transform:uppercase;letter-spacing:.08em}
+.tpl-noir .inv-grand .inv-tval{font-size:18px;color:var(--accent-color,#C9A96E) !important}
+.tpl-noir .inv-discount-tval{color:#7EC8A0 !important}
+
+/* project band */
+.tpl-noir .inv-project-band{background:rgba(212,196,168,.08) !important;border:1px solid rgba(212,196,168,.15) !important;border-radius:var(--r);padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.tpl-noir .inv-project-name{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#D4C4A8 !important;letter-spacing:.06em;text-transform:uppercase}
+.tpl-noir .inv-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tpl-noir .inv-tag{font-size:9px;font-family:'DM Mono',monospace;background:rgba(212,196,168,.1) !important;color:rgba(212,196,168,.7) !important;padding:2px 7px;border-radius:3px;border:1px solid rgba(212,196,168,.15) !important;letter-spacing:.04em;text-transform:uppercase}
+
+/* deposit */
+.tpl-noir .inv-deposit-band{background:rgba(201,169,110,.12) !important;border:1px solid rgba(201,169,110,.25) !important;border-radius:var(--r);padding:9px 13px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.tpl-noir .inv-deposit-label{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;color:#C9A96E !important;letter-spacing:.06em;text-transform:uppercase}
+.tpl-noir .inv-deposit-val{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:#C9A96E !important}
+
+/* licensing */
+.tpl-noir .inv-lic-block{background:rgba(212,196,168,.06) !important;border:1px solid rgba(212,196,168,.12) !important}
+.tpl-noir .inv-lic-hd{color:rgba(212,196,168,.4) !important}
+.tpl-noir .inv-lic-type{color:#D4C4A8 !important}
+.tpl-noir .inv-lic-detail{color:rgba(212,196,168,.5) !important}
+
+/* notes */
+.tpl-noir .inv-notes-lbl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,196,168,.4) !important;margin-bottom:4px}
+.tpl-noir .inv-notes-txt{font-size:11px;color:rgba(212,196,168,.5) !important;line-height:1.7;font-family:'DM Mono',monospace}
+
+/* footer */
+.tpl-noir .inv-footer{margin-top:22px;padding-top:12px;border-top:1px solid rgba(212,196,168,.1) !important;display:flex;justify-content:space-between;align-items:center}
+.tpl-noir .inv-footer-brand{font-family:'DM Mono',monospace;font-size:10px;color:rgba(212,196,168,.3) !important;letter-spacing:.04em}
+.tpl-noir .inv-footer-brand span{color:rgba(212,196,168,.55) !important}
+.tpl-noir .inv-status{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:3px;font-size:9px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(212,196,168,.2) !important}
+.tpl-noir .inv-status.unpaid{color:rgba(212,196,168,.6) !important}
+.tpl-noir .inv-status.paid{color:#7EC8A0 !important;border-color:rgba(126,200,160,.3) !important}
+.tpl-noir .status-dot{width:4px;height:4px;border-radius:50%;background:currentColor}
+
+/* ══════════════════════════════════
+   FILM LENS — Dark dramatic photography template
+   Inspired by: Black Elegant Photography Invoice
+   Dark charcoal body, amber/gold table headers, stark white typography
+══════════════════════════════════ */
+#invoice-doc.tpl-lens{background:#2B2B28 !important}
+.tpl-lens .inv-top-bar{display:none}
+
+/* cover photo header */
+.tpl-lens .inv-cover{width:100%;height:160px;object-fit:cover;display:block;background:#1a1a18}
+.tpl-lens .inv-cover-placeholder{width:100%;height:100px;background:linear-gradient(135deg,#3a3a35,#252522);display:flex;align-items:center;justify-content:center}
+.tpl-lens .inv-cover-placeholder span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+
+.tpl-lens .inv-inner{padding:28px 36px 36px;background:#2B2B28}
+.tpl-lens .inv-header{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;margin-bottom:22px}
+.tpl-lens .inv-logo-area{display:flex;align-items:center;gap:10px}
+.tpl-lens .inv-logo-img{width:38px;height:38px;border-radius:6px;object-fit:contain;background:#3a3a35}
+.tpl-lens #inv-logo-fallback{background:#3a3a35 !important}
+.tpl-lens .inv-brand{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff !important;letter-spacing:-.5px;text-transform:uppercase}
+.tpl-lens .inv-brand-sub{font-size:10px;color:rgba(255,255,255,.4) !important;margin-top:2px;font-family:'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.tpl-lens .inv-title-block{text-align:right}
+.tpl-lens .inv-title{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35) !important;margin-bottom:4px}
+.tpl-lens .inv-num{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:#fff !important;letter-spacing:-.2px}
+
+.tpl-lens .inv-divider{border:none;border-top:1px solid rgba(255,255,255,.08) !important;margin:0 0 18px}
+
+.tpl-lens .inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+.tpl-lens .inv-party-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-color,#C9A96E) !important;margin-bottom:4px}
+.tpl-lens .inv-party-name{font-size:14px;font-weight:600;color:#fff !important;margin-bottom:2px}
+.tpl-lens .inv-party-detail{font-size:11px;color:rgba(255,255,255,.45) !important;line-height:1.6;font-family:'DM Mono',monospace}
+
+.tpl-lens .inv-meta{display:grid;grid-template-columns:repeat(3,1fr);background:#222220 !important;border-radius:var(--r);overflow:hidden;margin-bottom:20px}
+.tpl-lens .inv-meta-item{padding:10px 13px;background:#222220 !important}
+.tpl-lens .inv-meta-item+.inv-meta-item{border-left:1px solid rgba(255,255,255,.06) !important}
+.tpl-lens .inv-meta-key{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-color,#C9A96E) !important;margin-bottom:2px}
+.tpl-lens .inv-meta-val{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#fff !important}
+
+.tpl-lens .inv-project-band{background:var(--accent-color,#C9A96E) !important;border-radius:var(--r);padding:10px 14px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.tpl-lens .inv-project-name{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#1A1A18 !important;letter-spacing:.06em;text-transform:uppercase}
+.tpl-lens .inv-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tpl-lens .inv-tag{font-size:9px;font-family:'DM Mono',monospace;background:rgba(26,26,24,.2) !important;color:rgba(26,26,24,.8) !important;padding:2px 7px;border-radius:2px;letter-spacing:.04em;text-transform:uppercase;border:none !important}
+
+/* table — amber header row like the Canva reference */
+.tpl-lens .inv-items-table{width:100%;border-collapse:collapse;margin-bottom:16px}
+.tpl-lens .inv-items-table thead tr{background:var(--accent-color,#C9A96E) !important}
+.tpl-lens .inv-items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#1A1A18 !important;text-align:left;padding:9px 10px;border:none !important;background:transparent !important}
+.tpl-lens .inv-items-table th.r{text-align:right}
+.tpl-lens .inv-items-table td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.06) !important;font-size:12px;color:#fff !important;vertical-align:top;background:transparent !important}
+.tpl-lens .inv-items-table tr{background:transparent !important}
+.tpl-lens .inv-items-table tr:nth-child(even) td{background:rgba(255,255,255,.03) !important}
+.tpl-lens .inv-items-table td.r{text-align:right}
+.tpl-lens .inv-items-table td.mono{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.55) !important}
+.tpl-lens .inv-items-table td.name{font-weight:500}
+.tpl-lens .inv-items-table td.note-cell{font-size:10px;color:rgba(255,255,255,.3) !important;font-style:italic;padding-top:0}
+.tpl-lens .empty-row td{color:rgba(255,255,255,.2) !important;background:transparent !important}
+
+.tpl-lens .inv-totals{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-bottom:18px}
+.tpl-lens .inv-total-row{display:flex;gap:32px;align-items:baseline}
+.tpl-lens .inv-tlabel{font-size:11px;color:rgba(255,255,255,.45) !important;min-width:76px;text-align:right;font-family:'DM Mono',monospace}
+.tpl-lens .inv-tval{font-family:'DM Mono',monospace;font-size:12px;color:#fff !important;min-width:76px;text-align:right}
+.tpl-lens .inv-grand-line{width:170px;border-top:1px solid rgba(255,255,255,.15) !important;margin:4px 0 2px}
+.tpl-lens .inv-grand .inv-tlabel{font-family:'DM Mono',monospace;font-weight:500;font-size:11px;color:var(--accent-color,#C9A96E) !important;text-transform:uppercase;letter-spacing:.08em}
+.tpl-lens .inv-grand .inv-tval{font-size:18px;color:var(--accent-color,#C9A96E) !important}
+.tpl-lens .inv-discount-tval{color:#7EC8A0 !important}
+
+.tpl-lens .inv-deposit-band{background:rgba(201,169,110,.15) !important;border:1px solid rgba(201,169,110,.3) !important;border-radius:var(--r);padding:9px 13px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
+.tpl-lens .inv-deposit-label{font-size:11px;font-weight:500;color:var(--accent-color,#C9A96E) !important;font-family:'DM Mono',monospace;letter-spacing:.04em}
+.tpl-lens .inv-deposit-val{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--accent-color,#C9A96E) !important}
+
+.tpl-lens .inv-lic-block{background:#222220 !important;border:1px solid rgba(255,255,255,.08) !important}
+.tpl-lens .inv-lic-hd{color:var(--accent-color,#C9A96E) !important}
+.tpl-lens .inv-lic-type{color:#fff !important}
+.tpl-lens .inv-lic-detail{color:rgba(255,255,255,.45) !important}
+
+.tpl-lens .inv-notes-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-color,#C9A96E) !important;margin-bottom:4px}
+.tpl-lens .inv-notes-txt{font-size:11px;color:rgba(255,255,255,.45) !important;line-height:1.7;font-family:'DM Mono',monospace}
+
+/* footer bar — full width dark strip */
+.tpl-lens .inv-footer{margin-top:20px;padding:12px 0 0;border-top:1px solid rgba(255,255,255,.08) !important;display:flex;justify-content:space-between;align-items:center}
+.tpl-lens .inv-footer-brand{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.3) !important;letter-spacing:.04em}
+.tpl-lens .inv-footer-brand span{color:var(--accent-color,#C9A96E) !important}
+.tpl-lens .inv-status{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:2px;font-size:9px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15) !important}
+.tpl-lens .inv-status.unpaid{color:rgba(255,255,255,.5) !important}
+.tpl-lens .inv-status.paid{color:#7EC8A0 !important;border-color:rgba(126,200,160,.3) !important}
+.tpl-lens .status-dot{width:4px;height:4px;border-radius:50%;background:currentColor}
+
+/* ══════════════════════════════════
+   PHOTO STUDIO — Cream split-panel photography template
+   Inspired by: Cream Minimalist + Grey Black Studio
+   Left side panel image, right side cream/warm white content
+══════════════════════════════════ */
+#invoice-doc.tpl-studio{background:#F5F0E8 !important}
+.tpl-studio .inv-top-bar{display:none}
+
+/* split layout wrapper */
+.tpl-studio .inv-split{display:grid;grid-template-columns:180px 1fr;min-height:500px}
+.tpl-studio .inv-split-left{background:#1C1C1A;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.tpl-studio .inv-split-cover{width:100%;flex:1;object-fit:cover;display:block;min-height:200px}
+.tpl-studio .inv-split-cover-placeholder{flex:1;background:linear-gradient(180deg,#2a2a26,#1C1C1A);display:flex;align-items:center;justify-content:center;min-height:200px}
+.tpl-studio .inv-split-cover-placeholder span{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);text-align:center;padding:0 12px;line-height:1.8}
+.tpl-studio .inv-split-left-footer{padding:16px 14px;background:#1C1C1A}
+.tpl-studio .inv-split-studio-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#fff;letter-spacing:-.2px;margin-bottom:2px}
+.tpl-studio .inv-split-studio-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+
+.tpl-studio .inv-split-right{padding:28px 28px 24px;background:#F5F0E8;display:flex;flex-direction:column}
+.tpl-studio .inv-inner{padding:0}
+
+/* hide default header/divider/parties — replaced by split layout */
+.tpl-studio .inv-header{display:none}
+.tpl-studio .inv-divider{display:none}
+.tpl-studio .inv-parties{display:none}
+
+/* split right header */
+.tpl-studio .inv-split-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.tpl-studio .inv-split-title{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#1C1C1A;letter-spacing:-.5px}
+.tpl-studio .inv-split-num{font-family:'DM Mono',monospace;font-size:10px;color:rgba(28,28,26,.45);margin-top:3px;letter-spacing:.04em}
+.tpl-studio .inv-split-to{text-align:right}
+.tpl-studio .inv-split-to-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(28,28,26,.4);margin-bottom:3px}
+.tpl-studio .inv-split-to-name{font-size:13px;font-weight:600;color:#1C1C1A}
+.tpl-studio .inv-split-to-detail{font-size:11px;color:rgba(28,28,26,.5);font-family:'DM Mono',monospace}
+
+/* meta row */
+.tpl-studio .inv-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#EDE8DE !important;border-radius:var(--r);overflow:hidden;margin-bottom:18px}
+.tpl-studio .inv-meta-item{padding:9px 12px;background:#EDE8DE !important}
+.tpl-studio .inv-meta-item+.inv-meta-item{border-left:1px solid rgba(28,28,26,.1) !important}
+.tpl-studio .inv-meta-key{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(28,28,26,.4) !important;margin-bottom:2px}
+.tpl-studio .inv-meta-val{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#1C1C1A !important}
+
+.tpl-studio .inv-project-band{background:var(--accent-color,#5B3FE4) !important;border-radius:var(--r);padding:9px 12px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.tpl-studio .inv-project-name{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;color:#fff !important;letter-spacing:.06em;text-transform:uppercase}
+.tpl-studio .inv-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tpl-studio .inv-tag{font-size:9px;font-family:'DM Mono',monospace;background:rgba(255,255,255,.2) !important;color:rgba(255,255,255,.9) !important;padding:2px 7px;border-radius:2px;border:none !important;text-transform:uppercase;letter-spacing:.04em}
+
+/* table */
+.tpl-studio .inv-items-table{width:100%;border-collapse:collapse;margin-bottom:14px}
+.tpl-studio .inv-items-table th{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(28,28,26,.45) !important;text-align:left;padding:0 8px 8px;border-bottom:1.5px solid rgba(28,28,26,.15) !important;background:transparent !important}
+.tpl-studio .inv-items-table th.r{text-align:right}
+.tpl-studio .inv-items-table td{padding:8px 8px;border-bottom:1px solid rgba(28,28,26,.08) !important;font-size:12px;color:#1C1C1A !important;vertical-align:top;background:transparent !important}
+.tpl-studio .inv-items-table tr{background:transparent !important}
+.tpl-studio .inv-items-table td.r{text-align:right}
+.tpl-studio .inv-items-table td.mono{font-family:'DM Mono',monospace;font-size:11px;color:rgba(28,28,26,.5) !important}
+.tpl-studio .inv-items-table td.name{font-weight:500}
+.tpl-studio .inv-items-table td.note-cell{font-size:10px;color:rgba(28,28,26,.4) !important;font-style:italic;padding-top:0}
+.tpl-studio .empty-row td{color:rgba(28,28,26,.3) !important;background:transparent !important}
+
+.tpl-studio .inv-totals{display:flex;flex-direction:column;align-items:flex-end;gap:3px;margin-bottom:16px}
+.tpl-studio .inv-total-row{display:flex;gap:32px;align-items:baseline}
+.tpl-studio .inv-tlabel{font-size:11px;color:rgba(28,28,26,.45) !important;min-width:76px;text-align:right;font-family:'DM Mono',monospace}
+.tpl-studio .inv-tval{font-family:'DM Mono',monospace;font-size:12px;color:#1C1C1A !important;min-width:76px;text-align:right}
+.tpl-studio .inv-grand-line{width:170px;border-top:1.5px solid rgba(28,28,26,.2) !important;margin:4px 0 2px}
+.tpl-studio .inv-grand .inv-tlabel{font-family:'DM Mono',monospace;font-weight:500;font-size:12px;color:#1C1C1A !important;text-transform:uppercase;letter-spacing:.06em}
+.tpl-studio .inv-grand .inv-tval{font-size:18px;color:var(--accent-color,#5B3FE4) !important;font-weight:600}
+.tpl-studio .inv-discount-tval{color:var(--green) !important}
+
+.tpl-studio .inv-deposit-band{background:var(--gold-bg) !important;border:1px solid rgba(245,166,35,.3) !important;border-radius:var(--r);padding:8px 12px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.tpl-studio .inv-deposit-label{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;color:#7A5000 !important;letter-spacing:.04em}
+.tpl-studio .inv-deposit-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:#7A5000 !important}
+
+.tpl-studio .inv-lic-block{background:#EDE8DE !important;border:none !important;border-left:3px solid var(--accent-color,#5B3FE4) !important;border-radius:0 var(--r) var(--r) 0 !important}
+.tpl-studio .inv-lic-hd{color:rgba(28,28,26,.4) !important}
+.tpl-studio .inv-lic-type{color:#1C1C1A !important}
+.tpl-studio .inv-lic-detail{color:rgba(28,28,26,.55) !important}
+
+.tpl-studio .inv-notes-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(28,28,26,.4) !important;margin-bottom:4px}
+.tpl-studio .inv-notes-txt{font-size:11px;color:rgba(28,28,26,.55) !important;line-height:1.7;font-family:'DM Mono',monospace}
+
+.tpl-studio .inv-footer{margin-top:16px;padding-top:12px;border-top:1px solid rgba(28,28,26,.1) !important;display:flex;justify-content:space-between;align-items:center}
+.tpl-studio .inv-footer-brand{font-family:'DM Mono',monospace;font-size:10px;color:rgba(28,28,26,.35) !important;letter-spacing:.03em;font-weight:500}
+.tpl-studio .inv-footer-brand span{color:var(--accent-color,#5B3FE4) !important}
+.tpl-studio .inv-status{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:3px;font-size:9px;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor}
+.tpl-studio .inv-status.unpaid{color:var(--accent-color,#5B3FE4) !important}
+.tpl-studio .inv-status.paid{color:var(--green) !important}
+.tpl-studio .status-dot{display:none}
+
+
+/* payment details row at bottom */
+.tpl-noir .inv-payment-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-top:14px;border-top:1px solid rgba(212,196,168,.1) !important;margin-top:8px}
+.tpl-noir .inv-payment-item .inv-meta-key{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(212,196,168,.35) !important;margin-bottom:3px}
+.tpl-noir .inv-payment-item .inv-meta-val{font-family:'DM Mono',monospace;font-size:10px;color:#D4C4A8 !important}
+
+
+.empty-row td{text-align:center;padding:18px;color:var(--ink-4);font-size:12px;font-style:italic}
+.tpl-dark .empty-row td{color:rgba(255,255,255,.2) !important;background:transparent !important}
+
+.toast{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--r);font-size:13px;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:999;font-family:'DM Mono',monospace}
+.toast.show{opacity:1;transform:translateY(0)}.toast.success{background:var(--green)}
+/* ── UNLOCK SYSTEM ── */
+.unlock-overlay{position:fixed;inset:0;background:rgba(26,26,24,.7);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px}
+.unlock-modal{background:var(--paper);border-radius:var(--r-xl);padding:32px;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(26,26,24,.3);text-align:center}
+.unlock-icon{width:56px;height:56px;background:var(--violet-bg);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px}
+.unlock-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:-.3px}
+.unlock-desc{font-size:13px;color:var(--ink-3);line-height:1.7;margin-bottom:20px}
+.unlock-price{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--violet);margin-bottom:4px}
+.unlock-price-sub{font-size:11px;color:var(--ink-4);font-family:'DM Mono',monospace;letter-spacing:.04em;margin-bottom:20px}
+.unlock-features{background:var(--paper-2);border-radius:var(--r-lg);padding:12px 16px;margin-bottom:20px;text-align:left}
+.unlock-feature{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--ink-2);padding:3px 0}
+.unlock-feature-dot{width:5px;height:5px;border-radius:50%;background:var(--violet);flex-shrink:0}
+.unlock-btn{width:100%;padding:13px;background:var(--violet);color:#fff;border:none;border-radius:var(--r-lg);font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .18s;margin-bottom:10px}
+.unlock-btn:hover{background:var(--violet-dim)}
+.unlock-btn.gold{background:linear-gradient(135deg,#C9A96E,#E8C97A)}
+.unlock-btn.gold:hover{background:linear-gradient(135deg,#B8935A,#D4B566)}
+.unlock-code-row{display:flex;gap:8px;margin-bottom:10px}
+.unlock-code-input{flex:1;padding:9px 12px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--r);font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);outline:none;transition:border-color .15s}
+.unlock-code-input:focus{border-color:var(--violet);background:#fff}
+.unlock-code-btn{padding:9px 14px;background:var(--ink);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;transition:background .15s}
+.unlock-code-btn:hover{background:var(--ink-2)}
+.unlock-dismiss{background:none;border:none;font-size:12px;color:var(--ink-4);cursor:pointer;padding:4px;transition:color .15s}
+.unlock-dismiss:hover{color:var(--ink)}
+.unlock-success-banner{background:var(--green-bg);border:1px solid #9FE1CB;border-radius:var(--r-lg);padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--green);font-weight:500;margin-bottom:8px}
+
+/* locked template overlay on preview */
+.tpl-locked-wrap{position:relative}
+.tpl-lock-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(26,26,24,.85);backdrop-filter:blur(8px);border-radius:var(--r-lg);padding:20px 24px;text-align:center;z-index:10;pointer-events:none}
+.tpl-lock-icon{font-size:28px;margin-bottom:6px}
+.tpl-lock-label{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.tpl-lock-sub{font-size:11px;color:rgba(255,255,255,.5);font-family:'DM Mono',monospace}
+
+/* unlocked badge in header */
+.unlocked-badge{background:var(--gold-bg);border:1px solid var(--gold);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:500;color:#7A5000;font-family:'DM Mono',monospace;letter-spacing:.03em;display:none}
+.unlocked-badge.show{display:inline-block}
+
+/* premium star on noir button */
+.tpl-btn .star{font-size:9px;opacity:.7}
+
+
+@media print{
+  .app-header,.form-panel,.preview-topbar,.mobile-tabs{display:none !important}
+  body{height:auto;overflow:visible}
+  .app-body{display:block;height:auto;overflow:visible}
+  .preview-panel{padding:0;background:#fff;overflow:visible;height:auto}
+  #invoice-doc{box-shadow:none;border:none;border-radius:0;max-width:100%}
+}
+
+/* ══════════════════════════════════
+   GALLERY TRIGGER BUTTON
+══════════════════════════════════ */
+.gallery-trigger-btn{
+  display:flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:7px;padding:7px 13px;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;
+  color:rgba(255,255,255,.85);cursor:pointer;
+  transition:all .15s;white-space:nowrap;
+}
+.gallery-trigger-btn:hover{background:rgba(255,255,255,.14);color:#fff}
+.gallery-trigger-dot{width:7px;height:7px;border-radius:50%;background:var(--violet);flex-shrink:0}
+.gallery-trigger-arrow{font-size:10px;opacity:.5;margin-left:2px}
+
+/* ══════════════════════════════════
+   SLIDE-IN GALLERY PANEL
+══════════════════════════════════ */
+.gallery-backdrop{
+  position:fixed;inset:0;background:rgba(26,26,24,.45);
+  backdrop-filter:blur(2px);z-index:300;
+  opacity:0;pointer-events:none;transition:opacity .22s;
+}
+.gallery-backdrop.open{opacity:1;pointer-events:all}
+
+.gallery-panel{
+  position:fixed;top:56px;left:0;bottom:0;
+  width:340px;background:var(--paper);
+  border-right:1px solid var(--border);
+  z-index:301;
+  transform:translateX(-100%);
+  transition:transform .25s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;
+  box-shadow:4px 0 24px rgba(26,26,24,.12);
+}
+.gallery-panel.open{transform:translateX(0)}
+
+/* panel header */
+.gp-header{
+  padding:16px 18px 12px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+}
+.gp-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.2px}
+.gp-close{
+  width:28px;height:28px;border-radius:6px;
+  background:var(--paper-2);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--ink-3);transition:all .15s;
+}
+.gp-close:hover{background:var(--paper-3);color:var(--ink)}
+
+/* tabs */
+.gp-tabs{
+  display:flex;gap:0;
+  border-bottom:1px solid var(--border);
+  overflow-x:auto;flex-shrink:0;
+  scrollbar-width:none;
+}
+.gp-tabs::-webkit-scrollbar{display:none}
+.gp-tab{
+  padding:9px 13px;font-size:11px;font-weight:500;
+  color:var(--ink-3);cursor:pointer;white-space:nowrap;
+  border-bottom:2px solid transparent;transition:all .15s;
+  flex-shrink:0;
+}
+.gp-tab:hover{color:var(--ink)}
+.gp-tab.active{color:var(--violet);border-bottom-color:var(--violet)}
+
+/* scrollable grid area */
+.gp-scroll{flex:1;overflow-y:auto;padding:14px}
+
+/* template grid */
+.gp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* individual template card */
+.tpl-card{
+  border-radius:10px;overflow:hidden;cursor:pointer;
+  border:1.5px solid var(--border);
+  transition:all .18s;position:relative;
+  background:var(--paper);
+}
+.tpl-card:hover{border-color:var(--violet);box-shadow:0 2px 12px rgba(91,63,228,.12)}
+.tpl-card.active-tpl{border-color:var(--violet);border-width:2px;box-shadow:0 2px 16px rgba(91,63,228,.18)}
+.tpl-card.active-tpl::after{
+  content:'✓';position:absolute;top:6px;right:6px;
+  width:18px;height:18px;background:var(--violet);
+  border-radius:50%;font-size:9px;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;
+}
+
+/* thumbnail art area */
+.tpl-art{height:88px;position:relative;overflow:hidden}
+
+/* lock overlay on premium cards */
+.tpl-lock-overlay{
+  position:absolute;inset:0;
+  background:rgba(26,26,24,.18);
+  display:flex;align-items:flex-start;justify-content:flex-end;
+  padding:6px;
+}
+.tpl-price-badge{
+  background:rgba(26,26,24,.82);
+  border-radius:4px;padding:2px 7px;
+  font-family:'DM Mono',monospace;font-size:9px;
+  font-weight:500;color:var(--gold);
+  letter-spacing:.04em;
+  display:flex;align-items:center;gap:3px;
+}
+
+/* card label */
+.tpl-card-label{
+  padding:7px 9px;
+  border-top:1px solid var(--border);
+  background:var(--paper);
+}
+.tcl-name{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:1px}
+.tcl-sub{font-size:10px;color:var(--ink-4);font-family:'DM Mono',monospace}
+.tcl-sub.premium{color:var(--gold)}
+
+/* panel footer */
+.gp-footer{
+  padding:12px 14px;border-top:1px solid var(--border);
+  flex-shrink:0;background:var(--paper-2);
+}
+.gp-use-btn{
+  width:100%;padding:11px;background:var(--violet);color:#fff;
+  border:none;border-radius:var(--r-lg);
+  font-family:'Syne',sans-serif;font-size:14px;font-weight:700;
+  cursor:pointer;transition:background .15s;
+}
+.gp-use-btn:hover{background:var(--violet-dim)}
+.gp-use-btn.locked{background:var(--gold);color:var(--ink)}
+.gp-use-btn.locked:hover{background:#B8935A}
+.gp-footer-hint{
+  text-align:center;margin-top:6px;
+  font-size:11px;color:var(--ink-4);
+  font-family:'DM Mono',monospace;letter-spacing:.02em;
+}
+
+/* preview mode indicator — shown over invoice when gallery open on locked tpl */
+.preview-mode-bar{
+  display:none;
+  background:rgba(201,169,110,.15);
+  border:1px solid rgba(201,169,110,.3);
+  border-radius:var(--r);
+  padding:7px 13px;
+  margin-bottom:10px;
+  font-size:11px;color:#7A5000;
+  font-family:'DM Mono',monospace;
+  text-align:center;letter-spacing:.03em;
+  width:100%;max-width:600px;
+}
+.preview-mode-bar.show{display:block}
+
+/* mobile */
+@media(max-width:860px){
+  .gallery-panel{width:100%;top:56px}
+}
+
+@media(max-width:760px){
+  /* app-body becomes a full-height flex column.
+     Tabs are the first child (flex-shrink:0), panels fill the rest. */
+  .app-body{flex-direction:column;height:calc(100vh - 56px);overflow:hidden}
+  .mobile-tabs{display:flex;flex-shrink:0}
+  /* form panel — padding-bottom via inner spacing, not panel padding,
+     so it isn't clipped by overflow:hidden on app-body */
+  .form-panel{width:100%;flex:1;min-height:0;border-right:none;
+    padding:14px 14px 0;overflow-y:scroll;overflow-x:hidden;
+    -webkit-overflow-scrolling:touch}
+  /* extra breathing room at the bottom of the form content */
+  .form-panel > .section:last-of-type{margin-bottom:40px}
+  /* preview panel — scroll both axes, iOS fix */
+  .preview-panel{flex:1;min-height:0;overflow-y:scroll;overflow-x:auto;
+    padding:14px;align-items:flex-start;
+    -webkit-overflow-scrolling:touch}
+  /* invoice doc fills panel width so it doesn't collapse */
+  #invoice-doc{min-width:320px;width:100%;max-width:100%}
+  .preview-panel.hidden-mobile,.form-panel.hidden-mobile{display:none !important}
+  .tpl-label{display:none}
+}
+
+/* ── MOBILE TEMPLATE OPTIMISATION ──────────────────────────────────────────
+   Targets screens ≤ 500px only. Fixes genuinely broken layouts:
+   - excess padding squeezing content below ~280px usable width
+   - fixed-width columns (noir 180px sidebar, studio 180px panel)
+   - 3-col meta grid cramped to ~83px per cell
+   - 2-col parties grid too narrow for address text
+   - oversized title fonts (noir 52px)
+   - studio split converts to stacked top-bar layout
+   Desktop and tablet completely unaffected.
+───────────────────────────────────────────────────────────────────────────*/
+@media(max-width:500px){
+
+  /* ── SHARED: tighten inner padding on all templates ── */
+  .tpl-editorial .inv-inner,
+  .tpl-dark .inv-inner,
+  .tpl-lens .inv-inner{padding:20px 18px !important}
+
+  .tpl-minimal .inv-inner{padding:22px 18px !important}
+  .tpl-noir .inv-inner{padding:20px 18px !important}
+
+  /* ── SHARED: inv-header — stack logo above title ── */
+  .tpl-editorial .inv-header,
+  .tpl-dark .inv-header,
+  .tpl-minimal .inv-header{
+    flex-direction:column !important;
+    gap:10px !important;
+  }
+  .tpl-editorial .inv-title-block,
+  .tpl-dark .inv-title-block,
+  .tpl-minimal .inv-title-block{text-align:left !important}
+
+  /* ── SHARED: inv-parties — stack FROM/TO vertically ── */
+  .tpl-editorial .inv-parties,
+  .tpl-dark .inv-parties,
+  .tpl-minimal .inv-parties,
+  .tpl-lens .inv-parties{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+
+  /* ── SHARED: inv-meta 3-col → 2-col ── */
+  .tpl-editorial .inv-meta,
+  .tpl-dark .inv-meta,
+  .tpl-minimal .inv-meta,
+  .tpl-lens .inv-meta,
+  .tpl-studio .inv-meta{
+    grid-template-columns:1fr 1fr !important;
+  }
+  /* third meta item spans full width */
+  .tpl-editorial .inv-meta-item:nth-child(3),
+  .tpl-dark .inv-meta-item:nth-child(3),
+  .tpl-minimal .inv-meta-item:nth-child(3),
+  .tpl-lens .inv-meta-item:nth-child(3),
+  .tpl-studio .inv-meta-item:nth-child(3){
+    grid-column:1 / -1 !important;
+    border-left:none !important;
+    border-top:1px solid rgba(128,128,128,.1) !important;
+  }
+
+  /* ── EDITORIAL title ── */
+  .tpl-editorial .inv-title{font-size:22px !important}
+
+  /* ── DARK title ── */
+  .tpl-dark .inv-title{font-size:22px !important}
+
+  /* ── MINIMAL: reduce meta gap ── */
+  .tpl-minimal .inv-meta{gap:0 !important}
+
+  /* ── STUDIO NOIR: collapse sidebar into stacked layout ── */
+  .tpl-noir .inv-layout{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+  .tpl-noir .inv-col-right{order:-1 !important}
+  .tpl-noir .inv-title{font-size:34px !important}
+  .tpl-noir .inv-meta-box{width:100% !important}
+  .tpl-noir .inv-payment-row{
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+  }
+
+  /* ── PHOTO STUDIO: split → stacked top bar ── */
+  .tpl-studio .inv-split{
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto 1fr !important;
+    min-height:unset !important;
+  }
+  .tpl-studio .inv-split-left{
+    flex-direction:row !important;
+    align-items:center !important;
+    padding:12px 16px !important;
+    min-height:unset !important;
+    overflow:visible !important;
+  }
+  .tpl-studio .inv-split-cover,
+  .tpl-studio .inv-split-cover-placeholder{display:none !important}
+  .tpl-studio .inv-split-left-footer{
+    padding:0 0 0 12px !important;
+    background:transparent !important;
+    flex:1 !important;
+  }
+  .tpl-studio .inv-split-studio-name{font-size:13px !important}
+  .tpl-studio .inv-split-right{padding:16px 16px 18px !important}
+  .tpl-studio .inv-split-header{
+    flex-direction:column !important;
+    gap:10px !important;
+  }
+  .tpl-studio .inv-split-to{text-align:left !important}
+  .tpl-studio .inv-split-title{font-size:20px !important}
+
+  /* ── FILM LENS: header grid → single col, brand name ── */
+  .tpl-lens .inv-header{
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+  }
+  .tpl-lens .inv-title-block{text-align:left !important}
+  .tpl-lens .inv-brand{font-size:16px !important}
+
+  /* ── SHARED: footer — stack on very small screens ── */
+  .tpl-editorial .inv-footer,
+  .tpl-dark .inv-footer,
+  .tpl-minimal .inv-footer,
+  .tpl-noir .inv-footer,
+  .tpl-lens .inv-footer,
+  .tpl-studio .inv-footer
+
+/* ── QUOTE / INVOICE MODE TOGGLE ── */
+.mode-toggle{
+  position:relative;display:flex;align-items:center;
+  background:var(--paper-2);border:1px solid var(--border);
+  border-radius:20px;padding:2px;cursor:pointer;
+  user-select:none;flex-shrink:0;
+}
+.mode-opt{
+  position:relative;z-index:1;padding:3px 10px;
+  font-family:'DM Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:.04em;color:var(--ink-4);
+  border-radius:16px;transition:color .2s;white-space:nowrap;
+}
+.mode-opt.active{color:#fff}
+.mode-pill{
+  position:absolute;top:2px;left:2px;
+  height:calc(100% - 4px);
+  width:0;                               /* invisible until applyDocMode runs */
+  background:var(--violet);border-radius:16px;
+  transition:transform .22s cubic-bezier(.4,0,.2,1), width .22s;
+  pointer-events:none;
+}
+.doc-mode-quote .mode-pill{background:var(--gold,#C9A96E)}
+.quote-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:#FBF6EE;border:1px solid rgba(201,169,110,.35);
+  border-radius:4px;padding:3px 10px;
+  font-family:'DM Mono',monospace;font-size:10px;
+  font-weight:500;color:#7A5000;letter-spacing:.04em;
+}
+
+/* ── UNLOCK SYSTEM ── */
+.premium-lock{position:relative;display:inline-block}
+.lock-icon{font-size:10px;margin-left:4px;opacity:.7}
+
+/* Premium banner shown on noir template */
+.unlock-banner{
+  background:linear-gradient(135deg,#1C1917 0%,#2C2420 100%);
+  border:1px solid rgba(201,169,110,.3);
+  border-radius:var(--r-lg);
+  padding:16px 18px;
+  margin-bottom:16px;
+  display:none;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.unlock-banner.visible{display:flex}
+.ub-left{display:flex;align-items:center;gap:10px}
+.ub-icon{width:34px;height:34px;background:rgba(201,169,110,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ub-text{}
+.ub-title{font-size:13px;font-weight:500;color:#D4C4A8;margin-bottom:2px}
+.ub-sub{font-size:11px;color:rgba(212,196,168,.5);font-family:'DM Mono',monospace}
+.ub-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn-unlock{background:linear-gradient(135deg,#C9A96E,#B8924A);color:#1C1917;border:none;border-radius:var(--r);padding:8px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.btn-unlock:hover{filter:brightness(1.1);transform:scale(1.02)}
+.btn-enter-code{background:none;border:1px solid rgba(201,169,110,.3);color:rgba(212,196,168,.7);border-radius:var(--r);padding:8px 12px;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.btn-enter-code:hover{border-color:rgba(201,169,110,.6);color:#D4C4A8}
+
+/* Branding unlock bar in form */
+.branding-lock-bar{
+  background:var(--violet-bg);
+  border:1px solid var(--violet-bg2);
+  border-radius:var(--r);
+  padding:10px 13px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:8px;
+}
+.blb-text{font-size:12px;color:var(--ink-2);flex:1}
+.blb-text span{color:var(--violet);font-weight:500}
+.btn-unlock-branding{background:var(--violet);color:#fff;border:none;border-radius:var(--r);padding:6px 12px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.btn-unlock-branding:hover{background:var(--violet-dim)}
+
+/* Modal overlay */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(26,26,24,.7);
+  backdrop-filter:blur(4px);
+  z-index:1000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.modal-overlay.open{display:flex}
+.modal-box{
+  background:var(--paper);
+  border-radius:var(--r-xl);
+  padding:28px;
+  width:100%;
+  max-width:420px;
+  box-shadow:0 20px 60px rgba(26,26,24,.3);
+  position:relative;
+}
+.modal-box.dark-modal{background:#1C1917;border:1px solid rgba(201,169,110,.2)}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;font-size:18px;color:var(--ink-3);line-height:1;padding:4px}
+.modal-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.modal-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:-.3px}
+.dark-modal .modal-title{color:#D4C4A8}
+.modal-sub{font-size:13px;color:var(--ink-3);line-height:1.6;margin-bottom:20px}
+.dark-modal .modal-sub{color:rgba(212,196,168,.55)}
+.modal-price-row{display:flex;align-items:baseline;gap:6px;margin-bottom:20px}
+.modal-price{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--violet);letter-spacing:-1px}
+.dark-modal .modal-price{color:#C9A96E}
+.modal-price-desc{font-size:12px;color:var(--ink-3);font-family:'DM Mono',monospace}
+.dark-modal .modal-price-desc{color:rgba(212,196,168,.4)}
+.modal-features{display:flex;flex-direction:column;gap:7px;margin-bottom:22px}
+.modal-feat{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--ink-2)}
+.dark-modal .modal-feat{color:rgba(212,196,168,.7)}
+.mf-check{color:#1D9E75;font-weight:700;flex-shrink:0;margin-top:1px}
+.dark-modal .mf-check{color:#C9A96E}
+.modal-btn-pay{width:100%;padding:13px;border-radius:var(--r);border:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:10px}
+.modal-btn-pay.violet{background:var(--violet);color:#fff}
+.modal-btn-pay.violet:hover{background:var(--violet-dim)}
+.modal-btn-pay.gold{background:linear-gradient(135deg,#C9A96E,#B8924A);color:#1C1917}
+.modal-btn-pay.gold:hover{filter:brightness(1.08)}
+.modal-divider{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.modal-divider::before,.modal-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.dark-modal .modal-divider::before,.dark-modal .modal-divider::after{background:rgba(212,196,168,.1)}
+.modal-divider span{font-size:11px;color:var(--ink-4);font-family:'DM Mono',monospace;white-space:nowrap}
+.dark-modal .modal-divider span{color:rgba(212,196,168,.3)}
+.code-input-row{display:flex;gap:8px}
+.code-input{flex:1;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-family:'DM Mono',monospace;font-size:14px;letter-spacing:.1em;color:var(--ink);outline:none;transition:border-color .15s;text-transform:uppercase}
+.dark-modal .code-input{background:#2a2826;border-color:rgba(212,196,168,.15);color:#D4C4A8}
+.code-input:focus{border-color:var(--violet)}
+.dark-modal .code-input:focus{border-color:#C9A96E}
+.code-submit{background:var(--violet);color:#fff;border:none;border-radius:var(--r);padding:10px 16px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.dark-modal .code-submit{background:#C9A96E;color:#1C1917}
+.code-submit:hover{opacity:.9}
+.code-error{font-size:11px;color:var(--red);margin-top:6px;font-family:'DM Mono',monospace;display:none}
+.dark-modal .code-error{color:#FF8A80}
+.unlocked-badge{display:inline-flex;align-items:center;gap:5px;background:#E1F5EE;color:#085041;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:500;font-family:'DM Mono',monospace}
+.toast.paid{background:#C9A96E;color:#1C1917}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <a class="logo" href="#">
+    <div class="logo-icon">
+      <svg viewBox="0 0 18 18" fill="none"><path d="M4 3L4 15M4 9L11 3M4 9L11 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="12.5" y="6.5" width="3.5" height="1.5" rx=".75" fill="white" opacity=".7"/><rect x="12.5" y="10" width="2.5" height="1.5" rx=".75" fill="white" opacity=".45"/></svg>
+    </div>
+    <span class="logo-wordmark"><span>krea</span>invoice</span>
+  </a>
+  <div class="header-right">
+    <button class="gallery-trigger-btn" id="gallery-trigger-btn" onclick="openGallery()">
+      <span class="gallery-trigger-dot"></span>
+      <span class="gallery-trigger-label">Template: <span id="gallery-current-name">Editorial</span></span>
+      <span class="gallery-trigger-arrow">▾</span>
+    </button>
+  </div>
+</header>
+
+<div class="app-body">
+
+<div class="mobile-tabs">
+  <div class="mob-tab active" id="tab-form" onclick="showTab('form')">Edit invoice</div>
+  <div class="mob-tab" id="tab-preview" onclick="showTab('preview')">Preview</div>
+</div>
+
+<!-- FORM -->
+<div class="form-panel" id="panel-form">
+
+  <div class="section">
+    <div class="sec-hd" style="cursor:default">Your brand <span id="brand-saved-indicator" style="font-size:9px;color:var(--green);font-family:'DM Mono',monospace;letter-spacing:.04em;font-weight:400;margin-left:4px;display:none">● saved</span></div>
+    <!-- Cover photo upload — shown only for photography templates -->
+    <div id="cover-photo-section" style="display:none;margin-bottom:8px">
+      <div class="field">
+        <label>Cover photo <span style="font-size:10px;color:var(--ink-4);font-family:'DM Mono',monospace;font-weight:400">(your work, your studio, your shoot)</span></label>
+        <div class="logo-upload-area" id="cover-upload-area" onclick="document.getElementById('cover-file-input').click()" style="min-height:70px">
+          <div class="logo-preview" id="cover-preview-thumb" style="width:56px;height:56px;border-radius:var(--r)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="14" rx="2" stroke="#9A9A94" stroke-width="1.3"/><circle cx="12" cy="13" r="3.5" stroke="#9A9A94" stroke-width="1.3"/><path d="M9 6l1.5-3h3L15 6" stroke="#9A9A94" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+          <div class="logo-upload-text"><strong>Click to upload cover photo</strong><br>Appears at the top of your invoice · JPG or PNG</div>
+        </div>
+        <input type="file" id="cover-file-input" accept="image/*" onchange="handleCoverUpload(this)">
+      </div>
+    </div><!-- end cover-photo-section -->
+
+    <div class="field" style="margin-bottom:8px">
+      <label>Logo</label>
+      <div class="logo-upload-area" onclick="document.getElementById('logo-file-input').click()">
+        <div class="logo-preview" id="logo-preview-thumb">
+          <svg width="17" height="17" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="10" rx="2" stroke="#9A9A94" stroke-width="1.2"/><circle cx="7" cy="9" r="1.5" fill="#9A9A94"/><path d="M2 13l4-3 3 2.5 3-3.5 4 4" stroke="#9A9A94" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="logo-upload-text"><strong>Click to upload logo</strong><br>PNG, JPG or SVG</div>
+      </div>
+      <input type="file" id="logo-file-input" accept="image/*" onchange="handleLogoUpload(this)">
+    </div>
+    <div class="row row-2">
+      <div class="field"><label>Studio / Name</label><input type="text" id="from-name" value="Jane Nakato Studio" oninput="onUserFieldChange()"></div>
+      <div class="field"><label>Email</label><input type="email" id="from-email" value="jane@nakatostudio.com" oninput="onUserFieldChange()"></div>
+    </div>
+    <div class="row row-2">
+      <div class="field"><label>Location</label><input type="text" id="from-location" value="Kampala, Uganda" oninput="onUserFieldChange()"></div>
+      <div class="field"><label>Portfolio URL</label><input type="text" id="from-portfolio" value="nakatostudio.com" placeholder="yoursite.com" oninput="onUserFieldChange()"></div>
+    </div>
+    <div class="field" style="margin-bottom:0">
+      <label>Accent colour</label>
+      <div class="color-row"><div id="color-presets" style="display:flex;align-items:center;gap:5px;flex-wrap:nowrap"></div><input type="color" id="accent-color-input" value="#5B3FE4" oninput="setAccentFromPicker(this.value)"></div>
+    </div>
+    <div style="margin-top:8px">
+      <div class="sec-hd collapsible collapsed" id="hd-fonts" onclick="toggleSec('body-fonts','hd-fonts')" style="margin-bottom:0">Invoice font</div>
+      <div class="collapsible-body" id="body-fonts" style="max-height:0;padding-top:0">
+        <div class="font-grid" id="font-grid" style="padding-top:8px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd collapsible collapsed" id="hd-tags" onclick="toggleSec('body-tags','hd-tags')">Service tags</div>
+    <div class="collapsible-body" id="body-tags" style="max-height:0"><div class="tags-row" id="tags-row"></div></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd">Bill to</div>
+    <div class="row row-2">
+      <div class="field"><label>Client / Company</label><input type="text" id="to-name" placeholder="Acme Creative Co." oninput="update()"></div>
+      <div class="field"><label>Client email</label><input type="email" id="to-email" placeholder="client@acme.com" oninput="update()"></div>
+    </div>
+    <div class="field"><label>Address</label><input type="text" id="to-address" placeholder="Nairobi, Kenya" oninput="update()"></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd">Project</div>
+    <div class="field"><label>Project name</label><input type="text" id="project-name" value="Brand Identity Redesign" oninput="update()"></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd" style="cursor:default;display:flex;align-items:center;justify-content:space-between">
+      <span id="invoice-section-label">Invoice info</span>
+      <div class="mode-toggle" id="mode-toggle" onclick="toggleDocMode()" title="Switch between Invoice and Quote">
+        <span class="mode-opt" id="mode-opt-invoice">Invoice</span>
+        <span class="mode-opt" id="mode-opt-quote">Quote</span>
+        <div class="mode-pill" id="mode-pill"></div>
+      </div>
+    </div>
+    <div class="row row-3">
+      <div class="field"><label>Invoice #</label><input type="text" id="inv-num" value="KRE-001" oninput="update()"></div>
+      <div class="field"><label>Issue date</label><input type="date" id="inv-date" oninput="update()"></div>
+      <div class="field"><label id="due-date-label">Due date</label><input type="date" id="inv-due" oninput="update()"></div>
+    </div>
+    <div class="field"><label>Currency</label>
+      <select id="inv-currency" onchange="update()">
+        <option value="UGX">UGX — Ugandan Shilling</option>
+        <option value="USD">USD — US Dollar</option>
+        <option value="KES">KES — Kenyan Shilling</option>
+        <option value="TZS">TZS — Tanzanian Shilling</option>
+        <option value="GBP">GBP — British Pound</option>
+        <option value="EUR">EUR — Euro</option>
+        <option value="ZAR">ZAR — South African Rand</option>
+        <option value="NGN">NGN — Nigerian Naira</option>
+        <option value="GHS">GHS — Ghanaian Cedi</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd">Line items</div>
+    <div class="items-wrap">
+      <table class="items-table">
+        <thead><tr>
+          <th style="width:50%">Description</th>
+          <th class="right" style="width:13%">Qty</th>
+          <th class="right" style="width:22%">Rate</th>
+          <th class="right" style="width:13%">Amt</th>
+          <th style="width:6%"></th>
+        </tr></thead>
+        <tbody id="items-body"></tbody>
+      </table>
+    </div>
+    <button class="add-item-btn" onclick="addItem()">+ Add line item</button>
+  </div>
+
+  <div class="section">
+    <div class="totals-section">
+      <div class="total-row"><label>Subtotal</label><span class="total-val" id="f-subtotal">0.00</span></div>
+      <div class="total-row">
+        <div class="inline-row">
+          <label>Discount</label>
+          <input type="number" id="discount-val" value="0" min="0" oninput="update()">
+          <select id="discount-type" onchange="update()"><option value="pct">%</option><option value="fixed">flat</option></select>
+        </div>
+        <span class="total-val" id="f-discount" style="color:var(--green)">—</span>
+      </div>
+      <div class="total-row">
+        <div class="inline-row"><label>Tax</label><input type="number" id="tax-rate" value="0" min="0" max="100" step="0.5" oninput="update()"><span>%</span></div>
+        <span class="total-val" id="f-tax">—</span>
+      </div>
+      <div class="total-row grand"><label>Total due</label><span class="total-val" id="f-total">0.00</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd collapsible collapsed" id="hd-deposit" onclick="toggleSec('body-deposit','hd-deposit')">Deposit / milestone</div>
+    <div class="collapsible-body" id="body-deposit" style="max-height:0">
+      <div class="deposit-toggle" onclick="toggleDeposit()">
+        <div class="toggle-switch" id="deposit-switch"><div class="toggle-knob"></div></div>
+        <span class="deposit-label">Request deposit invoice</span>
+      </div>
+      <div id="deposit-controls" style="display:none">
+        <div class="inline-row" style="margin-bottom:6px">
+          <label style="font-size:12px;color:var(--ink-3)">Deposit</label>
+          <input type="number" id="deposit-pct" value="50" min="1" max="100" oninput="update()" style="width:48px;background:var(--paper-2);border:1px solid var(--border);border-radius:var(--r);padding:3px 6px;font-family:'DM Mono',monospace;font-size:11px;text-align:right;outline:none">
+          <span style="font-size:11px;color:var(--ink-4)">% of total</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd collapsible collapsed" id="hd-lic" onclick="toggleSec('body-lic','hd-lic')">Usage rights & licensing</div>
+    <div class="collapsible-body" id="body-lic" style="max-height:0">
+      <div style="padding-bottom:4px">
+        <div style="font-size:11px;color:var(--ink-3);margin-bottom:8px;line-height:1.5">Specify what rights the client receives. This appears as a dedicated section on the invoice.</div>
+        <div class="lic-type-grid" id="lic-type-grid"></div>
+        <div class="field" style="margin-bottom:8px">
+          <label>Custom licence description</label>
+          <textarea id="lic-custom" placeholder="e.g. Usage limited to digital channels for 2 years. Print rights not included." style="min-height:48px" oninput="update()"></textarea>
+        </div>
+        <div class="row row-2">
+          <div class="field"><label>Territory</label><input type="text" id="lic-territory" placeholder="Worldwide" oninput="update()"></div>
+          <div class="field"><label>Duration</label><input type="text" id="lic-duration" placeholder="e.g. 2 years / Perpetual" oninput="update()"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd">Notes & payment</div>
+    <div class="field">
+      <textarea id="inv-notes" placeholder="Bank details, MTN Mobile Money number, payment terms..." oninput="update()">Payment via MTN Mobile Money: 0771234567
+Thank you for your trust in my work.</textarea>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-ghost" onclick="clearAll()">✕ Clear</button>
+    <button class="btn btn-secondary" onclick="printInvoice()">⎙ Print</button>
+    <button class="btn btn-primary" id="dl-btn" onclick="downloadPDF()">↓ Download PDF</button>
+  </div>
+  <!-- Upsell strip — shown only when footer branding not unlocked -->
+  <div id="upsell-strip" style="margin-top:10px;background:var(--violet-bg);border:1px solid var(--violet-bg2);border-radius:var(--r);padding:9px 13px;display:flex;align-items:center;justify-content:space-between;gap:10px">
+    <span style="font-size:12px;color:var(--ink-2)">✨ Remove <strong>Kreainvoice</strong> footer branding</span>
+    <button onclick="showUnlockModal('branding')" style="background:var(--violet);color:#fff;border:none;border-radius:var(--r);padding:5px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif">Unlock — $1.50</button>
+  </div>
+
+  </div>
+
+<!-- PREVIEW -->
+<div class="preview-panel" id="panel-preview">
+  <div id="preview-mode-bar" class="preview-mode-bar" style="display:none">Previewing <strong id="preview-mode-name">Studio Noir</strong> · <span style="color:#BA7517">Unlock to download</span></div>
+  <div class="preview-topbar">
+    <span class="preview-label">Live preview</span>
+    <span class="preview-tpl-name" id="tpl-name-display">Editorial template</span>
+  </div>
+
+  <div id="invoice-doc" class="tpl-editorial">
+    <div class="inv-top-bar" id="inv-top-bar"></div>
+
+    <!-- Film Lens cover photo (full width above content) -->
+    <div id="lens-cover-wrap" style="display:none">
+      <img id="lens-cover-img" class="inv-cover" src="" alt="" style="display:none">
+      <div id="lens-cover-placeholder" class="inv-cover-placeholder"><span>Add your cover photo above</span></div>
+    </div>
+
+    
+    <div id="studio-split-wrap" style="display:none" class="inv-split">
+      <div class="inv-split-left">
+        <img id="studio-cover-img" class="inv-split-cover" src="" alt="" style="display:none">
+        <div id="studio-cover-placeholder" class="inv-split-cover-placeholder"><span>Your photo<br>goes here</span></div>
+        <div class="inv-split-left-footer">
+          <div class="inv-split-studio-name" id="studio-split-name">Your Studio</div>
+          <div class="inv-split-studio-sub" id="studio-split-sub">Photography</div>
+        </div>
+      </div>
+      <div class="inv-split-right">
+        <div class="inv-split-header">
+          <div>
+            <div class="inv-split-title">Invoice</div>
+            <div class="inv-split-num" id="studio-split-num">No. KRE-001</div>
+          </div>
+          <div class="inv-split-to">
+            <div class="inv-split-to-label">Invoice to</div>
+            <div class="inv-split-to-name" id="studio-split-toname">— Client</div>
+            <div class="inv-split-to-detail" id="studio-split-todetail">—</div>
+          </div>
+        </div>
+        <!-- studio split meta/items/totals rendered by JS into #studio-split-content -->
+        <div id="studio-split-content"></div>
+      </div>
+    </div>
+
+    <div class="inv-inner">
+
+      <div class="inv-header">
+        <div class="inv-logo-area">
+          <img class="inv-logo-img" id="inv-logo-img" src="" alt="" style="display:none">
+          <div id="inv-logo-fallback" style="width:40px;height:40px;border-radius:7px;background:var(--violet-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M4 3L4 15M4 9L11 3M4 9L11 15" stroke="#5B3FE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="12.5" y="6.5" width="3.5" height="1.5" rx=".75" fill="#5B3FE4" opacity=".6"/><rect x="12.5" y="10" width="2.5" height="1.5" rx=".75" fill="#5B3FE4" opacity=".4"/></svg>
+          </div>
+          <div>
+            <div class="inv-brand" id="inv-brand">Jane Nakato Studio</div>
+            <div class="inv-brand-sub" id="inv-brand-sub">jane@nakatostudio.com · Kampala, Uganda</div>
+          </div>
+        </div>
+        <div class="inv-title-block">
+          <div class="inv-title">Invoice</div>
+          <div class="inv-num" id="inv-num-display">KRE-001</div>
+        </div>
+      </div>
+
+      <hr class="inv-divider">
+
+      <div class="inv-parties">
+        <div>
+          <div class="inv-party-lbl">From</div>
+          <div class="inv-party-name" id="inv-from-name">Jane Nakato Studio</div>
+          <div class="inv-party-detail" id="inv-from-detail">jane@nakatostudio.com<br>Kampala, Uganda</div>
+        </div>
+        <div>
+          <div class="inv-party-lbl">Bill to</div>
+          <div class="inv-party-name" id="inv-to-name" style="color:var(--ink-4)">— Client name</div>
+          <div class="inv-party-detail" id="inv-to-detail">—</div>
+        </div>
+      </div>
+
+      <div class="inv-meta">
+        <div class="inv-meta-item"><div class="inv-meta-key">Issue date</div><div class="inv-meta-val" id="inv-date-display">—</div></div>
+        <div class="inv-meta-item"><div class="inv-meta-key inv-meta-key-due">Due date</div><div class="inv-meta-val" id="inv-due-display">—</div></div>
+        <div class="inv-meta-item"><div class="inv-meta-key">Currency</div><div class="inv-meta-val" id="inv-currency-display">UGX</div></div>
+      </div>
+
+      <div class="inv-project-band" id="inv-project-band" style="display:none">
+        <div class="inv-project-name" id="inv-project-name-display">Project</div>
+        <div class="inv-tags" id="inv-tags-display"></div>
+      </div>
+
+      <table class="inv-items-table">
+        <thead><tr>
+          <th style="width:50%">Description</th>
+          <th class="r" style="width:11%">Qty</th>
+          <th class="r" style="width:21%">Rate</th>
+          <th class="r" style="width:18%">Amount</th>
+        </tr></thead>
+        <tbody id="inv-items-body">
+          <tr class="empty-row"><td colspan="4">Add line items to get started</td></tr>
+        </tbody>
+      </table>
+
+      <div class="inv-totals">
+        <div class="inv-total-row"><span class="inv-tlabel">Subtotal</span><span class="inv-tval" id="inv-subtotal">0.00</span></div>
+        <div class="inv-total-row" id="inv-discount-row" style="display:none">
+          <span class="inv-tlabel" id="inv-discount-label">Discount</span>
+          <span class="inv-tval inv-discount-tval" id="inv-discount-tval">0.00</span>
+        </div>
+        <div class="inv-total-row" id="inv-tax-row" style="display:none">
+          <span class="inv-tlabel" id="inv-tax-label">Tax (0%)</span>
+          <span class="inv-tval" id="inv-tax-val">0.00</span>
+        </div>
+        <div class="inv-grand-line"></div>
+        <div class="inv-total-row inv-grand">
+          <span class="inv-tlabel">Total due</span>
+          <span class="inv-tval" id="inv-total-val">0.00</span>
+        </div>
+      </div>
+
+      <div id="inv-deposit-band" style="display:none" class="inv-deposit-band">
+        <span class="inv-deposit-label" id="inv-deposit-label">Deposit due (50%)</span>
+        <span class="inv-deposit-val" id="inv-deposit-val">0.00</span>
+      </div>
+
+      <div id="inv-notes-block" style="display:none">
+        <div class="inv-notes-lbl">Notes</div>
+        <div class="inv-notes-txt" id="inv-notes-display"></div>
+      </div>
+
+      <div id="inv-lic-block" style="display:none" class="inv-lic-block">
+        <div class="inv-lic-hd">Usage rights & licensing</div>
+        <div class="inv-lic-type" id="inv-lic-type">Commercial Use</div>
+        <div class="inv-lic-detail" id="inv-lic-detail"></div>
+      </div>
+
+      <div class="inv-footer">
+        <span class="inv-footer-brand" id="inv-footer-brand">Made with <span>kreainvoice.com</span></span>
+        <span class="inv-status unpaid"><span class="status-dot"></span><span class="inv-status-text">Unpaid</span></span>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div><!-- end app-body -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+let items=[],itemId=0,currentTemplate='editorial',accentColor='#5B3FE4';
+
+
+// ── PHOTOGRAPHY TEMPLATES ──
+let coverPhotoDataURL  = null;
+
+function handleCoverUpload(input){
+  const file = input.files[0]; if(!file) return;
+  const r = new FileReader();
+  r.onload = e => {
+    coverPhotoDataURL = e.target.result;
+    document.getElementById('cover-preview-thumb').innerHTML =
+      `<img src="${coverPhotoDataURL}" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r)">`;
+    applyCoverPhoto();
+  };
+  r.readAsDataURL(file);
+}
+
+
+function applyCoverPhoto(){
+  // ── Film Lens — first photo as full-width hero ──────────────────────────
+  const lensImg = document.getElementById('lens-cover-img');
+  const lensPh  = document.getElementById('lens-cover-placeholder');
+  if(lensImg && coverPhotoDataURL){ lensImg.src=coverPhotoDataURL; lensImg.style.display='block'; if(lensPh) lensPh.style.display='none'; }
+
+  // ── Photo Studio — first photo in split panel ───────────────────────────
+  const studioImg = document.getElementById('studio-cover-img');
+  const studioPh  = document.getElementById('studio-cover-placeholder');
+  if(studioImg && coverPhotoDataURL){ studioImg.src=coverPhotoDataURL; studioImg.style.display='block'; if(studioPh) studioPh.style.display='none'; }
+}
+
+function trySelectPhoto(tpl, btn){
+  // Open gallery focused on photo template
+  gallerySelectedId = tpl;
+  openGallery();
+}
+
+function showPhotoTemplateUI(tpl){
+  const coverSection  = document.getElementById('cover-photo-section');
+  if(coverSection)  coverSection.style.display =
+    (tpl==='lens'||tpl==='studio') ? 'block' : 'none';
+
+  const lensWrap    = document.getElementById('lens-cover-wrap');
+  const studioWrap  = document.getElementById('studio-split-wrap');
+  const invInner    = document.querySelector('.inv-inner');
+
+  if(lensWrap)    lensWrap.style.display    = tpl==='lens'    ? 'block' : 'none';
+  if(studioWrap)  studioWrap.style.display  = tpl==='studio'  ? 'grid'  : 'none';
+
+  if(invInner) invInner.style.display =
+    tpl==='studio' ? 'none' : 'block';
+
+  if(coverPhotoDataURL) applyCoverPhoto();
+}
+
+function updateStudioSplit(){
+  const fromName  = v('from-name')  || 'Your Studio';
+  const fromEmail = v('from-email');
+  const fromLoc   = v('from-location');
+  const fromPort  = v('from-portfolio');
+  const toName    = v('to-name');
+  const toEmail   = v('to-email');
+  const toAddr    = v('to-address');
+  const invNum    = v('inv-num')    || 'KRE-001';
+  const projectName = v('project-name');
+  const notes     = v('inv-notes');
+  const currency  = cur();
+  const{sub,discount,dv,dt,taxRate,tax,total,deposit,dpct} = calcTotals();
+
+  // ── Left panel ──
+  const sName = document.getElementById('studio-split-name');
+  const sSub  = document.getElementById('studio-split-sub');
+  const sNum  = document.getElementById('studio-split-num');
+  const sTo   = document.getElementById('studio-split-toname');
+  const sDet  = document.getElementById('studio-split-todetail');
+  if(sName) sName.textContent = fromName;
+  if(sSub)  sSub.textContent  = fromEmail || 'Photography';
+  if(sNum)  sNum.textContent  = 'No. ' + invNum;
+  if(sTo){  sTo.textContent   = toName || '— Client';
+            sTo.style.color   = toName?'':'rgba(28,28,26,.3)'; }
+  if(sDet)  sDet.innerHTML    = [toEmail,toAddr].filter(Boolean).join('<br>') || '—';
+
+  // ── Right panel content ──
+  const content = document.getElementById('studio-split-content');
+  if(!content) return;
+
+  // Meta row
+  const metaHTML = `
+    <div class="inv-meta" style="margin-bottom:14px">
+      <div class="inv-meta-item"><div class="inv-meta-key">Issue date</div><div class="inv-meta-val">${fmtDate(v('inv-date'))}</div></div>
+      <div class="inv-meta-item"><div class="inv-meta-key inv-meta-key-due">Due date</div><div class="inv-meta-val">${fmtDate(v('inv-due'))}</div></div>
+      <div class="inv-meta-item"><div class="inv-meta-key">Currency</div><div class="inv-meta-val">${currency}</div></div>
+    </div>`;
+
+  // Project band
+  const projectHTML = (projectName || activeTags.length) ? `
+    <div class="inv-project-band" style="margin-bottom:14px">
+      <div class="inv-project-name">${projectName||'Project'}</div>
+      <div class="inv-tags">${activeTags.map(t=>`<span class="inv-tag">${t}</span>`).join('')}</div>
+    </div>` : '';
+
+  // Items table
+  const itemRows = items.length ? items.map(it => {
+    const amt = (+it.qty||0)*(+it.rate||0);
+    const noteRow = it.note ? `<tr><td class="note-cell" colspan="4" style="padding-left:7px">${it.note}</td></tr>` : '';
+    return `<tr>
+      <td class="name">${it.desc||'—'}</td>
+      <td class="r mono">${it.qty}</td>
+      <td class="r mono">${fmtNum(+it.rate||0)}</td>
+      <td class="r mono">${fmtNum(amt)}</td>
+    </tr>${noteRow}`;
+  }).join('') : `<tr class="empty-row"><td colspan="4">Add line items to get started</td></tr>`;
+
+  const tableHTML = `
+    <table class="inv-items-table" style="margin-bottom:12px">
+      <thead><tr>
+        <th style="width:50%">Description</th>
+        <th class="r" style="width:12%">Qty</th>
+        <th class="r" style="width:20%">Rate</th>
+        <th class="r" style="width:18%">Amount</th>
+      </tr></thead>
+      <tbody>${itemRows}</tbody>
+    </table>`;
+
+  // Totals
+  const discountRow = dv>0 ? `
+    <div class="inv-total-row">
+      <span class="inv-tlabel">${dt==='pct'?'Discount ('+dv+'%)':'Discount'}</span>
+      <span class="inv-tval inv-discount-tval">− ${fmtNum(discount)}</span>
+    </div>` : '';
+  const taxRow = taxRate>0 ? `
+    <div class="inv-total-row">
+      <span class="inv-tlabel">Tax (${taxRate}%)</span>
+      <span class="inv-tval">${fmtNum(tax)}</span>
+    </div>` : '';
+
+  const totalsHTML = `
+    <div class="inv-totals">
+      <div class="inv-total-row"><span class="inv-tlabel">Subtotal</span><span class="inv-tval">${fmtNum(sub)}</span></div>
+      ${discountRow}${taxRow}
+      <div class="inv-grand-line"></div>
+      <div class="inv-total-row inv-grand">
+        <span class="inv-tlabel">Total due</span>
+        <span class="inv-tval">${currency} ${fmtNum(total)}</span>
+      </div>
+    </div>`;
+
+  // Deposit
+  const depositHTML = (depositOn && total>0) ? `
+    <div class="inv-deposit-band" style="margin-bottom:14px">
+      <span class="inv-deposit-label">Deposit due (${dpct}%)</span>
+      <span class="inv-deposit-val">${currency} ${fmtNum(deposit)}</span>
+    </div>` : '';
+
+  // Licensing
+  const licTypeObj = LIC_TYPES.find(l=>l.key===selectedLicType);
+  const licCustom = v('lic-custom');
+  const licTerritory = v('lic-territory');
+  const licDuration = v('lic-duration');
+  const licParts = [];
+  if(licTypeObj) licParts.push(licTypeObj.desc);
+  if(licCustom) licParts.push(licCustom);
+  if(licTerritory) licParts.push('Territory: '+licTerritory);
+  if(licDuration) licParts.push('Duration: '+licDuration);
+  const licHTML = (licTypeObj||licCustom) ? `
+    <div class="inv-lic-block" style="margin-bottom:14px">
+      <div class="inv-lic-hd">Usage rights & licensing</div>
+      <div class="inv-lic-type">${licTypeObj?licTypeObj.label:(licCustom?'Custom licence':'—')}</div>
+      <div class="inv-lic-detail">${licParts.join(' · ')}</div>
+    </div>` : '';
+
+  // Notes
+  const notesHTML = notes ? `
+    <div style="margin-bottom:14px">
+      <div class="inv-notes-lbl">Notes</div>
+      <div class="inv-notes-txt">${notes.replace(/\n/g,'<br>')}</div>
+    </div>` : '';
+
+  // Footer
+  const site = fromPort ? ' · '+fromPort : '';
+  const footerBrand = hasUnlock('branding') ? '' : `Made with <span style="color:var(--accent-color,#5B3FE4)">kreainvoice.com</span>${site}`;
+  const footerHTML = `
+    <div class="inv-footer">
+      <span class="inv-footer-brand">${footerBrand}</span>
+      <span class="inv-status unpaid"><span class="status-dot"></span><span class="inv-status-text">Unpaid</span></span>
+    </div>`;
+
+  content.innerHTML = metaHTML + projectHTML + tableHTML + totalsHTML + depositHTML + licHTML + notesHTML + footerHTML;
+
+  // Apply cover photo if available
+  if(coverPhotoDataURL) applyCoverPhoto();
+}
+
+
+// ══════════════════════════════════
+// TEMPLATE GALLERY
+// ══════════════════════════════════
+
+const TEMPLATES = [
+  {
+    id:'editorial', name:'Editorial', sub:'Free', tier:'free', filter:['all','free'],
+    unlockId:null,
+    accent:'#5B3FE4',
+    art: () => `
+      <div style="background:#fff;height:100%;padding:8px;display:flex;flex-direction:column;gap:4px">
+        <div style="width:70%;height:7px;background:#5B3FE4;border-radius:2px"></div>
+        <div style="width:40%;height:4px;background:#ddd;border-radius:2px"></div>
+        <div style="height:14px;background:#f0eeff;border-radius:3px;margin-top:2px"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px">
+          <div style="height:4px;background:#eee;border-radius:1px"></div><div style="height:4px;background:#eee;border-radius:1px"></div>
+          <div style="height:4px;background:#f5f5f5;border-radius:1px"></div><div style="height:4px;background:#f5f5f5;border-radius:1px"></div>
+          <div style="height:4px;background:#f5f5f5;border-radius:1px"></div><div style="height:4px;background:#f5f5f5;border-radius:1px"></div>
+        </div>
+        <div style="width:40%;height:5px;background:#5B3FE4;border-radius:2px;margin-top:auto;margin-left:auto"></div>
+      </div>`,
+  },
+  {
+    id:'dark', name:'Dark Studio', sub:'Free', tier:'free', filter:['all','free'],
+    unlockId:null,
+    accent:'#5B3FE4',
+    art: () => `
+      <div style="background:#111110;height:100%;padding:8px;display:flex;flex-direction:column;gap:4px">
+        <div style="width:60%;height:7px;background:#7B64EA;border-radius:2px"></div>
+        <div style="width:35%;height:4px;background:#333;border-radius:2px"></div>
+        <div style="height:12px;background:#1e1e1c;border-radius:3px;margin-top:2px"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px">
+          <div style="height:4px;background:#222;border-radius:1px"></div><div style="height:4px;background:#222;border-radius:1px"></div>
+          <div style="height:4px;background:#1a1a18;border-radius:1px"></div><div style="height:4px;background:#1a1a18;border-radius:1px"></div>
+        </div>
+        <div style="width:38%;height:5px;background:#5B3FE4;border-radius:2px;margin-top:auto;margin-left:auto"></div>
+      </div>`,
+  },
+  {
+    id:'minimal', name:'Minimal', sub:'Free', tier:'free', filter:['all','free'],
+    unlockId:null,
+    accent:'#5B3FE4',
+    art: () => `
+      <div style="background:#FAF9F6;height:100%;padding:8px;display:flex;flex-direction:column;gap:4px">
+        <div style="width:4px;height:40px;background:#5B3FE4;position:absolute;left:0;top:0;border-radius:0 2px 2px 0"></div>
+        <div style="width:50%;height:6px;background:#1a1a18;border-radius:2px;margin-left:10px"></div>
+        <div style="width:100%;height:1px;background:rgba(26,26,24,.15);margin:4px 0"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+          <div style="height:4px;background:#e8e6df;border-radius:1px"></div><div style="height:4px;background:#e8e6df;border-radius:1px"></div>
+          <div style="height:4px;background:#f0eeea;border-radius:1px"></div><div style="height:4px;background:#f0eeea;border-radius:1px"></div>
+          <div style="height:4px;background:#f0eeea;border-radius:1px"></div><div style="height:4px;background:#f0eeea;border-radius:1px"></div>
+        </div>
+        <div style="width:35%;height:5px;background:#5B3FE4;border-radius:2px;margin-top:auto;margin-left:auto"></div>
+      </div>`,
+  },
+  {
+    id:'noir', name:'Studio Noir', sub:'Premium · $3', tier:'premium', filter:['all','premium'],
+    unlockId:'noir', price:'$3',
+    accent:'#C9A96E',
+    art: () => `
+      <div style="background:#1C1917;height:100%;padding:8px;display:flex;flex-direction:column;gap:4px">
+        <div style="width:65%;height:8px;background:#D4C4A8;border-radius:2px;font-style:italic"></div>
+        <div style="width:35%;height:4px;background:#3a3530;border-radius:2px"></div>
+        <div style="height:12px;background:#252220;border-radius:3px;margin-top:2px"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px">
+          <div style="height:4px;background:#2a2722;border-radius:1px"></div><div style="height:4px;background:#2a2722;border-radius:1px"></div>
+          <div style="height:4px;background:#1e1c1a;border-radius:1px"></div><div style="height:4px;background:#1e1c1a;border-radius:1px"></div>
+        </div>
+        <div style="width:38%;height:5px;background:#C9A96E;border-radius:2px;margin-top:auto;margin-left:auto"></div>
+      </div>`,
+  },
+  {
+    id:'lens', name:'Film Lens', sub:'Photographer Pack · $6', tier:'premium', filter:['all','premium','photo'],
+    unlockId:'photo', price:'$6 pack',
+    accent:'#C9A96E',
+    art: () => `
+      <div style="background:#2B2B28;height:100%;padding:0;display:flex;flex-direction:column">
+        <div style="background:#3a3a35;height:24px;width:100%"></div>
+        <div style="padding:6px 8px;flex:1;display:flex;flex-direction:column;gap:3px">
+          <div style="width:55%;height:6px;background:#fff;border-radius:2px;opacity:.8"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px">
+            <div style="height:5px;background:#C9A96E;border-radius:1px"></div><div style="height:5px;background:#C9A96E;border-radius:1px"></div>
+            <div style="height:4px;background:#333;border-radius:1px"></div><div style="height:4px;background:#333;border-radius:1px"></div>
+            <div style="height:4px;background:#2e2e2b;border-radius:1px"></div><div style="height:4px;background:#2e2e2b;border-radius:1px"></div>
+          </div>
+          <div style="width:38%;height:5px;background:#C9A96E;border-radius:2px;margin-top:auto;margin-left:auto"></div>
+        </div>
+      </div>`,
+  },
+  {
+    id:'studio', name:'Photo Studio', sub:'Photographer Pack · $6', tier:'premium', filter:['all','premium','photo'],
+    unlockId:'photo', price:'$6 pack',
+    accent:'#5B3FE4',
+    art: () => `
+      <div style="background:#F5F0E8;height:100%;display:grid;grid-template-columns:28px 1fr">
+        <div style="background:#1C1C1A;height:100%"></div>
+        <div style="padding:6px 8px;display:flex;flex-direction:column;gap:3px">
+          <div style="width:65%;height:7px;background:#1C1C1A;border-radius:2px"></div>
+          <div style="width:35%;height:4px;background:#c5bfb2;border-radius:2px"></div>
+          <div style="height:10px;background:#ede8de;border-radius:2px;margin-top:2px"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px">
+            <div style="height:4px;background:#e8e4da;border-radius:1px"></div><div style="height:4px;background:#e8e4da;border-radius:1px"></div>
+            <div style="height:4px;background:#ede8de;border-radius:1px"></div><div style="height:4px;background:#ede8de;border-radius:1px"></div>
+          </div>
+        </div>
+      </div>`,
+  },
+];
+
+let galleryOpen = false;
+let gallerySelectedId = 'editorial'; // what's highlighted in gallery (may differ from active)
+let currentFilter = 'all';
+let previewingLocked = false; // true when showing a locked template in preview mode
+
+function openGallery(){
+  gallerySelectedId = currentTemplate;
+  galleryOpen = true;
+  document.getElementById('gallery-backdrop').classList.add('open');
+  document.getElementById('gallery-panel').classList.add('open');
+  renderGalleryCards();
+  updateGalleryFooter();
+}
+
+function closeGallery(){
+  galleryOpen = false;
+  document.getElementById('gallery-backdrop').classList.remove('open');
+  document.getElementById('gallery-panel').classList.remove('open');
+
+  // If we were previewing a locked template, revert to last confirmed template
+  if(previewingLocked){
+    previewingLocked = false;
+    document.getElementById('preview-mode-bar').classList.remove('show');
+    const prevBar = document.getElementById('preview-mode-bar');
+    if(prevBar) prevBar.style.display='none';
+    setTemplateInternal(currentTemplate);
+  }
+}
+
+function filterGallery(filter, tabEl){
+  currentFilter = filter;
+  document.querySelectorAll('.gp-tab').forEach(t=>t.classList.remove('active'));
+  tabEl.classList.add('active');
+  renderGalleryCards();
+}
+
+function renderGalleryCards(){
+  const grid = document.getElementById('gp-grid');
+  if(!grid) return;
+
+  const filtered = TEMPLATES.filter(t => t.filter.includes(currentFilter));
+
+  grid.innerHTML = filtered.map(tpl => {
+    const isActive   = tpl.id === gallerySelectedId;
+    const isUnlocked = !tpl.unlockId || hasUnlock(tpl.unlockId);
+    const isLocked   = tpl.unlockId && !hasUnlock(tpl.unlockId);
+
+    return `<div class="tpl-card${isActive?' active-tpl':''}"
+               onclick="gallerySelectTemplate('${tpl.id}')">
+      <div class="tpl-art" style="position:relative">
+        ${tpl.art()}
+        ${isLocked ? `
+          <div class="tpl-lock-overlay">
+            <div class="tpl-price-badge">🔒 ${tpl.price}</div>
+          </div>` : ''}
+      </div>
+      <div class="tpl-card-label">
+        <div class="tcl-name">${tpl.name}</div>
+        <div class="tcl-sub${isLocked?' premium':''}">${isUnlocked&&tpl.unlockId?'✓ Unlocked':tpl.sub}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function gallerySelectTemplate(id){
+  gallerySelectedId = id;
+  renderGalleryCards();
+  updateGalleryFooter();
+
+  const tpl = TEMPLATES.find(t=>t.id===id);
+  if(!tpl) return;
+
+  const isLocked = tpl.unlockId && !hasUnlock(tpl.unlockId);
+
+  if(isLocked){
+    // preview mode — show the template with user's real data but no download
+    previewingLocked = true;
+    // Set accent to template default for the preview
+    const savedAccent = accentColor;
+    setTemplateInternal(id);
+    // Show preview bar
+    const bar = document.getElementById('preview-mode-bar');
+    const barName = document.getElementById('preview-mode-name');
+    if(bar){ bar.style.display='block'; bar.classList.add('show'); }
+    if(barName) barName.textContent = tpl.name;
+  } else {
+    // free or already unlocked — switch immediately
+    previewingLocked = false;
+    const bar = document.getElementById('preview-mode-bar');
+    if(bar){ bar.style.display='none'; bar.classList.remove('show'); }
+    setTemplateInternal(id);
+  }
+}
+
+function updateGalleryFooter(){
+  const tpl = TEMPLATES.find(t=>t.id===gallerySelectedId);
+  if(!tpl) return;
+  const btn  = document.getElementById('gp-use-btn');
+  const hint = document.getElementById('gp-footer-hint');
+  const isLocked = tpl.unlockId && !hasUnlock(tpl.unlockId);
+
+  if(isLocked){
+    btn.textContent = `Unlock ${tpl.name} — ${tpl.price}`;
+    btn.className = 'gp-use-btn locked';
+    btn.onclick = () => { closeGallery(); showUnlockModal(tpl.unlockId); };
+    if(hint) hint.textContent = 'One-time purchase · yours forever';
+  } else {
+    btn.textContent = `Use ${tpl.name} →`;
+    btn.className = 'gp-use-btn';
+    btn.onclick = confirmTemplate;
+    if(hint) hint.textContent = 'Live preview updates as you browse';
+  }
+}
+
+function confirmTemplate(){
+  // Commit the selected template
+  previewingLocked = false;
+  const bar = document.getElementById('preview-mode-bar');
+  if(bar){ bar.style.display='none'; bar.classList.remove('show'); }
+  setTemplateInternal(gallerySelectedId);
+  closeGallery();
+}
+
+// Internal template setter — doesn't open gallery
+function setTemplateInternal(tpl){
+  const prev = currentTemplate;
+  currentTemplate = tpl;
+  const doc = document.getElementById('invoice-doc');
+  doc.className = 'tpl-' + tpl;
+  const darkBg = {dark:'#111110',noir:'#1C1917',lens:'#2B2B28'};
+  doc.style.background = darkBg[tpl] || '#ffffff';
+  applyAccent();
+
+  // Gold accent default for gold-palette templates
+  if((tpl==='noir'||tpl==='lens') && accentColor==='#5B3FE4'){
+    setAccent('#C9A96E');
+    document.querySelectorAll('.color-preset').forEach(b=>b.classList.remove('selected'));
+  }
+
+  document.getElementById('inv-top-bar').style.display = (tpl==='editorial'?'block':'none');
+  showPhotoTemplateUI(tpl);
+  applyFont();
+
+  // Update trigger button label
+  const nameMap = {
+    editorial:'Editorial', dark:'Dark Studio', minimal:'Minimal',
+    noir:'Studio Noir', lens:'Film Lens', studio:'Photo Studio',
+  };
+  const nameEl = document.getElementById('gallery-current-name');
+  if(nameEl) nameEl.textContent = nameMap[tpl]||tpl;
+
+  const tplDisplay = document.getElementById('tpl-name-display');
+  if(tplDisplay) tplDisplay.textContent = (nameMap[tpl]||tpl) + ' template';
+
+  update();
+}
+
+
+// ── UNLOCK SYSTEM ──
+// To generate a real code: combine product key + secret + date
+// ── GUMROAD LIVE LICENSE VERIFICATION ────────────────────────────────────
+// Calls /api/verify-license (Cloudflare Pages Function).
+// Device limit (3 per key) enforced server-side via Gumroad's uses counter.
+// Verified keys cached in localStorage — same device never burns a slot twice.
+//
+// localStorage keys:
+//   krea_unlocks        : JSON array of unlocked productIds
+//   krea_verified_keys  : JSON map of { productId: licenseKey }
+// ─────────────────────────────────────────────────────────────────────────
+
+const VERIFY_ENDPOINT = '/api/verify-license';
+
+const UNLOCK_PRODUCTS = {
+  noir: {
+    id: 'noir',
+    name: 'Studio Noir Template',
+    price: '$3',
+    priceSub: 'one-time · yours forever',
+    color: 'gold',
+    icon: '🌙',
+    features: [
+      'Studio Noir dark editorial template',
+      'Warm cream & gold colour palette',
+      'Cormorant Garamond display font',
+      'All future premium templates included',
+    ],
+    gumroadLink: 'https://kreainvoice.gumroad.com/l/noir',
+  },
+  photo: {
+    id: 'photo',
+    name: 'Photographer Pack',
+    price: '$6',
+    priceSub: 'one-time · Film Lens + Photo Studio templates',
+    color: 'gold',
+    icon: '📷',
+    features: [
+      'Film Lens — dark dramatic photography invoice',
+      'Photo Studio — cream split-panel layout',
+      'Upload your own cover photo to the invoice',
+    ],
+    gumroadLink: 'https://kreainvoice.gumroad.com/l/photo',
+  },
+  branding: {
+    id: 'branding',
+    name: 'Remove Kreainvoice Branding',
+    price: '$1.50',
+    priceSub: 'per invoice download',
+    color: 'violet',
+    icon: '✨',
+    features: [
+      'Remove "Made with Kreainvoice" footer',
+      'Your invoice looks 100% yours',
+      'One-time per invoice download',
+      'Instant — no account needed',
+    ],
+    gumroadLink: 'https://kreainvoice.gumroad.com/l/branding',
+  },
+};
+
+// Return the license key this device previously used for a product
+function getCachedKey(productId){
+  try{
+    const map = JSON.parse(localStorage.getItem('krea_verified_keys') || '{}');
+    return map[productId] || null;
+  }catch(e){ return null; }
+}
+
+function cacheKey(productId, key){
+  try{
+    const map = JSON.parse(localStorage.getItem('krea_verified_keys') || '{}');
+    map[productId] = key;
+    localStorage.setItem('krea_verified_keys', JSON.stringify(map));
+  }catch(e){}
+}
+
+// Live Gumroad verification via Cloudflare Pages Function
+async function verifyWithGumroad(licenseKey, productId){
+  try{
+    const res = await fetch(VERIFY_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ licenseKey: licenseKey.trim(), productId }),
+    });
+    return await res.json();
+  }catch(e){
+    return { success: false, error: 'Network error — check your connection and try again.' };
+  }
+}
+
+// Load unlocks from localStorage
+let unlockedProducts = JSON.parse(localStorage.getItem('krea_unlocks') || '[]');
+function hasUnlock(productId){ return unlockedProducts.includes(productId); }
+function saveUnlock(productId){
+  if(!unlockedProducts.includes(productId)){
+    unlockedProducts.push(productId);
+    localStorage.setItem('krea_unlocks', JSON.stringify(unlockedProducts));
+  }
+}
+let depositOn=false,activeTags=[],logoDataURL=null;
+let selectedFont='Syne',selectedLicType='none';
+
+const FONTS=[
+  {key:'Syne',       label:'Syne',          style:'Syne, sans-serif',       tag:'Bold & modern'},
+  {key:'Playfair+Display', label:'Playfair',style:'Playfair Display, serif', tag:'Editorial serif'},
+  {key:'Fraunces',   label:'Fraunces',      style:'Fraunces, serif',         tag:'Literary serif'},
+  {key:'Cormorant+Garamond',label:'Cormorant',style:'Cormorant Garamond, serif',tag:'Elegant serif'},
+  {key:'Plus+Jakarta+Sans',label:'Jakarta', style:'Plus Jakarta Sans, sans-serif',tag:'Clean & sharp'},
+  {key:'Urbanist',   label:'Urbanist',      style:'Urbanist, sans-serif',    tag:'Minimal sans'},
+  {key:'Raleway',    label:'Raleway',       style:'Raleway, sans-serif',     tag:'Geometric sans'},
+  {key:'Josefin+Sans',label:'Josefin',      style:'Josefin Sans, sans-serif',tag:'Art deco'},
+  {key:'Bitter',     label:'Bitter',        style:'Bitter, serif',           tag:'News serif'},
+  {key:'Nunito',     label:'Nunito',        style:'Nunito, sans-serif',      tag:'Friendly rounded'},
+];
+
+const LIC_TYPES=[
+  {key:'personal',   label:'Personal use',    desc:'Client may use for personal, non-commercial purposes only.'},
+  {key:'commercial', label:'Commercial use',  desc:'Full commercial rights granted for all business purposes.'},
+  {key:'web',        label:'Web licence',     desc:'Digital/web use only. Print and broadcast rights excluded.'},
+  {key:'print',      label:'Print licence',   desc:'Print use only. Digital rights not included.'},
+  {key:'exclusive',  label:'Exclusive rights',desc:'Exclusive rights granted. Creator retains no reuse rights.'},
+  {key:'buyout',     label:'Full buyout',     desc:'All rights transferred to client in perpetuity.'},
+];
+const PRESETS=['#5B3FE4','#E4433F','#1D9E75','#F5A623','#0E7FC0','#D4537E','#111110'];
+const TAGS=['Brand Design','Logo Design','Photography','Video Editing','Illustration','Motion Graphics','UI/UX Design','Copywriting','Social Media','Web Design','Brand Strategy','Content Creation'];
+
+
+// ══════════════════════════════════
+// PERSISTENT USER FIELDS
+// Saves: name, email, location, portfolio, accent, font, logo
+// Clears: per-invoice fields (client, project, items etc.)
+// ══════════════════════════════════
+
+const PERSIST_KEYS = {
+  name:      'krea_from_name',
+  email:     'krea_from_email',
+  location:  'krea_from_location',
+  portfolio: 'krea_from_portfolio',
+  accent:    'krea_accent',
+  font:      'krea_font',
+  logo:      'krea_logo',
+};
+
+function saveUserFields(){
+  // Flash the saved indicator
+  const ind = document.getElementById('brand-saved-indicator');
+  if(ind){ ind.style.display='inline'; clearTimeout(ind._t); ind._t=setTimeout(()=>ind.style.display='none',2000); }
+  try {
+    localStorage.setItem(PERSIST_KEYS.name,      v('from-name'));
+    localStorage.setItem(PERSIST_KEYS.email,     v('from-email'));
+    localStorage.setItem(PERSIST_KEYS.location,  v('from-location'));
+    localStorage.setItem(PERSIST_KEYS.portfolio, v('from-portfolio'));
+    localStorage.setItem(PERSIST_KEYS.accent,    accentColor);
+    localStorage.setItem(PERSIST_KEYS.font,      selectedFont);
+    if(logoDataURL) localStorage.setItem(PERSIST_KEYS.logo, logoDataURL);
+  } catch(e){ /* storage full — fail silently */ }
+}
+
+function loadUserFields(){
+  try {
+    const name      = localStorage.getItem(PERSIST_KEYS.name);
+    const email     = localStorage.getItem(PERSIST_KEYS.email);
+    const location  = localStorage.getItem(PERSIST_KEYS.location);
+    const portfolio = localStorage.getItem(PERSIST_KEYS.portfolio);
+    const accent    = localStorage.getItem(PERSIST_KEYS.accent);
+    const font      = localStorage.getItem(PERSIST_KEYS.font);
+    const logo      = localStorage.getItem(PERSIST_KEYS.logo);
+
+    if(name)      setFieldVal('from-name',      name);
+    if(email)     setFieldVal('from-email',     email);
+    if(location)  setFieldVal('from-location',  location);
+    if(portfolio) setFieldVal('from-portfolio', portfolio);
+
+    if(accent && accent !== '#5B3FE4'){
+      accentColor = accent;
+      const input = document.getElementById('accent-color-input');
+      if(input) input.value = accent;
+      // highlight matching preset if any
+      document.querySelectorAll('.color-preset').forEach(b=>{
+        if(b.style.background === accent || b.title === accent) b.classList.add('selected');
+      });
+      applyAccent();
+    }
+
+    if(font && font !== 'Syne'){
+      selectedFont = font;
+      // mark correct font card as selected
+      document.querySelectorAll('.font-opt').forEach(el=>{
+        const label = el.querySelector('.font-opt-name')?.textContent;
+        const match = el.querySelector('.font-opt-name')?.style.fontFamily?.includes(font.replace('+',' '));
+        if(match) el.classList.add('selected');
+      });
+      applyFont();
+    }
+
+    if(logo){
+      logoDataURL = logo;
+      const thumb = document.getElementById('logo-preview-thumb');
+      if(thumb) thumb.innerHTML = `<img src="${logo}" style="width:100%;height:100%;object-fit:contain;border-radius:4px">`;
+      showLogo();
+    }
+  } catch(e){ /* storage unavailable */ }
+}
+
+function setFieldVal(id, val){
+  const el = document.getElementById(id);
+  if(el) el.value = val;
+}
+
+// Auto-save whenever a user field changes
+function onUserFieldChange(){
+  saveUserFields();
+  update();
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const today=new Date(),due=new Date();
+  due.setDate(today.getDate()+14);
+  document.getElementById('inv-date').value=isoDate(today);
+  document.getElementById('inv-due').value=isoDate(due);
+  // restore saved invoice number
+  const saved=localStorage.getItem('krea_inv_num');
+  if(saved) document.getElementById('inv-num').value=saved;
+  buildPresets();buildTags();buildFonts();buildLicTypes();
+  loadUserFields();
+  checkURLUnlock();
+  updateUnlockUI();
+  gallerySelectedId=currentTemplate;
+  clearMobileHide();
+  // hide upsell strip if branding already unlocked
+  const strip=document.getElementById('upsell-strip');
+  if(strip && hasUnlock('branding')) strip.style.display='none';
+  addItem('Brand identity design',1,800000,'');
+  addItem('Logo variations',3,150000,'');
+  addItem('Brand guidelines doc',1,250000,'');
+  update();
+});
+
+function isoDate(d){return d.toISOString().split('T')[0]}
+function fmtDate(s){if(!s)return'—';return new Date(s+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}
+function fmtNum(n){return Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function cur(){return document.getElementById('inv-currency').value}
+function v(id){return(document.getElementById(id)?.value||'').trim()}
+function set(id,txt){const el=document.getElementById(id);if(el)el.textContent=txt}
+
+// MOBILE
+function showTab(t){
+  document.getElementById('panel-form').classList.toggle('hidden-mobile',t!=='form');
+  document.getElementById('panel-preview').classList.toggle('hidden-mobile',t!=='preview');
+  document.getElementById('tab-form').classList.toggle('active',t==='form');
+  document.getElementById('tab-preview').classList.toggle('active',t==='preview');
+}
+
+function clearMobileHide(){
+  // On desktop, always show both panels
+  if(window.innerWidth > 860){
+    document.getElementById('panel-form')?.classList.remove('hidden-mobile');
+    document.getElementById('panel-preview')?.classList.remove('hidden-mobile');
+  }
+}
+window.addEventListener('resize', clearMobileHide);
+
+// COLLAPSIBLE
+function toggleSec(bodyId,hdId){
+  const b=document.getElementById(bodyId),h=document.getElementById(hdId);
+  const collapsed=h.classList.contains('collapsed');
+  b.style.maxHeight=collapsed?b.scrollHeight+'px':'0';
+  h.classList.toggle('collapsed',!collapsed);
+}
+
+// PRESETS
+function buildPresets(){
+  const row=document.getElementById('color-presets');
+  PRESETS.forEach(c=>{
+    const d=document.createElement('div');
+    d.className='color-preset'+(c===accentColor?' selected':'');
+    d.style.background=c;d.title=c;
+    d.onclick=()=>{setAccent(c);document.querySelectorAll('.color-preset').forEach(b=>b.classList.remove('selected'));d.classList.add('selected')};
+    row.appendChild(d);
+  });
+  const cu=document.createElement('div');
+  cu.className='color-preset';
+  cu.style.cssText='background:conic-gradient(red,yellow,lime,aqua,blue,magenta,red);border:2px solid var(--border-med)';
+  cu.title='Custom';cu.onclick=()=>document.getElementById('accent-color-input').click();
+  row.appendChild(cu);
+}
+function setAccent(c){accentColor=c;document.getElementById('accent-color-input').value=c;applyAccent();update();saveUserFields();}
+function setAccentFromPicker(c){accentColor=c;document.querySelectorAll('.color-preset').forEach(b=>b.classList.remove('selected'));applyAccent();update();saveUserFields();}
+function applyAccent(){document.getElementById('invoice-doc').style.setProperty('--accent-color',accentColor)}
+
+// TAGS
+function buildTags(){
+  const row=document.getElementById('tags-row');
+  TAGS.forEach(t=>{
+    const p=document.createElement('div');p.className='tag-pill';p.textContent=t;
+    p.onclick=()=>{
+      if(activeTags.includes(t)){activeTags=activeTags.filter(x=>x!==t);p.classList.remove('active')}
+      else if(activeTags.length<4){activeTags.push(t);p.classList.add('active')}
+      update();
+    };
+    row.appendChild(p);
+  });
+}
+
+
+// FONTS
+function buildFonts(){
+  const grid=document.getElementById('font-grid');
+  FONTS.forEach(f=>{
+    const d=document.createElement('div');
+    d.className='font-opt'+(f.key===selectedFont?' selected':'');
+    d.innerHTML=`<div class="font-opt-name" style="font-family:${f.style}">${f.label}</div><div class="font-opt-label">${f.tag}</div>`;
+    d.onclick=()=>{
+      selectedFont=f.key;
+      document.querySelectorAll('.font-opt').forEach(x=>x.classList.remove('selected'));
+      d.classList.add('selected');
+      applyFont();
+      saveUserFields();
+    };
+    grid.appendChild(d);
+  });
+}
+function applyFont(){
+  const f=FONTS.find(x=>x.key===selectedFont)||FONTS[0];
+  const doc=document.getElementById('invoice-doc');
+  if(currentTemplate==='noir'||currentTemplate==='lens'||currentTemplate==='studio'){
+    // Noir: script is fixed for the big Invoice word, font applies to names/parties
+    doc.querySelectorAll('.inv-brand,.inv-party-name,.inv-project-name').forEach(el=>{
+      el.style.fontFamily="'DM Mono',monospace";
+    });
+    const titleEl=doc.querySelector('.inv-title');
+    if(titleEl)titleEl.style.fontFamily="'Cormorant Garamond',serif";
+  } else {
+    doc.querySelectorAll('.inv-brand,.inv-title,.inv-party-name,.inv-project-name,.inv-grand .inv-tlabel').forEach(el=>{
+      el.style.fontFamily=f.style;
+    });
+  }
+}
+
+// LICENCE TYPES
+function buildLicTypes(){
+  const grid=document.getElementById('lic-type-grid');
+  LIC_TYPES.forEach(l=>{
+    const d=document.createElement('div');
+    d.className='lic-opt'+(l.key===selectedLicType?' selected':'');
+    d.innerHTML=`<div class="lic-radio"></div><span class="lic-opt-text">${l.label}</span>`;
+    d.onclick=()=>{
+      selectedLicType=selectedLicType===l.key?'none':l.key;
+      document.querySelectorAll('.lic-opt').forEach(x=>x.classList.remove('selected'));
+      if(selectedLicType!=='none')d.classList.add('selected');
+      update();
+    };
+    grid.appendChild(d);
+  });
+}
+
+// TEMPLATE
+function setTemplate(tpl,btn){
+  setTemplateInternal(tpl);
+  if(btn){document.querySelectorAll('.tpl-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+}
+
+// LOGO
+function handleLogoUpload(input){
+  const file=input.files[0];if(!file)return;
+  const r=new FileReader();
+  r.onload=e=>{
+    logoDataURL=e.target.result;
+    document.getElementById('logo-preview-thumb').innerHTML=`<img src="${logoDataURL}" style="width:100%;height:100%;object-fit:contain;border-radius:4px">`;
+    showLogo();
+    saveUserFields();
+  };
+  r.readAsDataURL(file);
+}
+function showLogo(){
+  if(!logoDataURL)return;
+  document.getElementById('inv-logo-fallback').style.display='none';
+  const img=document.getElementById('inv-logo-img');
+  img.src=logoDataURL;img.style.display='block';
+}
+
+// DEPOSIT
+function toggleDeposit(){
+  depositOn=!depositOn;
+  document.getElementById('deposit-switch').classList.toggle('on',depositOn);
+  document.getElementById('deposit-controls').style.display=depositOn?'block':'none';
+  update();
+}
+
+// ITEMS
+function addItem(desc='',qty=1,rate=0,note=''){
+  const id=++itemId;
+  items.push({id,desc,qty,rate,note});
+  const tr=document.createElement('tr');tr.className='item-row';tr.id='item-'+id;
+  tr.innerHTML=`
+    <td>
+      <input type="text" placeholder="Service description" value="${desc}" oninput="updateItem(${id},'desc',this.value)">
+      <input type="text" class="item-note-input" placeholder="Note: e.g. includes 3 revisions" value="${note}" oninput="updateItem(${id},'note',this.value)">
+    </td>
+    <td><input type="number" value="${qty}" min="0" step="1" oninput="updateItem(${id},'qty',+this.value)"></td>
+    <td><input type="number" value="${rate}" min="0" step="500" oninput="updateItem(${id},'rate',+this.value)"></td>
+    <td class="item-amount" id="amt-${id}">${fmtNum(qty*rate)}</td>
+    <td><button class="del-btn" onclick="removeItem(${id})">×</button></td>`;
+  document.getElementById('items-body').appendChild(tr);
+  update();
+}
+function updateItem(id,field,val){
+  const it=items.find(i=>i.id===id);if(!it)return;
+  it[field]=val;
+  const el=document.getElementById('amt-'+id);
+  if(el)el.textContent=fmtNum((+it.qty||0)*(+it.rate||0));
+  update();
+}
+function removeItem(id){
+  items=items.filter(i=>i.id!==id);
+  document.getElementById('item-'+id)?.remove();
+  update();
+}
+
+
+
+
+// TOTALS
+function calcTotals(){
+  const sub=items.reduce((s,i)=>s+(+i.qty||0)*(+i.rate||0),0);
+  const dv=parseFloat(v('discount-val'))||0;
+  const dt=v('discount-type')||'pct';
+  const discount=dt==='pct'?sub*dv/100:Math.min(dv,sub);
+  const taxRate=parseFloat(v('tax-rate'))||0;
+  const tax=(sub-discount)*taxRate/100;
+  const total=sub-discount+tax;
+  const dpct=parseFloat(v('deposit-pct'))||50;
+  return{sub,discount,dv,dt,taxRate,tax,total,deposit:total*dpct/100,dpct};
+}
+
+// UPDATE
+function update(){
+  applyAccent();
+  applyFont();
+  if(currentTemplate==='studio')  updateStudioSplit();
+  const fromName=v('from-name')||'Your Studio';
+  const fromEmail=v('from-email'),fromLoc=v('from-location'),fromPortfolio=v('from-portfolio');
+  const toName=v('to-name'),toEmail=v('to-email'),toAddr=v('to-address');
+  const invNum=v('inv-num')||'KRE-001';
+  const projectName=v('project-name');
+  const notes=v('inv-notes');
+  const currency=cur();
+  const{sub,discount,dv,dt,taxRate,tax,total,deposit,dpct}=calcTotals();
+
+  localStorage.setItem('krea_inv_num',invNum);
+
+  set('inv-brand',fromName);
+  set('inv-brand-sub',[fromEmail,fromLoc].filter(Boolean).join(' · ')||'—');
+  set('inv-num-display',invNum);
+  set('inv-from-name',fromName);
+  document.getElementById('inv-from-detail').innerHTML=[fromEmail,fromLoc].filter(Boolean).join('\n').replace(/\n/g,'<br>')||'—';
+  set('inv-to-name',toName||'— Client name');
+  document.getElementById('inv-to-name').style.color=toName?'':(currentTemplate==='dark'||currentTemplate==='noir'?'rgba(212,196,168,.25)':'var(--ink-4)');
+  document.getElementById('inv-to-detail').innerHTML=[toEmail,toAddr].filter(Boolean).join('\n').replace(/\n/g,'<br>')||'—';
+  set('inv-date-display',fmtDate(v('inv-date')));
+  set('inv-due-display',fmtDate(v('inv-due')));
+  set('inv-currency-display',currency);
+
+  // ── Quote / Invoice mode label swaps on the invoice preview ──────────────
+  const isQuote = docMode === 'quote';
+
+  // Swap "Invoice" title → "Quote" on all templates that show it
+  document.querySelectorAll('.inv-title').forEach(el => {
+    el.textContent = isQuote ? 'Quote' : 'Invoice';
+  });
+  // Swap "Invoice" in split-panel template header
+  const splitTitle = document.getElementById('inv-split-title-text');
+  if(splitTitle) splitTitle.textContent = isQuote ? 'Quote' : 'Invoice';
+
+  // Swap "Due date" → "Valid until" label on invoice meta
+  document.querySelectorAll('.inv-meta-key-due').forEach(el => {
+    el.textContent = isQuote ? 'Valid until' : 'Due date';
+  });
+
+  // Swap status badge "Unpaid" → "Pending Approval" in quote mode
+  document.querySelectorAll('.inv-status.unpaid .inv-status-text').forEach(el => {
+    el.textContent = isQuote ? 'Pending' : 'Unpaid';
+  });
+
+  // Show/hide quote badge on invoice (shown only in quote mode)
+  document.querySelectorAll('.inv-quote-badge').forEach(el => {
+    el.style.display = isQuote ? 'inline-flex' : 'none';
+  });
+
+  // Hide deposit section entirely in quote mode
+  const depBand = document.getElementById('inv-deposit-band');
+  if(depBand && isQuote) depBand.style.display = 'none';
+
+  // project band
+  const pb=document.getElementById('inv-project-band');
+  if(projectName||activeTags.length){
+    pb.style.display='flex';
+    set('inv-project-name-display',projectName||'Project');
+    document.getElementById('inv-tags-display').innerHTML=activeTags.map(t=>`<span class="inv-tag">${t}</span>`).join('');
+  } else pb.style.display='none';
+
+  // items
+  const tbody=document.getElementById('inv-items-body');
+  if(!items.length){
+    tbody.innerHTML='<tr class="empty-row"><td colspan="4">Add line items to get started</td></tr>';
+  } else {
+    tbody.innerHTML=items.map(it=>{
+      const amt=(+it.qty||0)*(+it.rate||0);
+      const noteRow=it.note?`<tr><td class="note-cell" colspan="4" style="padding-left:7px">${it.note}</td></tr>`:'';
+      return`<tr><td class="name">${it.desc||'—'}</td><td class="r mono">${it.qty}</td><td class="r mono">${fmtNum(+it.rate||0)}</td><td class="r mono">${fmtNum(amt)}</td></tr>${noteRow}`;
+    }).join('');
+  }
+
+  // totals
+  set('inv-subtotal',fmtNum(sub));
+  set('f-subtotal',currency+' '+fmtNum(sub));
+
+  if(dv>0){
+    document.getElementById('inv-discount-row').style.display='flex';
+    set('inv-discount-label',dt==='pct'?`Discount (${dv}%)`:'Discount');
+    set('inv-discount-tval','− '+fmtNum(discount));
+    set('f-discount','− '+currency+' '+fmtNum(discount));
+  } else {
+    document.getElementById('inv-discount-row').style.display='none';
+    set('f-discount','—');
+  }
+
+  if(taxRate>0){
+    document.getElementById('inv-tax-row').style.display='flex';
+    set('inv-tax-label',`Tax (${taxRate}%)`);
+    set('inv-tax-val',fmtNum(tax));
+    set('f-tax',currency+' '+fmtNum(tax));
+  } else {
+    document.getElementById('inv-tax-row').style.display='none';
+    set('f-tax','—');
+  }
+
+  set('inv-total-val',currency+' '+fmtNum(total));
+  set('f-total',currency+' '+fmtNum(total));
+
+  const db=document.getElementById('inv-deposit-band');
+  if(depositOn&&total>0){
+    db.style.display='flex';
+    set('inv-deposit-label',`Deposit due (${dpct}%)`);
+    set('inv-deposit-val',currency+' '+fmtNum(deposit));
+  } else db.style.display='none';
+
+  const nb=document.getElementById('inv-notes-block');
+  if(notes){nb.style.display='block';document.getElementById('inv-notes-display').innerHTML=notes.replace(/\n/g,'<br>');}
+  else nb.style.display='none';
+
+  // licensing
+  const licBlock=document.getElementById('inv-lic-block');
+  const licCustom=v('lic-custom');
+  const licTerritory=v('lic-territory');
+  const licDuration=v('lic-duration');
+  const licTypeObj=LIC_TYPES.find(l=>l.key===selectedLicType);
+  if(licTypeObj||licCustom){
+    licBlock.style.display='block';
+    set('inv-lic-type',licTypeObj?licTypeObj.label:(licCustom?'Custom licence':'—'));
+    const parts=[];
+    if(licTypeObj)parts.push(licTypeObj.desc);
+    if(licCustom)parts.push(licCustom);
+    if(licTerritory)parts.push('Territory: '+licTerritory);
+    if(licDuration)parts.push('Duration: '+licDuration);
+    document.getElementById('inv-lic-detail').innerHTML=parts.join(' · ');
+  } else licBlock.style.display='none';
+
+  // footer — hide branding if unlocked
+  const fb=document.getElementById('inv-footer-brand');
+  if(hasUnlock('branding')){
+    if(fb) fb.style.display='none';
+  } else {
+    if(fb) fb.style.display='';
+  }
+  // footer with portfolio
+  const fb2=document.getElementById('inv-footer-brand');
+  if(fb){
+    const site=fromPortfolio?` · ${fromPortfolio}`:'';
+    fb.innerHTML=`Made with <span>kreainvoice.com</span>${site}`;
+  }
+
+  if(logoDataURL)showLogo();
+}
+
+// PRINT
+function printInvoice(){window.print()}
+
+// PDF
+async function downloadPDF(){
+  // Gate: premium templates
+  if(currentTemplate==='noir' && !hasUnlock('noir')){ showUnlockModal('noir'); return; }
+  if((currentTemplate==='lens'||currentTemplate==='studio') && !hasUnlock('photo')){ showUnlockModal('photo'); return; }
+
+  const btn = document.getElementById('dl-btn');
+  btn.textContent = '⏳ Generating…'; btn.disabled = true;
+
+  // Detect mobile (any touch device or narrow viewport)
+  const isMobile = window.innerWidth <= 760 ||
+                   ('ontouchstart' in window) ||
+                   (navigator.maxTouchPoints > 0);
+
+  const doc         = document.getElementById('invoice-doc');
+  const previewPanel = document.getElementById('panel-preview');
+  const formPanel   = document.getElementById('panel-form');
+
+  const isDark = currentTemplate === 'dark';
+  const isNoir = currentTemplate === 'noir';
+  const isLens = currentTemplate === 'lens';
+  // wedding and golden are light-background templates — no special bg fill needed
+  const bgColor = isDark ? '#111110' : isNoir ? '#1C1917' : isLens ? '#2B2B28' : '#ffffff';
+
+  // ── STEP 1: ensure invoice is visible and full-width before capture ────────
+  // On mobile the preview panel may be hidden (Edit tab active) and the
+  // invoice may be rendered at a narrow mobile width. We fix both.
+  let restoredPanelClass = false;
+  let prevDocWidth       = '';
+  let prevDocMaxWidth    = '';
+  let prevDocMinWidth    = '';
+
+  if(isMobile){
+    // Show preview panel if hidden so html2canvas can read the DOM
+    if(previewPanel.classList.contains('hidden-mobile')){
+      previewPanel.classList.remove('hidden-mobile');
+      restoredPanelClass = true;
+    }
+    // Force invoice to render at full desktop width for capture
+    prevDocWidth    = doc.style.width;
+    prevDocMaxWidth = doc.style.maxWidth;
+    prevDocMinWidth = doc.style.minWidth;
+    doc.style.width    = '560px';
+    doc.style.maxWidth = '560px';
+    doc.style.minWidth = '560px';
+    // Allow DOM to reflow before capture
+    await new Promise(r => setTimeout(r, 80));
+  }
+
+  // ── STEP 2: strip decorative styles for clean capture ─────────────────────
+  const prevRadius   = doc.style.borderRadius;
+  const prevBorder   = doc.style.border;
+  const prevShadow   = doc.style.boxShadow;
+  const prevOverflow = doc.style.overflow;
+  doc.style.borderRadius = '0';
+  doc.style.border       = 'none';
+  doc.style.boxShadow    = 'none';
+  doc.style.overflow     = 'visible';
+
+  try{
+    // ── STEP 3: capture ───────────────────────────────────────────────────────
+    // Desktop scale 3 gives noticeably sharper text with negligible size cost.
+    // Mobile stays at 2 to avoid out-of-memory on low-end devices.
+    const captureScale = isMobile ? 2 : 3;
+
+    const canvas = await html2canvas(doc, {
+      scale:                 captureScale,
+      useCORS:               true,
+      allowTaint:            true,           // helps with data-URL logos
+      backgroundColor:       bgColor,
+      logging:               false,
+      imageTimeout:          0,              // don't give up on slow images
+      foreignObjectRendering:false,          // more consistent cross-browser
+      windowWidth:           doc.scrollWidth,
+      windowHeight:          doc.scrollHeight,
+      x: 0, y: 0,
+      width:  doc.offsetWidth,
+      height: doc.offsetHeight,
+    });
+
+    // ── STEP 4: restore invoice styles ────────────────────────────────────────
+    doc.style.borderRadius = prevRadius;
+    doc.style.border       = prevBorder;
+    doc.style.boxShadow    = prevShadow;
+    doc.style.overflow     = prevOverflow;
+
+    if(isMobile){
+      doc.style.width    = prevDocWidth;
+      doc.style.maxWidth = prevDocMaxWidth;
+      doc.style.minWidth = prevDocMinWidth;
+      if(restoredPanelClass){
+        previewPanel.classList.add('hidden-mobile');
+      }
+    }
+
+    // ── STEP 5: dark template background — composite UNDER content ────────────
+    // Draw bg on a fresh canvas first, then draw the captured content on top.
+    // This eliminates white edge bleed that occurs when compositing directly.
+    let finalCanvas = canvas;
+    if(isDark || isNoir || isLens){
+      const darkBg = isDark ? '#111110' : isNoir ? '#1C1917' : '#2B2B28';
+      const bg = document.createElement('canvas');
+      bg.width  = canvas.width;
+      bg.height = canvas.height;
+      const bgCtx = bg.getContext('2d');
+      bgCtx.fillStyle = darkBg;
+      bgCtx.fillRect(0, 0, bg.width, bg.height);
+      bgCtx.drawImage(canvas, 0, 0);
+      finalCanvas = bg;
+    }
+
+    // ── STEP 6: build PDF ─────────────────────────────────────────────────────
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const pW  = pdf.internal.pageSize.getWidth();
+    const pH  = pdf.internal.pageSize.getHeight();
+    const iH  = (finalCanvas.height * pW) / finalCanvas.width;
+    const finalH = Math.min(iH, pH);
+
+    // Use JPEG for light templates (smaller file, no visible quality loss at 96%).
+    // Use PNG for dark templates (JPEG compression creates artefacts on solid darks).
+    const isDarkTemplate = isDark || isNoir || isLens;
+    const imgData = isDarkTemplate
+      ? finalCanvas.toDataURL('image/png')
+      : finalCanvas.toDataURL('image/jpeg', 0.96);
+    const imgFormat = isDarkTemplate ? 'PNG' : 'JPEG';
+
+    pdf.addImage(imgData, imgFormat, 0, 0, pW, finalH);
+
+    const filename = `${v('inv-num') || 'kreainvoice'}.pdf`;
+
+    // ── STEP 7: deliver PDF ───────────────────────────────────────────────────
+    if(isMobile){
+      // On mobile, pdf.save() is unreliable (silent fail on iOS / Samsung).
+      // Instead open as a blob URL in a new tab — gives the native share sheet
+      // so the user can save to Files, WhatsApp, email, Drive, etc.
+      const pdfBlob   = pdf.output('blob');
+      const blobUrl   = URL.createObjectURL(pdfBlob);
+      const newTab    = window.open(blobUrl, '_blank');
+
+      // Fallback: if popup was blocked, force-download via anchor click
+      if(!newTab || newTab.closed || typeof newTab.closed === 'undefined'){
+        const a    = document.createElement('a');
+        a.href     = blobUrl;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+
+      // Revoke blob URL after a delay to free memory
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+    } else {
+      // Desktop: standard save works fine
+      pdf.save(filename);
+    }
+
+    // ── STEP 8: auto-increment invoice number ─────────────────────────────────
+    const cur2 = v('inv-num');
+    const m    = cur2.match(/^([A-Za-z-]*)(\d+)$/);
+    if(m){
+      const next = m[1] + String(+m[2] + 1).padStart(m[2].length, '0');
+      document.getElementById('inv-num').value = next;
+      localStorage.setItem('krea_inv_num', next);
+      set('inv-num-display', next);
+    }
+
+    showToast(
+      isMobile ? 'PDF opened — use share button to save' : 'PDF saved · Invoice number updated',
+      'success'
+    );
+
+  } catch(e){
+    // Restore styles if error happened mid-capture
+    doc.style.borderRadius = prevRadius;
+    doc.style.border       = prevBorder;
+    doc.style.boxShadow    = prevShadow;
+    doc.style.overflow     = prevOverflow;
+    if(isMobile){
+      doc.style.width    = prevDocWidth;
+      doc.style.maxWidth = prevDocMaxWidth;
+      doc.style.minWidth = prevDocMinWidth;
+      if(restoredPanelClass) previewPanel.classList.add('hidden-mobile');
+    }
+    console.error('PDF error:', e);
+    showToast('Could not generate PDF — try the Print button instead', 'error');
+  }
+
+  btn.innerHTML = '↓ Download PDF'; btn.disabled = false;
+}
+
+// ── QUOTE / INVOICE MODE ─────────────────────────────────────────────────
+// Lightweight toggle: swaps labels, status badge, PDF button text, and
+// hides deposit/payment fields. Everything else (templates, PDF, totals) is
+// identical — a quote is just an invoice with different labels.
+
+let docMode = 'invoice'; // 'invoice' | 'quote'
+
+function toggleDocMode(){
+  docMode = docMode === 'invoice' ? 'quote' : 'invoice';
+  applyDocMode();
+  update();
+}
+
+function applyDocMode(){
+  const isQuote  = docMode === 'quote';
+  const body     = document.body;
+  const toggle   = document.getElementById('mode-toggle');
+  const optInv   = document.getElementById('mode-opt-invoice');
+  const optQuo   = document.getElementById('mode-opt-quote');
+  const pill     = document.getElementById('mode-pill');
+  const dlBtn    = document.getElementById('dl-btn');
+  const dueLbl   = document.getElementById('due-date-label');
+  const secLbl   = document.getElementById('invoice-section-label');
+  const depSec   = document.getElementById('deposit-section');
+
+  // Toggle class on body for CSS-driven changes
+  body.classList.toggle('doc-mode-quote', isQuote);
+
+  // Mode toggle pill — measure the active option to size/position the pill
+  if(pill && optInv && optQuo){
+    const activeOpt = isQuote ? optQuo : optInv;
+    pill.style.width     = activeOpt.offsetWidth + 'px';
+    pill.style.transform = isQuote
+      ? `translateX(${optInv.offsetWidth}px)`
+      : 'translateX(0)';
+  }
+
+  // Active option highlighting
+  if(optInv) optInv.classList.toggle('active', !isQuote);
+  if(optQuo) optQuo.classList.toggle('active', isQuote);
+
+  // Label swaps
+  if(dueLbl)  dueLbl.textContent  = isQuote ? 'Valid until' : 'Due date';
+  if(secLbl)  secLbl.textContent  = isQuote ? 'Quote info'  : 'Invoice info';
+  if(dlBtn)   dlBtn.innerHTML     = isQuote ? '↓ Download Quote PDF' : '↓ Download PDF';
+
+  // Hide deposit toggle on quote — quotes don't have deposit terms
+  if(depSec)  depSec.style.display = isQuote ? 'none' : '';
+}
+
+// Call once on load to initialise pill size after fonts render
+window.addEventListener('load', () => {
+  // Small delay so fonts/layout are ready
+  setTimeout(applyDocMode, 100);
+});
+
+// CLEAR
+function clearAll(){
+  if(!confirm('Clear invoice fields? Your brand details will be kept.'))return;
+  items=[];document.getElementById('items-body').innerHTML='';
+  // Only clear per-invoice fields — user brand fields are preserved
+  ['to-name','to-email','to-address','project-name','inv-notes','lic-custom','lic-territory','lic-duration'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.value='';
+  });
+  document.getElementById('inv-num').value=localStorage.getItem('krea_inv_num')||'KRE-001';
+  ['tax-rate','discount-val'].forEach(id=>document.getElementById(id).value='0');
+  activeTags=[];selectedLicType='none';
+  document.querySelectorAll('.lic-opt').forEach(x=>x.classList.remove('selected'));
+  document.querySelectorAll('.tag-pill').forEach(p=>p.classList.remove('active'));
+  const t=new Date(),d=new Date();d.setDate(t.getDate()+14);
+  document.getElementById('inv-date').value=isoDate(t);
+  document.getElementById('inv-due').value=isoDate(d);
+  update();showToast('Invoice cleared — your brand details were kept.');
+}
+
+
+// ── UNLOCK FUNCTIONS ──
+
+function checkURLUnlock(){
+  // Check if Flutterwave redirected back with a code
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('unlock');
+  if(code) applyCode(code, true);
+}
+
+function updateUnlockUI(){
+  // Noir button star styling
+  const noirBtn = document.querySelector('.tpl-btn .star')?.parentElement;
+  if(noirBtn){
+    if(hasUnlock('noir')){
+      noirBtn.style.opacity='1';
+      noirBtn.title='Premium — Unlocked ✓';
+    } else {
+      noirBtn.style.opacity='.85';
+      noirBtn.title='Premium template — click to unlock';
+    }
+  }
+}
+
+function showUnlockModal(productId){
+  const product = UNLOCK_PRODUCTS[productId];
+  if(!product) return;
+
+  const isUnlocked = hasUnlock(productId);
+  const modal = document.getElementById('unlock-modal');
+  const overlay = document.getElementById('unlock-overlay');
+
+  modal.innerHTML = `
+    ${isUnlocked ? `<div class="unlock-success-banner"><span>✓</span> Already unlocked on this device!</div>` : ''}
+    <div class="unlock-icon">${product.icon}</div>
+    <div class="unlock-title">${product.name}</div>
+    <div class="unlock-desc">${isUnlocked ? 'This feature is active on your device. Use it on another device by entering your unlock code.' : 'Unlock once. Use forever on this device. No subscription.'}</div>
+    <div class="unlock-price">${product.price}</div>
+    <div class="unlock-price-sub">${product.priceSub}</div>
+    <div class="unlock-features">
+      ${product.features.map(f=>`<div class="unlock-feature"><div class="unlock-feature-dot"></div>${f}</div>`).join('')}
+    </div>
+    ${!isUnlocked ? `<button class="unlock-btn ${product.color}" onclick="goToPayment('${productId}')">Pay ${product.price} to Unlock →</button>` : ''}
+    <div style="margin-bottom:8px;font-size:11px;color:var(--ink-4);font-family:'DM Mono',monospace">Already paid? Paste your Gumroad license key:</div>
+    <div class="unlock-code-row">
+      <input type="text" class="unlock-code-input" id="unlock-code-input" placeholder="Paste your license key here">
+      <button class="unlock-code-btn" onclick="submitCode('${productId}')">Apply</button>
+    </div>
+    <div id="code-error" style="font-size:11px;color:var(--red,#c0392b);font-family:'DM Mono',monospace;margin-bottom:8px;display:none;line-height:1.5"></div>
+    <button class="unlock-dismiss" onclick="closeUnlockModal()">Maybe later</button>
+  `;
+
+  overlay.style.display='flex';
+  // focus code input
+  setTimeout(()=>document.getElementById('unlock-code-input')?.focus(), 100);
+
+  // close on overlay click
+  overlay.onclick = (e) => { if(e.target===overlay) closeUnlockModal(); };
+}
+
+function closeUnlockModal(){
+  document.getElementById('unlock-overlay').style.display='none';
+  // if noir was selected but not unlocked, revert to editorial
+  if(currentTemplate==='noir' && !hasUnlock('noir')){
+    const editorialBtn = document.querySelector('.tpl-btn');
+    setTemplate('editorial', editorialBtn);
+  }
+}
+
+function goToPayment(productId){
+  const product = UNLOCK_PRODUCTS[productId];
+  window.open(product.gumroadLink, '_blank');
+  const btn = document.querySelector('.unlock-btn');
+  if(btn){ btn.textContent = 'Gumroad opened — check your email for the license key'; btn.style.opacity='.7'; btn.style.cursor='default'; }
+}
+
+async function submitCode(productId){
+  const input = document.getElementById('unlock-code-input');
+  const btn   = document.querySelector('.unlock-code-btn');
+  const code  = input?.value?.trim();
+  if(!code) return;
+
+  // If this device already verified this exact key, skip burning a slot
+  const cached = getCachedKey(productId);
+  if(cached && cached.toLowerCase() === code.toLowerCase() && hasUnlock(productId)){
+    handleUnlockSuccess(productId);
+    return;
+  }
+
+  // Show loading state
+  if(btn){ btn.textContent = 'Checking…'; btn.disabled = true; }
+  setCodeError('');
+
+  const result = await verifyWithGumroad(code, productId);
+
+  if(btn){ btn.textContent = 'Apply'; btn.disabled = false; }
+
+  if(result.success){
+    cacheKey(productId, code);
+    handleUnlockSuccess(productId);
+  } else if(result.limitReached){
+    setCodeError(result.error || `Device limit reached (max 3). Contact hello@kreainvoice.com`);
+  } else {
+    setCodeError(result.error || 'Invalid key. Please check and try again.');
+  }
+}
+
+function setCodeError(msg){
+  const errEl = document.getElementById('code-error');
+  if(!errEl) return;
+  if(msg){
+    errEl.textContent = msg;
+    errEl.style.display = 'block';
+    setTimeout(()=>{ if(errEl.textContent === msg) errEl.style.display = 'none'; }, 6000);
+  } else {
+    errEl.style.display = 'none';
+  }
+}
+
+function handleUnlockSuccess(productId){
+  saveUnlock(productId);
+  updateUnlockUI();
+  closeUnlockModal();
+  showToast(`🎉 ${UNLOCK_PRODUCTS[productId].name} unlocked!`, 'success');
+  if(galleryOpen) renderGalleryCards();
+  if(productId === 'noir'){
+    gallerySelectedId = 'noir';
+    setTemplateInternal('noir');
+  }
+}
+
+// Legacy URL-param handler (kept for any old redirect links)
+async function applyCode(code, fromURL=false, hintProductId=null){
+  if(!code) return;
+  let productId = hintProductId;
+  if(!productId){
+    const u = code.toUpperCase();
+    if(u.includes('NOIR'))  productId = 'noir';
+    else if(u.includes('PHOTO') || u.includes('LENS') || u.includes('STUDIO')) productId = 'photo';
+    else if(u.includes('BRAND')) productId = 'branding';
+  }
+  if(!productId) return;
+
+  const cached = getCachedKey(productId);
+  if(cached && cached.toLowerCase() === code.toLowerCase() && hasUnlock(productId)){
+    handleUnlockSuccess(productId);
+    if(fromURL && window.history) window.history.replaceState({}, '', window.location.pathname);
+    return;
+  }
+
+  const result = await verifyWithGumroad(code, productId);
+  if(result.success){
+    cacheKey(productId, code);
+    handleUnlockSuccess(productId);
+  }
+  if(fromURL && window.history) window.history.replaceState({}, '', window.location.pathname);
+}
+
+function trySelectNoir(btn){
+  // Open gallery focused on noir
+  gallerySelectedId='noir';
+  openGallery();
+}
+
+// TOAST
+function showToast(msg,type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast'+(type?' '+type:'')+' show';
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+</script>
+
+
+<!-- ══ TEMPLATE GALLERY PANEL ══ -->
+<div class="gallery-backdrop" id="gallery-backdrop" onclick="closeGallery()"></div>
+
+<div class="gallery-panel" id="gallery-panel">
+
+  <div class="gp-header">
+    <span class="gp-title">Choose template</span>
+    <button class="gp-close" onclick="closeGallery()">✕</button>
+  </div>
+
+  <div class="gp-tabs" id="gp-tabs">
+    <div class="gp-tab active" data-filter="all" onclick="filterGallery('all',this)">All (6)</div>
+    <div class="gp-tab" data-filter="free" onclick="filterGallery('free',this)">Free</div>
+    <div class="gp-tab" data-filter="premium" onclick="filterGallery('premium',this)">Premium</div>
+    <div class="gp-tab" data-filter="photo" onclick="filterGallery('photo',this)">📷 Photography</div>
+  </div>
+
+  <div class="gp-scroll">
+    <div class="gp-grid" id="gp-grid">
+      <!-- cards injected by JS -->
+    </div>
+  </div>
+
+  <div class="gp-footer">
+    <button class="gp-use-btn" id="gp-use-btn" onclick="confirmTemplate()">
+      Use Editorial
+    </button>
+    <div class="gp-footer-hint" id="gp-footer-hint">Live preview updates as you browse</div>
+  </div>
+
+</div>
+
+<!-- UNLOCK MODAL -->
+<div class="unlock-overlay" id="unlock-overlay" style="display:none">
+  <div class="unlock-modal" id="unlock-modal">
+    <!-- Content injected by JS -->
+  </div>
+</div>
+
+<!-- LOCK BADGE (shown over preview when noir selected but not unlocked) -->
+<div class="tpl-lock-badge" id="lock-badge" style="display:none;position:fixed;top:50%;left:75%;transform:translate(-50%,-50%);z-index:300">
+  <div class="tpl-lock-icon">🔒</div>
+  <div class="tpl-lock-label">Premium template</div>
+  <div class="tpl-lock-sub">Unlock to download</div>
+</div>
+</body>
+</html>
