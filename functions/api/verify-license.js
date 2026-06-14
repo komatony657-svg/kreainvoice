@@ -1,5 +1,5 @@
 /**
- * Kreainvoice app — Gumroad License Verification
+ * Kreainvoice — Gumroad License Verification
  * Cloudflare Pages Function: /api/verify-license
  *
  * Environment Variables (set in Cloudflare Pages → Settings):
